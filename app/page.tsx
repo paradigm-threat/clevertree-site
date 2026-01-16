@@ -10,7 +10,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 export default function Home() {
     return (
         <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
-            <div className="container mx-auto px-4 py-16 max-w-5xl">
+            <div className="container mx-auto px-4 py-16 max-w-5xl page-content">
                 {/* Header/Bio Section */}
                 <header className="mb-20 flex flex-col md:flex-row items-center gap-12 relative">
                     <div className="flex-1 space-y-6">
@@ -46,7 +46,7 @@ export default function Home() {
                 </header>
 
                 {/* Projects Section */}
-                <Section title="Key Projects">
+                <Section title="Key Projects" className="print-section">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProjectItem
                             name="Forgotten Future"
@@ -90,7 +90,7 @@ export default function Home() {
                 </Section>
 
                 {/* Libraries Section */}
-                <Section title="Published Libraries">
+                <Section title="Published Libraries" className="print-section">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <LibraryItem
                             name="hook-transpiler"
@@ -122,10 +122,12 @@ export default function Home() {
                 </Section>
 
                 {/* Resume Section */}
-                <Resume />
+                <div className="resume-section">
+                    <Resume />
+                </div>
 
                 {/* Footer */}
-                <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm">
+                <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm print-section">
                     <p>© {new Date().getFullYear()} Ari Asulin. Built with Next.js & Tailwind CSS.</p>
                 </footer>
             </div>

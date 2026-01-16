@@ -198,5 +198,21 @@
     .md\:col-span-2 {
       width: 100% !important;
     }
+
+    /* Reorder content for print: show resume first, everything else after */
+    .page-content {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Put resume at the front */
+    .resume-section {
+      order: -1 !important;
+    }
+
+    /* Ensure all other direct children print after resume */
+    .page-content > *:not(.resume-section) {
+      order: 1 !important;
+    }
   }
 }
