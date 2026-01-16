@@ -157,6 +157,36 @@
       font-weight: 700;
     }
 
+    /* Strengthen contrast for headings and body text in print */
+    h1, h2, h3, h4, h5, h6 {
+      color: #000 !important;
+      font-weight: 700 !important;
+    }
+
+    p, li, a, span, strong, em {
+      color: #111 !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .text-muted-foreground,
+    .text-foreground,
+    .text-muted,
+    .text-gray-500 {
+      color: #111 !important;
+    }
+
+    /* Remove opacity utilities that make text appear light on paper */
+    .opacity-25, .opacity-40, .opacity-50, .opacity-60, .opacity-70, .opacity-75, .opacity-80 {
+      opacity: 1 !important;
+    }
+
+    /* Links: ensure visible and include URL when needed */
+    a {
+      color: #111 !important;
+      text-decoration: underline !important;
+    }
+
     /* Link indicators */
     a:after {
       content: " (" attr(href) ")";
