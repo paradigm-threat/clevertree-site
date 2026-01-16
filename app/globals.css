@@ -210,8 +210,13 @@
       order: -1 !important;
     }
 
+    /* Ensure header appears above resume in print */
+    .page-content > header {
+      order: -2 !important;
+    }
+
     /* Ensure all other direct children print after resume */
-    .page-content > *:not(.resume-section) {
+    .page-content > *:not(.resume-section):not(header) {
       order: 1 !important;
     }
   }
