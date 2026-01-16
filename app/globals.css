@@ -179,6 +179,22 @@
       break-inside: avoid;
     }
 
+    /* Keep header and resume together and avoid orphan header on its own page */
+    .page-content > header,
+    .resume-section {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      page-break-after: avoid !important;
+      page-break-before: avoid !important;
+      orphans: 3;
+      widows: 3;
+    }
+
+    /* If header and resume are siblings, prefer the header to move with resume */
+    .page-content > header {
+      order: -2 !important; /* header already set but reassert to ensure ordering */
+    }
+
     /* Resume grid adjustment for print */
     .grid {
       display: block !important;
