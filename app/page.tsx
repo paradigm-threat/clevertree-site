@@ -7,131 +7,135 @@ import { PrintButton } from '@/components/PrintButton'
 import { ThemeToggle } from '@/components/ThemeToggle'
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      <div className="container mx-auto px-4 py-16 max-w-5xl">
-        {/* Header/Bio Section */}
-        <header className="mb-20 flex flex-col md:flex-row items-center gap-12 relative">
-          <div className="flex-1 space-y-6">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div className="space-y-2 text-center md:text-left">
-                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter">
-                  Ari Asulin
-                </h1>
-                <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                  Software Engineer
-                </p>
-              </div>
-              <div className="flex justify-center md:justify-end items-center gap-3">
-                <ThemeToggle />
-                <PrintButton />
-              </div>
+    return (
+        <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
+            <div className="container mx-auto px-4 py-16 max-w-5xl">
+                {/* Header/Bio Section */}
+                <header className="mb-20 flex flex-col md:flex-row items-center gap-12 relative">
+                    <div className="flex-1 space-y-6">
+                        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                            <div className="space-y-2 text-center md:text-left">
+                                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter">
+                                    Ari Asulin
+                                </h1>
+                                <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+                                    Software Engineer
+                                </p>
+                            </div>
+                            <div className="flex justify-center md:justify-end items-center gap-3">
+                                <ThemeToggle />
+                                <PrintButton />
+                            </div>
+                        </div>
+
+                        <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
+                            I&apos;m a full-stack developer with over 18 years of industrial experience. I consider programming to be a form of art requiring a creative mind. I work well with teams and just as well autonomously. I am a US citizen born in Texas. I would like to work long-term in a position of responsibility. My ambitions include designing music software and video games and studying history.
+                        </p>
+
+                        <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                            <ContactLink icon={<Globe size={18} />} href="https://clevertree.net" label="clevertree.net" />
+                            <ContactLink icon={<Mail size={18} />} href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" />
+                            <ContactLink icon={<Phone size={18} />} href="tel:602-632-6729" label="602-632-6729" />
+                            <ContactLink icon={<Github size={18} />} href="https://github.com/clevertree" label="github.com/clevertree" />
+                        </div>
+                    </div>
+                </header>
+
+                {/* Projects Section */}
+                <Section title="Key Projects">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ProjectItem
+                            name="Forgotten Future"
+                            description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
+                            github="https://github.com/clevertree/forgotten-future"
+                            website="https://ffga.me"
+                            status="active"
+                        />
+                        <ProjectItem
+                            name="Paradigm Threat"
+                            description="An investigation repository and alternate history timeline compiled from ancient testimony."
+                            github="https://github.com/clevertree/paradigm-threat"
+                            website="https://paradigmthreat.net"
+                            status="published"
+                        />
+                        <ProjectItem
+                            name="Relay"
+                            description="A decentralized Web3.0 stack and social network architecture (relaynet.online)."
+                            github="https://github.com/clevertree/relay"
+                            website="https://relaynet.online"
+                            status="active"
+                        />
+                        <ProjectItem
+                            name="Skinner Family Dental"
+                            description="Professional dental practice website featuring patient portals and appointment integration."
+                            website="https://skinnerfamilydental.com"
+                            status="published"
+                        />
+                        <ProjectItem
+                            name="Gordonston Arts Fair"
+                            description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
+                            website="https://gordonstonartsfair.com"
+                            status="published"
+                        />
+                        <ProjectItem
+                            name="Song Walker"
+                            description="Planned interactive music exploration platform and spatial audio visualizer."
+                            status="planned"
+                        />
+                    </div>
+                </Section>
+
+                {/* Libraries Section */}
+                <Section title="Published Libraries">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <LibraryItem
+                            name="hook-transpiler"
+                            description="High-performance JSX/TSX transpiler optimized for Relay hooks and dynamic module injection."
+                            github="https://github.com/clevertree/hook-transpiler"
+                            npm="https://www.npmjs.com/package/@clevertree/hook-transpiler"
+                        />
+                        <LibraryItem
+                            name="jscbridge"
+                            description="A lightweight bridge for communicating between JavaScriptCore and native environments."
+                            github="https://github.com/clevertree/jscbridge"
+                        />
+                        <LibraryItem
+                            name="md2jsx"
+                            description="Flexible Markdown to JSX converter with support for custom React components and themes."
+                            github="https://github.com/clevertree/md2jsx"
+                            npm="https://www.npmjs.com/package/@clevertree/md2jsx"
+                        />
+                        <LibraryItem
+                            name="themed-styler"
+                            description="Rust-powered WASM engine for dynamic theme generation and CSS variable management."
+                            github="https://github.com/clevertree/themed-styler"
+                            npm="https://www.npmjs.com/package/@clevertree/themed-styler"
+                        />
+                    </div>
+                </Section>
+
+                {/* Resume Section */}
+                <Resume />
+
+                {/* Footer */}
+                <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm">
+                    <p>© {new Date().getFullYear()} Ari Asulin. Built with Next.js & Tailwind CSS.</p>
+                </footer>
             </div>
-            
-            <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
-              I&apos;m a full-stack developer with over 18 years of industrial experience. I consider programming to be a form of art requiring a creative mind. I work well with teams and just as well autonomously. I am a US citizen born in Texas. I would like to work long-term in a position of responsibility. My ambitions include designing music software and video games and studying history.
-            </p>
-
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              <ContactLink icon={<Globe size={18}/>} href="https://clevertree.net" label="clevertree.net" />
-              <ContactLink icon={<Mail size={18}/>} href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" />
-              <ContactLink icon={<Phone size={18}/>} href="tel:602-632-6729" label="602-632-6729" />
-              <ContactLink icon={<Github size={18}/>} href="https://github.com/clevertree" label="github.com/clevertree" />
-            </div>
-          </div>
-        </header>
-
-        {/* Projects Section */}
-        <Section title="Key Projects">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ProjectItem 
-              name="Forgotten Future"
-              description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
-              github="https://github.com/clevertree/forgotten-future" 
-              website="https://ffga.me"
-              status="active"
-            />
-            <ProjectItem 
-              name="Paradigm Threat"
-              description="An investigation repository and alternate history timeline compiled from ancient testimony."
-              github="https://github.com/clevertree/paradigm-threat"
-              website="https://paradigmthreat.net"
-              status="published"
-            />
-            <ProjectItem 
-              name="Relay"
-              description="A decentralized Web3.0 stack and social network architecture (relaynet.online)."
-              github="https://github.com/clevertree/relay"
-              website="https://relaynet.online"
-              status="active"
-            />
-            <ProjectItem 
-              name="Skinner Family Dental"
-              description="Professional dental practice website featuring patient portals and appointment integration."
-              website="https://skinnerfamilydental.com"
-              status="published"
-            />
-            <ProjectItem 
-              name="Gordonston Arts Fair"
-              description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
-              website="https://gordonstonartsfair.com"
-              status="published"
-            />
-            <ProjectItem 
-              name="Song Walker"
-              description="Planned interactive music exploration platform and spatial audio visualizer."
-              status="planned"
-            />
-          </div>
-        </Section>
-
-        {/* Libraries Section */}
-        <Section title="Published Libraries">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <LibraryItem 
-              name="hook-transpiler" 
-              github="https://github.com/clevertree/hook-transpiler" 
-              npm="https://www.npmjs.com/package/@clevertree/hook-transpiler" 
-            />
-            <LibraryItem 
-              name="jscbridge" 
-              github="https://github.com/clevertree/jscbridge" 
-            />
-            <LibraryItem 
-              name="md2jsx" 
-              github="https://github.com/clevertree/md2jsx" 
-              npm="https://www.npmjs.com/package/@clevertree/md2jsx"
-            />
-            <LibraryItem 
-              name="themed-styler" 
-              github="https://github.com/clevertree/themed-styler" 
-              npm="https://www.npmjs.com/package/@clevertree/themed-styler"
-            />
-          </div>
-        </Section>
-
-        {/* Resume Section */}
-        <Resume />
-
-        {/* Footer */}
-        <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm">
-          <p>© {new Date().getFullYear()} Ari Asulin. Built with Next.js & Tailwind CSS.</p>
-        </footer>
-      </div>
-    </main>
-  )
+        </main>
+    )
 }
 
 function ContactLink({ icon, href, label }: { icon: React.ReactNode, href: string, label: string }) {
-  return (
-    <a 
-      href={href} 
-      className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 text-sm font-medium border"
-      target={href.startsWith('http') ? "_blank" : undefined}
-      rel={href.startsWith('http') ? "noopener noreferrer" : undefined}
-    >
-      {icon}
-      <span>{label}</span>
-    </a>
-  )
+    return (
+        <a
+            href={href}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 text-sm font-medium border"
+            target={href.startsWith('http') ? "_blank" : undefined}
+            rel={href.startsWith('http') ? "noopener noreferrer" : undefined}
+        >
+            {icon}
+            <span>{label}</span>
+        </a>
+    )
 }

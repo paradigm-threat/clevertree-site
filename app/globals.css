@@ -84,6 +84,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground antialiased;
   }
@@ -116,10 +117,10 @@
     }
 
     /* Remove decorative backgrounds and shadows */
-    .bg-background, 
-    .bg-secondary, 
-    .bg-card, 
-    .bg-primary\/5, 
+    .bg-background,
+    .bg-secondary,
+    .bg-card,
+    .bg-primary\/5,
     .bg-primary\/10,
     .bg-secondary\/30 {
       background: none !important;
@@ -132,7 +133,10 @@
     }
 
     /* Keep functional borders but make them subtle */
-    .border, .border-l-2, .border-t, .border-b {
+    .border,
+    .border-l-2,
+    .border-t,
+    .border-b {
       border-color: #e5e7eb !important;
     }
 
@@ -146,8 +150,8 @@
       color: #374151 !important;
     }
 
-    .text-primary, 
-    .text-primary\/70, 
+    .text-primary,
+    .text-primary\/70,
     .text-primary\/80 {
       color: #000 !important;
       font-weight: 700;
@@ -159,15 +163,18 @@
       font-size: 0.8em;
       color: #666;
     }
-    
+
     /* Don't show URL for local links or purely decorative icons */
-    a[href^="#"]:after, 
+    a[href^="#"]:after,
     a.no-print:after {
       content: "" !important;
     }
 
     /* Avoid breaking sections across pages */
-    section, .card, .experience-item, .education-item {
+    section,
+    .card,
+    .experience-item,
+    .education-item {
       page-break-inside: avoid;
       break-inside: avoid;
     }
@@ -176,15 +183,17 @@
     .grid {
       display: block !important;
     }
-    
-    .grid-cols-1, .md\:grid-cols-2, .md\:grid-cols-3 {
+
+    .grid-cols-1,
+    .md\:grid-cols-2,
+    .md\:grid-cols-3 {
       display: block !important;
     }
 
-    .space-y-12 > * + * {
+    .space-y-12>*+* {
       margin-top: 2rem !important;
     }
-    
+
     /* Ensure the left column (Experience) doesn't get squashed by the sidebar */
     .md\:col-span-2 {
       width: 100% !important;
