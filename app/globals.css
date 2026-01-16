@@ -1,145 +1,193 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-    --foreground: black;
-    --background-start: lightgrey;
-    --background-end: white;
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
-/*@media (prefers-color-scheme: dark) {*/
-/*  :root {*/
-/*    --foreground: 255, 255, 255;*/
-/*    --background-start: 0, 0, 0;*/
-/*    --background-end: 0, 0, 0;*/
-/*  }*/
-/*}*/
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
 
-body {
-    color: var(--foreground);
-    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
-    padding: 1em 4em
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
 }
 
-h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }
 
-h2 {
-    font-size: 1.4rem;
-    font-weight: bold;
-}
+@layer utilities {
+  @media print {
+    .no-print {
+      display: none !important;
+    }
 
-.profile-picture {
-    /*float: left;*/
-    /*width: 10.5vw;*/
-    /*max-width: 170px;*/
-    /*padding: 0 1em 0 0;*/
-}
+    body {
+      background: white !important;
+      color: black !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
 
-.contact-info-container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 54em;
-}
+    .container {
+      max-width: none !important;
+      width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
 
-.contact-info {
-    padding: 2px 0;
-    display: flex;
-    align-content: center;
-}
+    main {
+      padding: 0 !important;
+    }
 
-.contact-info > svg {
-    padding-right: 8px;
-    width: 24px;
-    height: 24px;
-}
+    /* Remove decorative backgrounds and shadows */
+    .bg-background, 
+    .bg-secondary, 
+    .bg-card, 
+    .bg-primary\/5, 
+    .bg-primary\/10,
+    .bg-secondary\/30 {
+      background: none !important;
+      background-color: transparent !important;
+    }
 
+    * {
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
 
-.experience {
-    /*color: white;*/
-    margin-bottom: 1.2em;
-    /*background-color: #282c34;*/
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    padding: 1em;
-    border-radius: 4px;
-}
+    /* Keep functional borders but make them subtle */
+    .border, .border-l-2, .border-t, .border-b {
+      border-color: #e5e7eb !important;
+    }
 
-.experience a {
-    color: cadetblue;
-}
+    /* Keep icons and their colors if possible, but force high contrast */
+    svg {
+      color: black !important;
+    }
 
-.experience a:hover {
-    color: darkslateblue;
-}
+    /* Ensure text is readable */
+    .text-muted-foreground {
+      color: #374151 !important;
+    }
 
-.experience h2 {
-    margin: 0;
-    font-size: large;
-}
+    .text-primary, 
+    .text-primary\/70, 
+    .text-primary\/80 {
+      color: #000 !important;
+      font-weight: 700;
+    }
 
-.experience p + h2 {
-    /*margin-top: 12px;*/
-}
+    /* Link indicators */
+    a:after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #666;
+    }
+    
+    /* Don't show URL for local links or purely decorative icons */
+    a[href^="#"]:after, 
+    a.no-print:after {
+      content: "" !important;
+    }
 
+    /* Avoid breaking sections across pages */
+    section, .card, .experience-item, .education-item {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
 
-.experience > .duration {
-    font-size: small;
-    color: #040F0F;
-    font-weight: bold;
-}
+    /* Resume grid adjustment for print */
+    .grid {
+      display: block !important;
+    }
+    
+    .grid-cols-1, .md\:grid-cols-2, .md\:grid-cols-3 {
+      display: block !important;
+    }
 
-
-.experience > .school,
-.experience > .company {
-    margin: 2px 0;
-}
-
-.experience > .location {
-    float: right;
-    font-size: small;
-    color: #040F0F;
-    font-weight: bold;
-}
-
-.experience > .degree,
-.experience > .position {
-    font-size: small;
-    color: darkred;
-    font-weight: bold;
-}
-
-.experience > .contact {
-    font-size: small;
-    color: #57737A;
-    font-weight: bold;
-
-    display: flex;
-    align-content: center;
-}
-
-.experience > .contact svg {
-    padding-right: 8px;
-}
-
-.experience > p {
-    text-align: justify;
-    margin: 0.4em;
-}
-
-
-.experience > .logo {
-    float: right;
-    padding: 0 0 0 1em;
-}
-
-.experience > .logo > img {
-    /*max-width: 8vh;*/
-}
-
-.experience > .source-link {
-    display: flex;
-    justify-content: flex-end;
+    .space-y-12 > * + * {
+      margin-top: 2rem !important;
+    }
+    
+    /* Ensure the left column (Experience) doesn't get squashed by the sidebar */
+    .md\:col-span-2 {
+      width: 100% !important;
+    }
+  }
 }
