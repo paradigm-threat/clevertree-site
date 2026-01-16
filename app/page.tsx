@@ -16,7 +16,7 @@ export default function Home() {
                     <div className="flex-1 space-y-6">
                         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                             <div className="flex items-center justify-center md:justify-start gap-6">
-                                <Image src="/logo/logo.png" alt="CleverTree logo" width={96} height={96} className="rounded-md" />
+                                <Image src="/logo/logo-text.png" alt="CleverTree logo" width={96} height={96} className="rounded-md" />
                                 <div className="space-y-2 text-center md:text-left">
                                     <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter">
                                         Ari Asulin
