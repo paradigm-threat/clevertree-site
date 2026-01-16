@@ -93,6 +93,7 @@ export default function Home() {
                             description="High-performance JSX/TSX transpiler optimized for Relay hooks and dynamic module injection."
                             github="https://github.com/clevertree/hook-transpiler"
                             npm="https://www.npmjs.com/package/@clevertree/hook-transpiler"
+                            cargo="https://crates.io/crates/relay-hook-transpiler"
                         />
                         <LibraryItem
                             name="jscbridge"
@@ -104,12 +105,14 @@ export default function Home() {
                             description="Flexible Markdown to JSX converter with support for custom React components and themes."
                             github="https://github.com/clevertree/md2jsx"
                             npm="https://www.npmjs.com/package/@clevertree/md2jsx"
+                            cargo="https://crates.io/crates/md2jsx"
                         />
                         <LibraryItem
                             name="themed-styler"
                             description="Rust-powered WASM engine for dynamic theme generation and CSS variable management."
                             github="https://github.com/clevertree/themed-styler"
                             npm="https://www.npmjs.com/package/@clevertree/themed-styler"
+                            cargo="https://crates.io/crates/themed-styler"
                         />
                     </div>
                 </Section>

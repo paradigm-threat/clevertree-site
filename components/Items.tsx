@@ -1,5 +1,5 @@
 import React from 'react'
-import { Github, ExternalLink, Library, Globe, Code } from 'lucide-react'
+import { Github, ExternalLink, Library, Globe, Code, Box } from 'lucide-react'
 import { Card, Badge } from './ui'
 
 interface ProjectProps {
@@ -39,7 +39,7 @@ export const ProjectItem = ({ name, description, github, website, status }: Proj
     </Card>
 )
 
-export const LibraryItem = ({ name, description, github, npm }: { name: string, description: string, github: string, npm?: string }) => (
+export const LibraryItem = ({ name, description, github, npm, cargo }: { name: string, description: string, github: string, npm?: string, cargo?: string }) => (
     <Card className="flex flex-col gap-2 p-4">
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -53,6 +53,11 @@ export const LibraryItem = ({ name, description, github, npm }: { name: string, 
                 {npm && (
                     <a href={npm} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-accent rounded-full transition-colors" title="NPM">
                         <Code className="w-5 h-5" />
+                    </a>
+                )}
+                {cargo && (
+                    <a href={cargo} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-accent rounded-full transition-colors" title="Crates.io">
+                        <Box className="w-5 h-5" />
                     </a>
                 )}
             </div>
