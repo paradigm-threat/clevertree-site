@@ -65,7 +65,7 @@ export const Resume = () => (
                         <EducationItem
                             school="University of Arizona"
                             location="Tucson, Arizona"
-                            degree="B.S. in Computer Science"
+                            degree="Computer Science (Transferred to ASU)"
                             duration="2001 - 2002"
                         />
                     </div>
