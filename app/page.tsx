@@ -52,7 +52,7 @@ export default function Home() {
                             name="Forgotten Future"
                             description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
                             github="https://github.com/clevertree/forgotten-future"
-                            website="https://ffga.me"
+                            website="https://forgottenfuturebook.com"
                             status="active"
                         />
                         <ProjectItem
