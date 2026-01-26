@@ -64,9 +64,9 @@ export default function Home() {
                         />
                         <ProjectItem
                             name="Relay"
-                            description="A decentralized Web3.0 stack and social network architecture (relaynet.online)."
+                            description="A decentralized Web3.0 stack and social network architecture (relaygateway.net)."
                             github="https://github.com/clevertree/relay"
-                            website="https://relaynet.online"
+                            website="https://relaygateway.net"
                             status="active"
                         />
                         <ProjectItem
@@ -84,6 +84,7 @@ export default function Home() {
                         <ProjectItem
                             name="Song Walker"
                             description="Planned interactive music exploration platform and spatial audio visualizer."
+                            website="https://songwalker.net"
                             status="planned"
                         />
                     </div>
