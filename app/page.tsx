@@ -149,6 +149,9 @@ export default function Home() {
                 {/* Footer */}
                 <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm print-section">
                     <p>© {new Date().getFullYear()} Ari Asulin. Built with Next.js & Tailwind CSS.</p>
+                    <p className="mt-2">
+                        <a href="https://github.com/sponsors/clevertree" className="text-pink-500 hover:underline font-semibold" target="_blank" rel="noopener noreferrer">♥ Sponsor on GitHub</a>
+                    </p>
                 </footer>
             </div>
         </main>
