@@ -74,8 +74,24 @@ export const Resume = () => (
                 {/* References Section */}
                 <div>
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                        <Star className="w-6 h-6 text-primary" /> Professional Reference
+                        <Star className="w-6 h-6 text-primary" /> Professional References
                     </h3>
+                    <div className="space-y-4">
+                    <Card className="bg-primary/5 border-primary/20">
+                        <div className="flex items-start gap-4 mb-4">
+                            <div className="bg-primary/10 p-3 rounded-full">
+                                <Star className="w-6 h-6 text-primary fill-primary" />
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-lg">Jynx Younan</h4>
+                                <p className="text-muted-foreground text-xs uppercase font-semibold">Agile People Leader @ University of Phoenix</p>
+                                <div className="flex gap-4 mt-1 text-xs text-muted-foreground">
+                                    <span className="flex items-center gap-1"><Mail className="w-3 h-3" /> Jynx.Younan@phoenix.edu</span>
+                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> 602-557-1090</span>
+                                </div>
+                            </div>
+                        </div>
+                    </Card>
                     <Card className="bg-primary/5 border-primary/20">
                         <div className="flex items-start gap-4 mb-4">
                             <div className="bg-primary/10 p-3 rounded-full">
@@ -94,6 +110,7 @@ export const Resume = () => (
                             &quot;Ari is the real deal and I can&apos;t imagine a company hiring him as a developer and being dissatisfied with his work. He turned a non-functional site into a functional one. In a high-stress environment he kept his cool and was able to meet all requirements asked of him.&quot;
                         </blockquote>
                     </Card>
+                    </div>
                 </div>
             </div>
 

@@ -243,11 +243,27 @@ const doc = new Document({
                 ],
             }),
 
-            // ── Reference ─────────────────────────────────────────────────
-            sectionHeading('Professional Reference'),
+            // ── References ────────────────────────────────────────────────
+            sectionHeading('Professional References'),
 
             new Paragraph({
                 spacing: { before: 160, after: 20 },
+                children: [
+                    bold('Jynx Younan', { size: 20 }),
+                    new TextRun({ text: '  —  Agile People Leader @ University of Phoenix', size: 18, color: MUTED }),
+                ],
+            }),
+            new Paragraph({
+                spacing: { before: 0, after: 80 },
+                children: [
+                    link('Jynx.Younan@phoenix.edu', 'mailto:Jynx.Younan@phoenix.edu'),
+                    muted('   ·   '),
+                    new TextRun({ text: '602-557-1090', size: 18, color: MUTED }),
+                ],
+            }),
+
+            new Paragraph({
+                spacing: { before: 80, after: 20 },
                 children: [
                     bold('Mike McDonald', { size: 20 }),
                     new TextRun({ text: '  —  Software Architect @ Harkins Theatres', size: 18, color: MUTED }),
