@@ -110,6 +110,10 @@ export const Resume = () => (
                             'PHP', '.NET & C#', 'SQL', 'Android/iOS Dev', 'CI/CD', 'API Design (REST/GraphQL)'
                         ]} />
 
+                        <SkillGroup title="AI & Agents" skills={[
+                            'GitHub Copilot (all models)', 'Prompt Engineering', 'Per-repo Copilot Instructions', 'Agentic Data Scraping & Cross-referencing', 'Document & Summary Generation', 'Meeting Transcript Automation', 'Agent-driven Infrastructure Monitoring', 'Context-aware Jira Ticket Management'
+                        ]} />
+
                         <SkillGroup title="Leadership" skills={[
                             'Stakeholder Communication', 'Mentoring & Coaching', 'Sprint Planning', 'Cross-team Coordination', 'QA & Ticket Ownership', 'Feedback Culture'
                         ]} />

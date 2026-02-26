@@ -229,6 +229,7 @@ const doc = new Document({
             // ── Skills ────────────────────────────────────────────────────
             sectionHeading('Skills & Certifications'),
 
+            skillRow('AI & Agents', ['GitHub Copilot (all models)', 'Prompt Engineering', 'Per-repo Copilot Instructions', 'Agentic Data Scraping & Cross-referencing', 'Document & Summary Generation', 'Meeting Transcript Automation', 'Agent-driven Infrastructure Monitoring', 'Context-aware Jira Ticket Management']),
             skillRow('Leadership', ['Stakeholder Communication', 'Mentoring & Coaching', 'Sprint Planning', 'Cross-team Coordination', 'QA & Ticket Ownership', 'Feedback Culture']),
             skillRow('Programming', ['JavaScript/TypeScript', 'ReactJS', 'React Native', 'NodeJS', 'HTML5 & CSS3', 'PHP', '.NET & C#', 'SQL', 'Android/iOS Dev', 'CI/CD', 'API Design']),
             skillRow('Infrastructure', ['AWS Lambda & EC2', 'Linux SysAdmin', 'Nginx / Apache', 'AEM', 'SSL Certs']),
