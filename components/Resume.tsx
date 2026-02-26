@@ -17,14 +17,14 @@ export const Resume = () => (
                             company="University of Phoenix"
                             location="Phoenix, AZ"
                             duration="June 2021 - Present"
-                            description="Developed applications and web pages for UofPhx. Designing and implementing ReactJS components in AEM & NextJS. Upgrading and maintaining hardware infrastructure via AWS. Creating unit/e2e tests for all components and managing tech debt. Monitoring user experience via FullStory/SpeechMiner/ContentSquare."
+                            description="Developed applications and web pages for UofPhx, collaborating cross-functionally with stakeholders to communicate timelines and translate technical requirements into actionable tasks. Designed and implemented ReactJS components in AEM & NextJS. Partnered with QA and product teams to track ticket resolution and ensure delivery milestones were met. Guided team members on best practices while managing tech debt. Maintained AWS infrastructure and monitored user experience via FullStory, SpeechMiner, and ContentSquare."
                         />
                         <ExperienceItem
                             title="Software Contractor"
                             company="Harkins Theatres"
                             location="Scottsdale, AZ"
                             duration="June 2017 - June 2021"
-                            description="Developed Harkins.com website and store apps. Delved heavily into NodeJS, Android, and iOS ecosystems. Implemented features using PHP, MySQL, jQuery, and REST. Managed migrations from Windows to LAMP. Maintained uptime during high-traffic events and attacks. Deployed React Native apps to Play and Apple stores."
+                            description="Developed Harkins.com website and mobile apps. Served as the technical liaison between IT and marketing teams, aligning stakeholder expectations with engineering capacity. Implemented features using NodeJS, PHP, MySQL, jQuery, and REST. Identified and resolved blockers to maintain stability during high-traffic events and security incidents. Managed migrations from Windows to LAMP and deployed React Native apps to Play and Apple stores."
                         />
                         <ExperienceItem
                             title="Software Contractor"
@@ -45,7 +45,7 @@ export const Resume = () => (
                             company="Etelegate"
                             location="Scottsdale, AZ"
                             duration="May 2005 – Oct 2012"
-                            description="Lead Developer and IT Head for a payment processor. Developed and maintained websites over a 6-year period. Built financial systems, account management, and real-time data integrations with global banking."
+                            description="Lead Developer and IT Head for a payment processor. Set realistic development milestones, communicated project status to non-technical stakeholders in clear terms, and steered the team across a 6-year roadmap. Accountable for team output and cross-department deliverables. Built financial systems, account management, and real-time data integrations with global banking."
                         />
                     </div>
                 </div>
@@ -110,6 +110,10 @@ export const Resume = () => (
                             'PHP', '.NET & C#', 'SQL', 'Android/iOS Dev', 'CI/CD', 'API Design (REST/GraphQL)'
                         ]} />
 
+                        <SkillGroup title="Leadership" skills={[
+                            'Stakeholder Communication', 'Mentoring & Coaching', 'Sprint Planning', 'Cross-team Coordination', 'QA & Ticket Ownership', 'Feedback Culture'
+                        ]} />
+
                         <SkillGroup title="Administration" skills={[
                             'Linux SysAdmin', 'Nginx / Apache', 'SSL Certs', 'AEM', 'AWS Lambda & EC2'
                         ]} />
@@ -138,9 +142,9 @@ export const Resume = () => (
 
                 {/* Mission Section */}
                 <Card className="bg-secondary/30">
-                    <h3 className="font-bold mb-3 text-primary uppercase text-xs tracking-widest">Personal Project Mission</h3>
+                    <h3 className="font-bold mb-3 text-primary uppercase text-xs tracking-widest">Philosophy</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed italic">
-                        Focusing on open-source creative tools and interactive media that empower artists and musicians.
+                        Great teams thrive when communication is honest, goals are realistic, and every member feels supported. I aim to be the kind of lead who removes blockers, translates complexity, and keeps the team moving — without losing sight of the bigger picture.
                     </p>
                 </Card>
             </div>
