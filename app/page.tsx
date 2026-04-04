@@ -52,7 +52,7 @@ export default function Home() {
                             name="Forgotten Future"
                             description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
                             github="https://github.com/clevertree/forgotten-future"
-                            website="https://forgottenfuturebook.com"
+                            website="https://ffga.me"
                             status="active"
                         />
                         <ProjectItem
@@ -64,9 +64,9 @@ export default function Home() {
                         />
                         <ProjectItem
                             name="Relay"
-                            description="A decentralized Web3.0 stack and social network architecture (relaygateway.net)."
+                            description="A decentralized Web3.0 stack and social network architecture (relaynet.online)."
                             github="https://github.com/clevertree/relay"
-                            website="https://relaygateway.net"
+                            website="https://relaynet.online"
                             status="active"
                         />
                         <ProjectItem
@@ -83,16 +83,8 @@ export default function Home() {
                         />
                         <ProjectItem
                             name="Song Walker"
-                            description="A music programming language and browser-based composer with Rust/WASM synthesis engine, Monaco editor, and retro game console emulation."
-                            github="https://github.com/clevertree/songwalker-core"
-                            website="https://songwalker.net"
-                            status="active"
-                        />
-                        <ProjectItem
-                            name="SNESOLOGY"
-                            description="A retro music composer and sample library for SNES audio, featuring authentic SPC700 instrument presets and a browser-based editor."
-                            website="https://snesology.org"
-                            status="active"
+                            description="Planned interactive music exploration platform and spatial audio visualizer."
+                            status="planned"
                         />
                     </div>
                 </Section>
@@ -126,18 +118,6 @@ export default function Home() {
                             npm="https://www.npmjs.com/package/@clevertree/themed-styler"
                             cargo="https://crates.io/crates/themed-styler"
                         />
-                        <LibraryItem
-                            name="songwalker-core"
-                            description="Rust core library for the SongWalker music language — lexer, parser, compiler, DSP engine, and WASM bindings."
-                            github="https://github.com/clevertree/songwalker-core"
-                            cargo="https://crates.io/crates/songwalker_core"
-                        />
-                        <LibraryItem
-                            name="songwalker-js"
-                            description="JavaScript/TypeScript package providing WASM bindings, preset loader, preset browser, and Monaco editor integration for SongWalker."
-                            github="https://github.com/clevertree/songwalker-js"
-                            npm="https://www.npmjs.com/package/songwalker-js"
-                        />
                     </div>
                 </Section>
 
@@ -149,9 +129,6 @@ export default function Home() {
                 {/* Footer */}
                 <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm print-section">
                     <p>© {new Date().getFullYear()} Ari Asulin. Built with Next.js & Tailwind CSS.</p>
-                    <p className="mt-2">
-                        <a href="https://github.com/sponsors/clevertree" className="text-pink-500 hover:underline font-semibold" target="_blank" rel="noopener noreferrer">♥ Sponsor on GitHub</a>
-                    </p>
                 </footer>
             </div>
         </main>
