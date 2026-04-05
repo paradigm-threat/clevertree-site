@@ -26,11 +26,11 @@ I build free, high-performance alternatives to proprietary software. I consider 
 | **md2jsx** | Markdown to JSX converter with custom React component support | [GitHub](https://github.com/clevertree/md2jsx) · [npm](https://www.npmjs.com/package/@clevertree/md2jsx) · [crates.io](https://crates.io/crates/md2jsx) |
 | **themed-styler** | Rust/WASM engine for dynamic theme generation and CSS variable management | [GitHub](https://github.com/clevertree/themed-styler) · [npm](https://www.npmjs.com/package/@clevertree/themed-styler) · [crates.io](https://crates.io/crates/themed-styler) |
 
-## Sponsor
+## Support
 
-Your sponsorship directly funds development of free music tools and open hardware. Every contribution helps keep these projects independent, ad-free, and available to everyone.
+Membership on Patreon directly funds development of free music tools and open hardware. Every contribution helps keep these projects independent, ad-free, and available to everyone.
 
-[GitHub Sponsors](https://github.com/sponsors/clevertree)
+[Patreon — Paradigm Threat / Earth History Timeline](https://www.patreon.com/c/ahsctimeline)
 
 ## Links
 
