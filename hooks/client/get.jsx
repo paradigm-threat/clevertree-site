@@ -1,5 +1,9 @@
 /**
  * CleverTree client GET hook — portfolio UI (SSR + hydrate).
+ *
+ * Path is a *route*, not a blob to render. The shell may be entered via `/`,
+ * `/index.md`, or any Accept:text/html markdown URL; this hook always owns
+ * which markdown (if any) to load. Today every route shows Home + content/home.md.
  */
 import React from 'react'
 import StyleContext from '@clevertree/style'
@@ -32,6 +36,8 @@ function bioFromMarkdown(text) {
 }
 
 export default function CleverTreeGet() {
+  // Future multi-page: branch on relayInitialPath / location.pathname.
+  // For now `/`, `/index.md`, and unknown clean paths all render Home.
   let bio = null
   try {
     const res = fetch('content/home.md')

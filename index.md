@@ -2,4 +2,4 @@
 
 Ari Asulin — Software Engineer portfolio hosted on Relay.
 
-Open with `?embed=1` for the CleverScript UI (SSR + hydration).
+Browsers receive the CleverScript UI (SSR + hydration). Raw markdown is available to non-HTML clients.

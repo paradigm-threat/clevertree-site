@@ -1,19 +1,20 @@
 import { markdownHtmlFromGetContext } from '@relay/md';
 import { ssrClientHookFromGetContext } from '@relay/ssr';
 
-// server.hooks.get — CleverTree: opt into SSR for embed; markdown HTML otherwise.
-// CleverScript throws on missing object properties — never read ctx.embedMarkdownRequest
-// unless we know it exists (embed path sets it; normal GETs do not).
-function isEmbedMarkdownRequest(ctx) {
+// server.hooks.get — CleverTree app shell: SSR client hook for browser HTML / ?embed=1 / `/`.
+// CleverScript throws on missing object properties — guard flag reads.
+function wantsSiteShell(ctx) {
   try {
-    return ctx.embedMarkdownRequest === true;
-  } catch (e) {
-    return false;
-  }
+    if (ctx.embedMarkdownRequest === true) return true;
+  } catch (e) {}
+  try {
+    if (ctx.siteShellRequest === true) return true;
+  } catch (e) {}
+  return false;
 }
 
 export default function run(ctx, next) {
-  if (isEmbedMarkdownRequest(ctx)) {
+  if (wantsSiteShell(ctx)) {
     var ssr = ssrClientHookFromGetContext(ctx, {
       clientHookPath: "hooks/client/get.jsx"
     });
