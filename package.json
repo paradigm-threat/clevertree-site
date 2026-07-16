@@ -1,0 +1,12 @@
+{
+  "name": "clevertree-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:landmarks": "playwright test e2e/clevertree-landmarks.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  }
+}

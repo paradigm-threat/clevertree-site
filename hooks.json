@@ -1,0 +1,12 @@
+{
+  "hooks": [
+    { "path": "hooks/client/get.jsx", "name": "CleverTree Home" },
+    { "path": "hooks/client/components/Home.jsx", "name": "Home" },
+    { "path": "hooks/client/components/Section.jsx", "name": "Section" },
+    { "path": "hooks/client/components/ProjectItem.jsx", "name": "ProjectItem" },
+    { "path": "hooks/client/components/LibraryItem.jsx", "name": "LibraryItem" },
+    { "path": "hooks/client/components/Resume.jsx", "name": "Resume" },
+    { "path": "hooks/client/components/ThemeToggle.jsx", "name": "ThemeToggle" },
+    { "path": "hooks/client/components/PrintButton.jsx", "name": "PrintButton" }
+  ]
+}
