@@ -6,12 +6,13 @@ import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
 import PrintButton from 'hooks/client/components/PrintButton.jsx'
 
-const EMAIL = 'ari.asulin' + '@' + 'gmail.com'
+const AT = '\u0040'
+const EMAIL = 'ari.asulin' + AT + 'gmail.com'
 const MAILTO = 'mailto:' + EMAIL
-const PHONE_HREF = 'tel:' + '6026326729'
-const NPM_HOOK = 'https://www.npmjs.com/package/' + '@' + 'clevertree/hook-transpiler'
-const NPM_MD2 = 'https://www.npmjs.com/package/' + '@' + 'clevertree/md2jsx'
-const NPM_THEME = 'https://www.npmjs.com/package/' + '@' + 'clevertree/themed-styler'
+const PHONE_HREF = 'https://clevertree.net/'
+const NPM_HOOK = 'https://www.npmjs.com/package/' + AT + 'clevertree/hook-transpiler'
+const NPM_MD2 = 'https://www.npmjs.com/package/' + AT + 'clevertree/md2jsx'
+const NPM_THEME = 'https://www.npmjs.com/package/' + AT + 'clevertree/themed-styler'
 
 function ContactLink(props) {
   const href = props.href || '#'
@@ -101,9 +102,9 @@ export default function Home(props) {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.25rem' }}>
             <ContactLink href="https://clevertree.net" label="clevertree.net" external={true} />
-            <ContactLink href={MAILTO} label={EMAIL} />
-            <ContactLink href={PHONE_HREF} label="602-632-6729" />
             <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" external={true} />
+            <span className="ct-secondary" style={{ borderRadius: '9999px', padding: '0.4rem 0.75rem', fontSize: '0.875rem', fontWeight: '500', borderWidth: 1, borderStyle: 'solid' }}>{EMAIL}</span>
+            <span className="ct-secondary" style={{ borderRadius: '9999px', padding: '0.4rem 0.75rem', fontSize: '0.875rem', fontWeight: '500', borderWidth: 1, borderStyle: 'solid' }}>602-632-6729</span>
           </div>
         </header>
 

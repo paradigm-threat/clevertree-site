@@ -1,41 +1,21 @@
 import React from 'react'
 import Section from 'hooks/client/components/Section.jsx'
 
-const AT = '@'
-const JYNX_EMAIL = 'Jynx.Younan' + '@' + 'phoenix.edu'
-const MIKE_EMAIL = 'mikemcdonald' + '@' + 'harkins.com'
+const AT = '\u0040'
+const JYNX_EMAIL = 'Jynx.Younan' + AT + 'phoenix.edu'
+const MIKE_EMAIL = 'mikemcdonald' + AT + 'harkins.com'
 
 function SkillGroup(props) {
   const title = props.title
-  const skills = props.skills || []
-  const chips = []
-  for (let i = 0; i < skills.length; i++) {
-    const skill = skills[i]
-    chips.push(
-      <span
-        key={skill}
-        className="ct-secondary"
-        style={{
-          borderWidth: 1,
-          borderStyle: 'solid',
-          padding: '0.15rem 0.5rem',
-          borderRadius: '0.375rem',
-          fontSize: '0.75rem',
-          fontWeight: '500',
-        }}
-      >
-        {skill}
-      </span>
-    )
-  }
+  const skillsText = props.skillsText || ''
   return (
     <div style={{ marginBottom: '1.5rem' }}>
       <p style={{ fontWeight: '700', marginBottom: '0.5rem', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.8 }}>
         {title}
       </p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-        {chips}
-      </div>
+      <p className="ct-muted" style={{ fontSize: '0.75rem', lineHeight: 1.6, margin: 0 }}>
+        {skillsText}
+      </p>
     </div>
   )
 }
@@ -153,29 +133,12 @@ export default function Resume() {
             <h3 style={{ fontSize: '1.25rem', fontWeight: '700', marginBottom: '1.5rem', paddingBottom: '0.5rem', borderBottomWidth: 1, borderBottomStyle: 'solid' }}>
               Technical Arsenal
             </h3>
-            <SkillGroup title="Programming" skills={[
-              'JavaScript/TypeScript', 'ReactJS', 'React Native', 'NodeJS', 'HTML5 & CSS3',
-              'PHP', '.NET & C#', 'SQL', 'Android/iOS Dev', 'CI/CD', 'API Design (REST/GraphQL)'
-            ]} />
-            <SkillGroup title="AI & Agents" skills={[
-              'GitHub Copilot (all models)', 'Prompt Engineering', 'Per-repo Copilot Instructions',
-              'Agentic Data Scraping & Cross-referencing', 'Document & Summary Generation',
-              'Meeting Transcript Automation', 'Agent-driven Infrastructure Monitoring',
-              'Context-aware Jira Ticket Management'
-            ]} />
-            <SkillGroup title="Leadership" skills={[
-              'Stakeholder Communication', 'Mentoring & Coaching', 'Sprint Planning',
-              'Cross-team Coordination', 'QA & Ticket Ownership', 'Feedback Culture'
-            ]} />
-            <SkillGroup title="Administration" skills={[
-              'Linux SysAdmin', 'Nginx / Apache', 'SSL Certs', 'AEM', 'AWS Lambda & EC2'
-            ]} />
-            <SkillGroup title="Tools" skills={[
-              'Git', 'SSH', 'Bash', 'JetBrains IDEs', 'VS Code', 'Gimp', 'Kdenlive', 'OBS Studio', 'NVDA'
-            ]} />
-            <SkillGroup title="Media" skills={[
-              'Video Editing', 'Image Creation', 'Music Composition', 'Production'
-            ]} />
+            <SkillGroup title="Programming" skillsText="JavaScript/TypeScript · ReactJS · React Native · NodeJS · HTML5 & CSS3 · PHP · .NET & C# · SQL · Android/iOS Dev · CI/CD · API Design (REST/GraphQL)" />
+            <SkillGroup title="AI & Agents" skillsText="GitHub Copilot (all models) · Prompt Engineering · Per-repo Copilot Instructions · Agentic Data Scraping & Cross-referencing · Document & Summary Generation · Meeting Transcript Automation · Agent-driven Infrastructure Monitoring · Context-aware Jira Ticket Management" />
+            <SkillGroup title="Leadership" skillsText="Stakeholder Communication · Mentoring & Coaching · Sprint Planning · Cross-team Coordination · QA & Ticket Ownership · Feedback Culture" />
+            <SkillGroup title="Administration" skillsText="Linux SysAdmin · Nginx / Apache · SSL Certs · AEM · AWS Lambda & EC2" />
+            <SkillGroup title="Tools" skillsText="Git · SSH · Bash · JetBrains IDEs · VS Code · Gimp · Kdenlive · OBS Studio · NVDA" />
+            <SkillGroup title="Media" skillsText="Video Editing · Image Creation · Music Composition · Production" />
             <div>
               <p style={{ fontWeight: '700', marginBottom: '0.5rem', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.8 }}>
                 Certifications
