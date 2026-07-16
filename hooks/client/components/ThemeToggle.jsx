@@ -18,7 +18,7 @@ export default function ThemeToggle() {
         fontWeight: '600',
         fontSize: '0.875rem',
       }}
-      onClick={function () {
+      onClick={() => {
         const next = theme === 'dark' ? 'light' : 'dark'
         setTheme(next)
         try {

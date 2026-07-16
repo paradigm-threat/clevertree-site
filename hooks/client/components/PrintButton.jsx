@@ -58,7 +58,7 @@ export default function PrintButton() {
           borderStyle: 'solid',
           cursor: 'pointer',
         }}
-        onClick={function () {
+        onClick={() => {
           try {
             if (window && window.print) {
               window.print()
