@@ -17,12 +17,15 @@ function bioFromMarkdown(text) {
         paras.push(buf.join(' '))
         buf = []
       }
-      continue
+    } else {
+      const first = line.charAt(0)
+      const isHeading = first === '#'
+      const isList = first === '-' || first === '*'
+      const isBoldLine = line.indexOf('**') === 0
+      if (!isHeading && !isList && !isBoldLine) {
+        buf.push(line)
+      }
     }
-    if (line.charAt(0) === '#') continue
-    if (line.charAt(0) === '-' || line.charAt(0) === '*') continue
-    if (line.indexOf('**') === 0) continue
-    buf.push(line)
   }
   if (buf.length) paras.push(buf.join(' '))
   return paras.length ? paras[0] : null
