@@ -8,30 +8,33 @@ const MIKE_EMAIL = 'mikemcdonald' + '@' + 'harkins.com'
 function SkillGroup(props) {
   const title = props.title
   const skills = props.skills || []
+  const chips = []
+  for (let i = 0; i < skills.length; i++) {
+    const skill = skills[i]
+    chips.push(
+      <span
+        key={skill}
+        className="ct-secondary"
+        style={{
+          borderWidth: 1,
+          borderStyle: 'solid',
+          padding: '0.15rem 0.5rem',
+          borderRadius: '0.375rem',
+          fontSize: '0.75rem',
+          fontWeight: '500',
+        }}
+      >
+        {skill}
+      </span>
+    )
+  }
   return (
     <div style={{ marginBottom: '1.5rem' }}>
       <p style={{ fontWeight: '700', marginBottom: '0.5rem', fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.8 }}>
         {title}
       </p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-        {skills.map(function (skill) {
-          return (
-            <span
-              key={skill}
-              className="ct-secondary"
-              style={{
-                borderWidth: 1,
-                borderStyle: 'solid',
-                padding: '0.15rem 0.5rem',
-                borderRadius: '0.375rem',
-                fontSize: '0.75rem',
-                fontWeight: '500',
-              }}
-            >
-              {skill}
-            </span>
-          )
-        })}
+        {chips}
       </div>
     </div>
   )
