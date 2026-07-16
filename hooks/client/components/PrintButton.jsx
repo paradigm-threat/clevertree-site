@@ -41,11 +41,11 @@ export default function PrintButton() {
       >
         DOCX
       </a>
-      <button
-        type="button"
+      <a
+        href="#ct-resume"
         id="ct-print-button"
         className="ct-secondary"
-        title="Print / Save as PDF"
+        title="Jump to resume (use browser Print for PDF)"
         style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -56,20 +56,11 @@ export default function PrintButton() {
           fontSize: '0.875rem',
           borderWidth: 1,
           borderStyle: 'solid',
-          cursor: 'pointer',
-        }}
-        onClick={() => {
-          try {
-            if (window && window.print) {
-              window.print()
-            }
-          } catch (e) {
-            /* print unavailable during SSR */
-          }
+          textDecoration: 'none',
         }}
       >
         Print
-      </button>
+      </a>
     </div>
   )
 }
