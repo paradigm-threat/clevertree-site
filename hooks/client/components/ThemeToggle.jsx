@@ -24,7 +24,7 @@ export default function ThemeToggle() {
         try {
           const res = fetch('hooks/client/theme.yaml')
           if (res && res.ok === true && res.text) {
-            let yaml = String(res.text)
+            let yaml = '' + res.text
             const marker = 'current_theme:'
             const idx = yaml.indexOf(marker)
             if (idx >= 0) {

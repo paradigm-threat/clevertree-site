@@ -7,7 +7,7 @@ import Home from './components/Home.jsx'
 
 function bioFromMarkdown(text) {
   if (!text) return null
-  const lines = String(text).split('\n')
+  const lines = ('' + text).split('\n')
   const paras = []
   let buf = []
   for (let i = 0; i < lines.length; i++) {
