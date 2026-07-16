@@ -1,9 +1,8 @@
 import React from 'react'
 import Section from 'hooks/client/components/Section.jsx'
 
-const AT = '\u0040'
-const JYNX_EMAIL = 'Jynx.Younan' + AT + 'phoenix.edu'
-const MIKE_EMAIL = 'mikemcdonald' + AT + 'harkins.com'
+const JYNX_EMAIL = 'Jynx.Younan [at] phoenix.edu'
+const MIKE_EMAIL = 'mikemcdonald [at] harkins.com'
 
 function SkillGroup(props) {
   const title = props.title
@@ -112,14 +111,14 @@ export default function Resume() {
           <div className="ct-card" style={{ marginBottom: '1rem' }}>
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Jynx Younan</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
-              Agile People Leader {AT} University of Phoenix
+              Agile People Leader at University of Phoenix
             </p>
             <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>{JYNX_EMAIL} · 602-557-1090</p>
           </div>
           <div className="ct-card">
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Mike McDonald</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
-              Software Architect {AT} Harkins Theatres
+              Software Architect at Harkins Theatres
             </p>
             <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>{MIKE_EMAIL} · 615-995-0639</p>
             <blockquote className="ct-muted" style={{ fontStyle: 'italic', borderLeftWidth: 4, borderLeftStyle: 'solid', paddingLeft: '1rem', margin: 0, lineHeight: 1.6 }}>

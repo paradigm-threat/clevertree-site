@@ -6,13 +6,7 @@ import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
 import PrintButton from 'hooks/client/components/PrintButton.jsx'
 
-const AT = '\u0040'
-const EMAIL = 'ari.asulin' + AT + 'gmail.com'
-const MAILTO = 'mailto:' + EMAIL
-const PHONE_HREF = 'https://clevertree.net/'
-const NPM_HOOK = 'https://www.npmjs.com/package/' + AT + 'clevertree/hook-transpiler'
-const NPM_MD2 = 'https://www.npmjs.com/package/' + AT + 'clevertree/md2jsx'
-const NPM_THEME = 'https://www.npmjs.com/package/' + AT + 'clevertree/themed-styler'
+const EMAIL = 'ari.asulin [at] gmail.com'
 
 function ContactLink(props) {
   const href = props.href || '#'
@@ -161,7 +155,7 @@ export default function Home(props) {
               name="hook-transpiler"
               description="High-performance JSX/TSX transpiler optimized for Relay hooks and dynamic module injection."
               github="https://github.com/clevertree/hook-transpiler"
-              npm={NPM_HOOK}
+              npm="https://www.npmjs.com/package/%40clevertree/hook-transpiler"
               cargo="https://crates.io/crates/relay-hook-transpiler"
             />
             <LibraryItem
@@ -175,14 +169,14 @@ export default function Home(props) {
               name="md2jsx"
               description="Flexible Markdown to JSX converter with support for custom React components and themes."
               github="https://github.com/clevertree/md2jsx"
-              npm={NPM_MD2}
+              npm="https://www.npmjs.com/package/%40clevertree/md2jsx"
               cargo="https://crates.io/crates/md2jsx"
             />
             <LibraryItem
               name="themed-styler"
               description="Rust-powered WASM engine for dynamic theme generation and CSS variable management."
               github="https://github.com/clevertree/themed-styler"
-              npm={NPM_THEME}
+              npm="https://www.npmjs.com/package/%40clevertree/themed-styler"
               cargo="https://crates.io/crates/themed-styler"
             />
           </div>
