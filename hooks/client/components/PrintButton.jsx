@@ -59,8 +59,12 @@ export default function PrintButton() {
           cursor: 'pointer',
         }}
         onClick={function () {
-          if (typeof window !== 'undefined' && window.print) {
-            window.print()
+          try {
+            if (window && window.print) {
+              window.print()
+            }
+          } catch (e) {
+            /* print unavailable during SSR */
           }
         }}
       >

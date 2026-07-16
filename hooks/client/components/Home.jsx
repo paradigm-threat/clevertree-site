@@ -10,12 +10,34 @@ function ContactLink(props) {
   const href = props.href
   const label = props.label
   const external = href.indexOf('http') === 0
+  if (external) {
+    return (
+      <a
+        href={href}
+        className="ct-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          padding: '0.4rem 0.75rem',
+          borderRadius: '9999px',
+          fontSize: '0.875rem',
+          fontWeight: '500',
+          borderWidth: 1,
+          borderStyle: 'solid',
+          textDecoration: 'none',
+        }}
+      >
+        {label}
+      </a>
+    )
+  }
   return (
     <a
       href={href}
       className="ct-secondary"
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noopener noreferrer' : undefined}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
