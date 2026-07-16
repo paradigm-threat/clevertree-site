@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import StyleContext from '@clevertree/style'
-import Home from './components/Home.jsx'
+import Home from 'hooks/client/components/Home.jsx'
 
 function bioFromMarkdown(text) {
   if (!text) return null

@@ -1,10 +1,10 @@
 import React from 'react'
-import Section from './Section.jsx'
-import ProjectItem from './ProjectItem.jsx'
-import LibraryItem from './LibraryItem.jsx'
-import Resume from './Resume.jsx'
-import ThemeToggle from './ThemeToggle.jsx'
-import PrintButton from './PrintButton.jsx'
+import Section from 'hooks/client/components/Section.jsx'
+import ProjectItem from 'hooks/client/components/ProjectItem.jsx'
+import LibraryItem from 'hooks/client/components/LibraryItem.jsx'
+import Resume from 'hooks/client/components/Resume.jsx'
+import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
+import PrintButton from 'hooks/client/components/PrintButton.jsx'
 
 function ContactLink(props) {
   const href = props.href

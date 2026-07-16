@@ -1,5 +1,5 @@
 import React from 'react'
-import Section from './Section.jsx'
+import Section from 'hooks/client/components/Section.jsx'
 
 function SkillGroup(props) {
   const title = props.title
