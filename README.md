@@ -36,12 +36,32 @@ Membership on Patreon directly funds development of free music tools and open ha
 
 [clevertree.net](https://clevertree.net) · [songwalker.net](https://songwalker.net) · [snesology.net](https://snesology.net) · [GitHub](https://github.com/clevertree)
 
-## Development
+## Relay hosting (CleverScript)
 
-Built with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+The portfolio UI is also implemented as CleverScript hooks for Relay SSR + client hydration:
+
+- Server: `hooks/server/get.cs` opts into `@relay/ssr` for `?embed=1`
+- Client: `hooks/client/get.jsx` + components under `hooks/client/components/`
+- Content: `content/home.md`, `index.md`
+- Theme: `hooks/client/theme.yaml`
+
+Live Relay hosts (no DNS cutover of clevertree.net yet):
+
+- https://clevertree-site.dfw1.relaygateway.net/index.md?embed=1
+- https://clevertree-site.lon1.relaygateway.net/index.md?embed=1
+- https://clevertree-site.hkg1.relaygateway.net/index.md?embed=1
 
 ```bash
 npm install
-npm run dev     # dev server on http://localhost:3000
-npm run build   # production build
+npm run test:e2e   # Playwright landmarks against SSR fixture
+```
+
+## Development (legacy Next.js)
+
+The Next.js app under `app/` remains for local comparison with the live site.
+
+```bash
+npm install
+npm run dev     # Next.js on http://localhost:3000 (if deps restored)
+npm run build
 ```
