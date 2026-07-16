@@ -3,9 +3,8 @@ import React from 'react'
 export default function Section(props) {
   const title = props.title || ''
   const children = props.children
-  const extra = props.className || ''
   return (
-    <section className={'ct-section ' + extra} style={{ marginBottom: '3rem' }}>
+    <section className="ct-section" style={{ marginBottom: '3rem' }}>
       <h2
         className="ct-section-title"
         style={{

@@ -3,9 +3,9 @@ import React from 'react'
 export default function LibraryItem(props) {
   const name = props.name || ''
   const description = props.description || ''
-  const github = props.github
-  const npm = props.npm
-  const cargo = props.cargo
+  const github = props.github || ''
+  const npm = props.npm || ''
+  const cargo = props.cargo || ''
   return (
     <div className="ct-card" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: '1rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
@@ -13,17 +13,17 @@ export default function LibraryItem(props) {
           {name}
         </span>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
-          {github ? (
+          {github !== '' ? (
             <a className="ct-link" href={github} target="_blank" rel="noopener noreferrer" title="GitHub">
               GH
             </a>
           ) : null}
-          {npm ? (
+          {npm !== '' ? (
             <a className="ct-link" href={npm} target="_blank" rel="noopener noreferrer" title="NPM">
               npm
             </a>
           ) : null}
-          {cargo ? (
+          {cargo !== '' ? (
             <a className="ct-link" href={cargo} target="_blank" rel="noopener noreferrer" title="Crates.io">
               crates
             </a>

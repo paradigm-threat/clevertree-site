@@ -8,14 +8,15 @@ import PrintButton from 'hooks/client/components/PrintButton.jsx'
 
 const EMAIL = 'ari.asulin' + '@' + 'gmail.com'
 const MAILTO = 'mailto:' + EMAIL
+const PHONE_HREF = 'tel:' + '6026326729'
 const NPM_HOOK = 'https://www.npmjs.com/package/' + '@' + 'clevertree/hook-transpiler'
 const NPM_MD2 = 'https://www.npmjs.com/package/' + '@' + 'clevertree/md2jsx'
 const NPM_THEME = 'https://www.npmjs.com/package/' + '@' + 'clevertree/themed-styler'
 
 function ContactLink(props) {
-  const href = props.href
-  const label = props.label
-  const external = href.indexOf('http') === 0
+  const href = props.href || '#'
+  const label = props.label || ''
+  const external = props.external === true
   if (external) {
     return (
       <a
@@ -99,10 +100,10 @@ export default function Home(props) {
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.25rem' }}>
-            <ContactLink href="https://clevertree.net" label="clevertree.net" />
+            <ContactLink href="https://clevertree.net" label="clevertree.net" external={true} />
             <ContactLink href={MAILTO} label={EMAIL} />
-            <ContactLink href="tel:602-632-6729" label="602-632-6729" />
-            <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" />
+            <ContactLink href={PHONE_HREF} label="602-632-6729" />
+            <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" external={true} />
           </div>
         </header>
 
@@ -132,18 +133,22 @@ export default function Home(props) {
             <ProjectItem
               name="Skinner Family Dental"
               description="Professional dental practice website featuring patient portals and appointment integration."
+              github=""
               website="https://skinnerfamilydental.com"
               status="published"
             />
             <ProjectItem
               name="Gordonston Arts Fair"
               description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
+              github=""
               website="https://gordonstonartsfair.com"
               status="published"
             />
             <ProjectItem
               name="Song Walker"
               description="Planned interactive music exploration platform and spatial audio visualizer."
+              github=""
+              website=""
               status="planned"
             />
           </div>
@@ -162,6 +167,8 @@ export default function Home(props) {
               name="jscbridge"
               description="A lightweight bridge for communicating between JavaScriptCore and native environments."
               github="https://github.com/clevertree/jscbridge"
+              npm=""
+              cargo=""
             />
             <LibraryItem
               name="md2jsx"
