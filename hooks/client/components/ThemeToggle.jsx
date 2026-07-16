@@ -29,9 +29,11 @@ export default function ThemeToggle() {
             const idx = yaml.indexOf(marker)
             if (idx >= 0) {
               const after = idx + marker.length
-              let end = after
-              while (end < yaml.length && yaml.charAt(end) !== '\n') end++
-              yaml = yaml.slice(0, after) + ' ' + next + yaml.slice(end)
+              let stop = after
+              while (stop < yaml.length && yaml.charAt(stop) !== '\n') {
+                stop = stop + 1
+              }
+              yaml = yaml.slice(0, after) + ' ' + next + yaml.slice(stop)
             } else {
               yaml = yaml + '\ncurrent_theme: ' + next + '\n'
             }
