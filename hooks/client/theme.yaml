@@ -1,0 +1,76 @@
+themes:
+  light:
+    variables:
+      bg: "#f7f9fc"
+      foreground: "#0b1220"
+      card: "#ffffff"
+      muted: "#5b6b7c"
+      primary: "#2563eb"
+      primaryFg: "#f8fafc"
+      secondary: "#eef2f7"
+      secondaryFg: "#1e293b"
+      border: "#d7e0ea"
+      badgeActive: "#22c55e"
+      badgePublished: "#3b82f6"
+      badgePlanned: "#eab308"
+    selectors:
+      body:
+        backgroundColor: "var(bg)"
+        color: "var(foreground)"
+        fontFamily: "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+        margin: 0
+      ".ct-page":
+        backgroundColor: "var(bg)"
+        color: "var(foreground)"
+        minHeight: "100vh"
+      ".ct-container":
+        maxWidth: "64rem"
+        marginLeft: "auto"
+        marginRight: "auto"
+        padding: "4rem 1rem"
+      ".ct-muted":
+        color: "var(muted)"
+      ".ct-card":
+        backgroundColor: "var(card)"
+        color: "var(foreground)"
+        borderColor: "var(border)"
+        borderWidth: 1
+        borderStyle: "solid"
+        borderRadius: "0.5rem"
+        padding: "1.5rem"
+        boxShadow: "0 1px 2px rgba(15, 23, 42, 0.06)"
+      ".ct-primary":
+        backgroundColor: "var(primary)"
+        color: "var(primaryFg)"
+      ".ct-secondary":
+        backgroundColor: "var(secondary)"
+        color: "var(secondaryFg)"
+      ".ct-border":
+        borderColor: "var(border)"
+      ".ct-link":
+        color: "var(foreground)"
+        textDecoration: "none"
+      ".ct-badge-active":
+        backgroundColor: "var(badgeActive)"
+        color: "#052e16"
+      ".ct-badge-published":
+        backgroundColor: "var(badgePublished)"
+        color: "#eff6ff"
+      ".ct-badge-planned":
+        backgroundColor: "var(badgePlanned)"
+        color: "#422006"
+      "h1, h2, h3, h4, p, span, a, button, li, blockquote":
+        color: "inherit"
+  dark:
+    inherits: light
+    variables:
+      bg: "#0b1220"
+      foreground: "#f8fafc"
+      card: "#111827"
+      muted: "#94a3b8"
+      primary: "#3b82f6"
+      primaryFg: "#0b1220"
+      secondary: "#1e293b"
+      secondaryFg: "#f8fafc"
+      border: "#334155"
+current_theme: light
