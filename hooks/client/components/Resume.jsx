@@ -1,6 +1,10 @@
 import React from 'react'
 import Section from 'hooks/client/components/Section.jsx'
 
+const AT = '@'
+const JYNX_EMAIL = 'Jynx.Younan' + '@' + 'phoenix.edu'
+const MIKE_EMAIL = 'mikemcdonald' + '@' + 'harkins.com'
+
 function SkillGroup(props) {
   const title = props.title
   const skills = props.skills || []
@@ -125,16 +129,16 @@ export default function Resume() {
           <div className="ct-card" style={{ marginBottom: '1rem' }}>
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Jynx Younan</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
-              Agile People Leader @ University of Phoenix
+              Agile People Leader {AT} University of Phoenix
             </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>Jynx.Younan@phoenix.edu · 602-557-1090</p>
+            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>{JYNX_EMAIL} · 602-557-1090</p>
           </div>
           <div className="ct-card">
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Mike McDonald</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
-              Software Architect @ Harkins Theatres
+              Software Architect {AT} Harkins Theatres
             </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>mikemcdonald@harkins.com · 615-995-0639</p>
+            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>{MIKE_EMAIL} · 615-995-0639</p>
             <blockquote className="ct-muted" style={{ fontStyle: 'italic', borderLeftWidth: 4, borderLeftStyle: 'solid', paddingLeft: '1rem', margin: 0, lineHeight: 1.6 }}>
               "Ari is the real deal and I can't imagine a company hiring him as a developer and being dissatisfied with his work. He turned a non-functional site into a functional one. In a high-stress environment he kept his cool and was able to meet all requirements asked of him."
             </blockquote>

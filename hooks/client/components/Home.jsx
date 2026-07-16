@@ -6,6 +6,12 @@ import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
 import PrintButton from 'hooks/client/components/PrintButton.jsx'
 
+const EMAIL = 'ari.asulin' + '@' + 'gmail.com'
+const MAILTO = 'mailto:' + EMAIL
+const NPM_HOOK = 'https://www.npmjs.com/package/' + '@' + 'clevertree/hook-transpiler'
+const NPM_MD2 = 'https://www.npmjs.com/package/' + '@' + 'clevertree/md2jsx'
+const NPM_THEME = 'https://www.npmjs.com/package/' + '@' + 'clevertree/themed-styler'
+
 function ContactLink(props) {
   const href = props.href
   const label = props.label
@@ -94,7 +100,7 @@ export default function Home(props) {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.25rem' }}>
             <ContactLink href="https://clevertree.net" label="clevertree.net" />
-            <ContactLink href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" />
+            <ContactLink href={MAILTO} label={EMAIL} />
             <ContactLink href="tel:602-632-6729" label="602-632-6729" />
             <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" />
           </div>
@@ -149,7 +155,7 @@ export default function Home(props) {
               name="hook-transpiler"
               description="High-performance JSX/TSX transpiler optimized for Relay hooks and dynamic module injection."
               github="https://github.com/clevertree/hook-transpiler"
-              npm="https://www.npmjs.com/package/@clevertree/hook-transpiler"
+              npm={NPM_HOOK}
               cargo="https://crates.io/crates/relay-hook-transpiler"
             />
             <LibraryItem
@@ -161,14 +167,14 @@ export default function Home(props) {
               name="md2jsx"
               description="Flexible Markdown to JSX converter with support for custom React components and themes."
               github="https://github.com/clevertree/md2jsx"
-              npm="https://www.npmjs.com/package/@clevertree/md2jsx"
+              npm={NPM_MD2}
               cargo="https://crates.io/crates/md2jsx"
             />
             <LibraryItem
               name="themed-styler"
               description="Rust-powered WASM engine for dynamic theme generation and CSS variable management."
               github="https://github.com/clevertree/themed-styler"
-              npm="https://www.npmjs.com/package/@clevertree/themed-styler"
+              npm={NPM_THEME}
               cargo="https://crates.io/crates/themed-styler"
             />
           </div>
