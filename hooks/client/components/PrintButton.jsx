@@ -1,7 +1,13 @@
 import React from 'react'
+import { isClientLive } from '@clevertree/style-internal'
 import { IconFileDown, IconFileText, IconPrinter } from 'hooks/client/components/Icons.jsx'
 
+/**
+ * PDF/DOCX links work without JS. Print uses `relayAction="print"` → `data-relay-action`
+ * (host delegation) and stays disabled until `isClientLive()` after hydrate.
+ */
 export default function PrintButton() {
+  const live = isClientLive() === true
   return (
     <div id="ct-print-actions" className="ct-print-actions">
       <a
@@ -26,20 +32,9 @@ export default function PrintButton() {
         type="button"
         id="ct-print-button"
         className="ct-action-btn"
-        title="Print / Save as PDF"
-        onClick={() => {
-          try {
-            if (typeof document !== 'undefined') {
-              // Prefer browser print when available (window may be undeclared in CleverScript IR).
-              const w = globalThis
-              if (w && w.print) {
-                w.print()
-              }
-            }
-          } catch (e) {
-            /* print optional */
-          }
-        }}
+        title={live ? 'Print / Save as PDF' : 'Print available after page loads'}
+        disabled={!live}
+        dataRelayAction="print"
       >
         <IconPrinter />
         <span>Print</span>
