@@ -9,6 +9,9 @@ server:
   hooks:
     get:
       path: hooks/server/get.cs
+  # Opt-in shared HTTP-01 + cert fan-out for catalog domains[] (multi-node park).
+  tls:
+    plugin: park
 git:
   autoPush:
     branches: ["main", "release"]
