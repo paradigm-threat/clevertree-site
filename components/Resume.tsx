@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mail, Phone, MapPin, Github, Linkedin, Calendar, GraduationCap, Briefcase, Award, Music, Video, Star } from 'lucide-react'
+import { MapPin, GraduationCap, Briefcase, Award, Star } from 'lucide-react'
 import { Section, Card } from './ui'
 
 export const Resume = () => (
@@ -86,8 +86,7 @@ export const Resume = () => (
                                 <h4 className="font-bold text-lg">Jynx Younan</h4>
                                 <p className="text-muted-foreground text-xs uppercase font-semibold">Agile People Leader @ University of Phoenix</p>
                                 <div className="flex gap-4 mt-1 text-xs text-muted-foreground">
-                                    <span className="flex items-center gap-1"><Mail className="w-3 h-3" /> Jynx.Younan@phoenix.edu</span>
-                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> 602-557-1090</span>
+                                    <span>Available on request</span>
                                 </div>
                             </div>
                         </div>
@@ -101,8 +100,7 @@ export const Resume = () => (
                                 <h4 className="font-bold text-lg">Mike McDonald</h4>
                                 <p className="text-muted-foreground text-xs uppercase font-semibold">Software Architect @ Harkins Theatres</p>
                                 <div className="flex gap-4 mt-1 text-xs text-muted-foreground">
-                                    <span className="flex items-center gap-1"><Mail className="w-3 h-3" /> mikemcdonald@harkins.com</span>
-                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> 615-995-0639</span>
+                                    <span>Available on request</span>
                                 </div>
                             </div>
                         </div>

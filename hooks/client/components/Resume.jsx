@@ -110,14 +110,14 @@ export default function Resume() {
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
               Agile People Leader at University of Phoenix
             </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>Jynx.Younan [at] phoenix.edu · 602-557-1090</p>
+            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>Available on request</p>
           </div>
           <div className="ct-card">
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Mike McDonald</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
               Software Architect at Harkins Theatres
             </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>mikemcdonald [at] harkins.com · 615-995-0639</p>
+            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>Available on request</p>
             <blockquote className="ct-muted" style={{ fontStyle: 'italic', borderLeftWidth: 4, borderLeftStyle: 'solid', paddingLeft: '1rem', margin: 0, lineHeight: 1.6 }}>
               "Ari is the real deal and I can't imagine a company hiring him as a developer and being dissatisfied with his work. He turned a non-functional site into a functional one. In a high-stress environment he kept his cool and was able to meet all requirements asked of him."
             </blockquote>

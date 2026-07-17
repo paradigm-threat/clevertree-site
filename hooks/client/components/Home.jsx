@@ -5,7 +5,7 @@ import LibraryItem from 'hooks/client/components/LibraryItem.jsx'
 import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
 import PrintButton from 'hooks/client/components/PrintButton.jsx'
-import { IconGlobe, IconMail, IconPhone, IconGithub } from 'hooks/client/components/Icons.jsx'
+import { IconGlobe, IconMail, IconGithub } from 'hooks/client/components/Icons.jsx'
 
 function ContactLink(props) {
   const href = props.href || '#'
@@ -38,7 +38,7 @@ function ContactLink(props) {
 }
 
 export default function Home(props) {
-  const bio = props.bio || "I'm a full-stack developer with over 18 years of industrial experience. I consider programming to be a form of art requiring a creative mind. I work well with teams and just as well autonomously. I am a US citizen born in Texas. I would like to work long-term in a position of responsibility. My ambitions include designing music software and video games and studying history."
+  const bio = props.bio || "I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research."
   const year = props.year || '2026'
 
   return (
@@ -76,7 +76,6 @@ export default function Home(props) {
           <div className="ct-contacts md:ct-contacts-left">
             <ContactLink href="https://clevertree.net" label="clevertree.net" icon={<IconGlobe />} />
             <ContactLink href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" icon={<IconMail />} />
-            <ContactLink href="tel:602-632-6729" label="602-632-6729" icon={<IconPhone />} />
             <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" icon={<IconGithub />} />
           </div>
         </header>
@@ -85,9 +84,9 @@ export default function Home(props) {
           <div id="ct-projects" className="ct-projects md:ct-projects-md">
             <ProjectItem
               name="Forgotten Future"
-              description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
+              description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
               github="https://github.com/clevertree/forgotten-future"
-              website="https://ffga.me"
+              website="https://forgottenfuturebook.com"
               status="active"
             />
             <ProjectItem
@@ -99,9 +98,9 @@ export default function Home(props) {
             />
             <ProjectItem
               name="Relay"
-              description="A decentralized Web3.0 stack and social network architecture (relaynet.online)."
+              description="Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers."
               github="https://github.com/clevertree/relay"
-              website="https://relaynet.online"
+              website="https://relaygateway.net"
               status="active"
             />
             <ProjectItem
@@ -119,11 +118,11 @@ export default function Home(props) {
               status="published"
             />
             <ProjectItem
-              name="Song Walker"
-              description="Planned interactive music exploration platform and spatial audio visualizer."
-              github=""
-              website=""
-              status="planned"
+              name="SongWalker"
+              description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
+              github="https://github.com/clevertree/songwalker-core"
+              website="https://songwalker.net"
+              status="active"
             />
           </div>
         </Section>

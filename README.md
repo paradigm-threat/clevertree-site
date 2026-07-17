@@ -1,20 +1,20 @@
 # clevertree.net — Ari Asulin
 
-Personal website and portfolio for **Ari Asulin**, a full-stack developer with 18+ years of experience building free, high-performance open-source software.
+Personal website and portfolio for **Ari Asulin**, a full-stack engineer building free, high-performance open-source software.
 
 ## About
 
-I build free, high-performance alternatives to proprietary software. I consider programming to be a form of art requiring a creative mind. My ambitions include designing music software and video games and studying history.
+I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research.
 
 ## Active Projects
 
+- **[Forgotten Future](https://forgottenfuturebook.com)** — AI-driven interactive book and game with parallax scrolling and WebGL.
+- **[Paradigm Threat](https://paradigmthreat.net)** — An investigation repository and alternate history timeline compiled from ancient testimony.
+- **[Relay](https://relaygateway.net)** — Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers.
 - **[SongWalker](https://songwalker.net)** — A music programming language with a built-in Rust/WASM synthesis engine (oscillators, sampler, effects, 64-voice polyphony). Write music as code, render in the browser or as a VST3 plugin.
 - **[SNESology](https://snesology.net)** — A retro music composer using authentic Super Nintendo sound samples, powered by the SongWalker engine.
-- **[SongWalker VSTi](https://songwalker.net/vsti.html)** — Free open-source VST3/CLAP multi-timbral instrument plugin for DAWs.
-- **[Keyboard Prototype](https://songwalker.net/keyboard.html)** — A planned hardware keyboard instrument running Rust on embedded Daisy hardware — instant boot, stage-grade stability, no laptop required.
-- **[Forgotten Future](https://forgottenfuturebook.com)** — AI-driven interactive book and game project with parallax scrolling and WebGL.
-- **[Paradigm Threat](https://paradigmthreat.net)** — An investigation repository and alternate history timeline compiled from ancient testimony.
-- **[Relay](https://relaygateway.net)** — A decentralized Web3.0 stack and social network architecture.
+- **[Skinner Family Dental](https://skinnerfamilydental.com)** — Professional dental practice website with patient portals and appointment integration.
+- **[Gordonston Arts Fair](https://gordonstonartsfair.com)** — Annual arts community hub for Savannah's historic Gordonston neighborhood.
 
 ## Published Libraries
 
@@ -36,33 +36,12 @@ Membership on Patreon directly funds development of free music tools and open ha
 
 [clevertree.net](https://clevertree.net) · [songwalker.net](https://songwalker.net) · [snesology.net](https://snesology.net) · [GitHub](https://github.com/clevertree)
 
-## Relay hosting (CleverScript)
+## Development
 
-The portfolio UI is also implemented as CleverScript hooks for Relay SSR + client hydration:
-
-- Server: `hooks/server/get.cs` opts into `@relay/ssr` for browser HTML, `?embed=1`, and `/`
-- Client: `hooks/client/get.jsx` owns which markdown to load (route ≠ blob); components under `hooks/client/components/`
-- Content: `content/home.md`, `index.md`
-- Theme: `hooks/client/theme.yaml`
-
-Live Relay hosts (no DNS cutover of clevertree.net yet):
-
-- https://clevertree-site.dfw1.relaygateway.net/
-- https://clevertree-site.lon1.relaygateway.net/
-- https://clevertree-site.hkg1.relaygateway.net/
-- https://clevertree-site.dfw1.relaygateway.net/index.md (browser Accept → SSR; `curl` → raw markdown)
+Live site is CleverScript on [Relay](https://relaygateway.net) (`hooks/client/`). Legacy Next.js app under `app/` is retained for local preview only.
 
 ```bash
 npm install
-npm run test:e2e   # Playwright landmarks against SSR fixture
-```
-
-## Development (legacy Next.js)
-
-The Next.js app under `app/` remains for local comparison with the live site.
-
-```bash
-npm install
-npm run dev     # Next.js on http://localhost:3000 (if deps restored)
-npm run build
+npm run dev     # legacy Next.js preview on http://localhost:3000
+npm run build   # production build (legacy)
 ```

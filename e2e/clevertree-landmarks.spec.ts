@@ -84,7 +84,8 @@ test.describe('CleverTree CleverScript SSR landmarks', () => {
   test('SSR preserves contact schemes and emits responsive theme CSS', async ({ page }) => {
     await page.goto('/ssr-home.html')
     await expect(page.locator('a[href="mailto:ari.asulin@gmail.com"]')).toHaveCount(1)
-    await expect(page.locator('a[href="tel:602-632-6729"]')).toHaveCount(1)
+    await expect(page.locator('a[href="tel:602-632-6729"]')).toHaveCount(0)
+    await expect(page.locator('a[href="https://github.com/clevertree"]')).toHaveCount(1)
 
     const css = await page.locator('#relay-ssr-theme').textContent()
     expect(css).toContain('prefers-color-scheme: dark')

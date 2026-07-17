@@ -136,7 +136,7 @@ const doc = new Document({
                 spacing: { before: 0, after: 160 },
                 children: [
                     new TextRun({
-                        text: 'Full-stack developer with 18+ years of experience building production applications across web, mobile, and cloud platforms. Known for translating complex technical requirements into clear plans, bridging communication between engineering and stakeholders, and steering teams through delivery with honesty and accountability.',
+                        text: 'I build free, high-performance open-source software. Full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research.',
                         size: 19,
                         color: MUTED,
                         italics: true,

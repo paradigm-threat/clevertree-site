@@ -10,8 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Ari Asulin | Full Stack Developer',
-  description: 'The personal website and resume of Ari Asulin, a full stack developer with 18+ years of experience.',
+  title: 'Ari Asulin | Software Engineer',
+  description: 'Personal site of Ari Asulin — full-stack engineer building free, high-performance open-source software (Relay, music tools, interactive narrative).',
 }
 
 export const viewport: Viewport = {

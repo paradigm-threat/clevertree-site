@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { Github, Linkedin, Mail, Phone, MapPin, Globe } from 'lucide-react'
+import { Github, Mail, Globe } from 'lucide-react'
 import { Section } from '@/components/ui'
 import { ProjectItem, LibraryItem } from '@/components/Items'
 import { Resume } from '@/components/Resume'
@@ -33,13 +33,12 @@ export default function Home() {
                         </div>
 
                         <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
-                            I&apos;m a full-stack developer with over 18 years of industrial experience. I consider programming to be a form of art requiring a creative mind. I work well with teams and just as well autonomously. I am a US citizen born in Texas. I would like to work long-term in a position of responsibility. My ambitions include designing music software and video games and studying history.
+                            I build free, high-performance open-source software. I&apos;m a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research.
                         </p>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-4">
                             <ContactLink icon={<Globe size={18} />} href="https://clevertree.net" label="clevertree.net" />
                             <ContactLink icon={<Mail size={18} />} href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" />
-                            <ContactLink icon={<Phone size={18} />} href="tel:602-632-6729" label="602-632-6729" />
                             <ContactLink icon={<Github size={18} />} href="https://github.com/clevertree" label="github.com/clevertree" />
                         </div>
                     </div>
@@ -50,9 +49,9 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProjectItem
                             name="Forgotten Future"
-                            description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
+                            description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
                             github="https://github.com/clevertree/forgotten-future"
-                            website="https://ffga.me"
+                            website="https://forgottenfuturebook.com"
                             status="active"
                         />
                         <ProjectItem
@@ -64,9 +63,9 @@ export default function Home() {
                         />
                         <ProjectItem
                             name="Relay"
-                            description="A decentralized Web3.0 stack and social network architecture (relaynet.online)."
+                            description="Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers."
                             github="https://github.com/clevertree/relay"
-                            website="https://relaynet.online"
+                            website="https://relaygateway.net"
                             status="active"
                         />
                         <ProjectItem
@@ -82,9 +81,11 @@ export default function Home() {
                             status="published"
                         />
                         <ProjectItem
-                            name="Song Walker"
-                            description="Planned interactive music exploration platform and spatial audio visualizer."
-                            status="planned"
+                            name="SongWalker"
+                            description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
+                            github="https://github.com/clevertree/songwalker-core"
+                            website="https://songwalker.net"
+                            status="active"
                         />
                     </div>
                 </Section>
@@ -128,7 +129,7 @@ export default function Home() {
 
                 {/* Footer */}
                 <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm print-section">
-                    <p>© {new Date().getFullYear()} Ari Asulin. Built with Next.js & Tailwind CSS.</p>
+                    <p>© {new Date().getFullYear()} Ari Asulin. Built with CleverScript on Relay.</p>
                 </footer>
             </div>
         </main>
