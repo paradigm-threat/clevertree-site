@@ -1,66 +1,49 @@
 import React from 'react'
+import { IconFileDown, IconFileText, IconPrinter } from 'hooks/client/components/Icons.jsx'
 
 export default function PrintButton() {
   return (
-    <div id="ct-print-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <div id="ct-print-actions" className="ct-print-actions">
       <a
         href="/Ari-Asulin-Resume.pdf"
         download
-        className="ct-primary"
+        className="ct-action-btn ct-primary"
         title="Download PDF Resume"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.65rem 1rem',
-          borderRadius: '9999px',
-          fontWeight: '600',
-          fontSize: '0.875rem',
-          textDecoration: 'none',
-        }}
       >
-        PDF
+        <IconFileDown />
+        <span>PDF</span>
       </a>
       <a
         href="/Ari-Asulin-Resume.docx"
         download
-        className="ct-secondary"
+        className="ct-action-btn"
         title="Download DOCX Resume"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.65rem 1rem',
-          borderRadius: '9999px',
-          fontWeight: '600',
-          fontSize: '0.875rem',
-          textDecoration: 'none',
-          borderWidth: 1,
-          borderStyle: 'solid',
-        }}
       >
-        DOCX
+        <IconFileText />
+        <span>DOCX</span>
       </a>
-      <a
-        href="#ct-resume"
+      <button
+        type="button"
         id="ct-print-button"
-        className="ct-secondary"
-        title="Jump to resume (use browser Print for PDF)"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.65rem 1rem',
-          borderRadius: '9999px',
-          fontWeight: '600',
-          fontSize: '0.875rem',
-          borderWidth: 1,
-          borderStyle: 'solid',
-          textDecoration: 'none',
+        className="ct-action-btn"
+        title="Print / Save as PDF"
+        onClick={() => {
+          try {
+            if (typeof document !== 'undefined') {
+              // Prefer browser print when available (window may be undeclared in CleverScript IR).
+              const w = globalThis
+              if (w && w.print) {
+                w.print()
+              }
+            }
+          } catch (e) {
+            /* print optional */
+          }
         }}
       >
-        Print
-      </a>
+        <IconPrinter />
+        <span>Print</span>
+      </button>
     </div>
   )
 }

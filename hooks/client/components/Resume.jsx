@@ -1,9 +1,6 @@
 import React from 'react'
 import Section from 'hooks/client/components/Section.jsx'
 
-const JYNX_EMAIL = 'Jynx.Younan [at] phoenix.edu'
-const MIKE_EMAIL = 'mikemcdonald [at] harkins.com'
-
 function SkillGroup(props) {
   const title = props.title
   const skillsText = props.skillsText || ''
@@ -54,7 +51,7 @@ function EducationItem(props) {
 export default function Resume() {
   return (
     <Section title="Resume">
-      <div id="ct-resume" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem', fontSize: '0.875rem' }}>
+      <div id="ct-resume" className="ct-resume-grid md:ct-resume-md">
         <div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem' }}>Experience</h3>
           <ExperienceItem
@@ -113,14 +110,14 @@ export default function Resume() {
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
               Agile People Leader at University of Phoenix
             </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>{JYNX_EMAIL} · 602-557-1090</p>
+            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>Jynx.Younan [at] phoenix.edu · 602-557-1090</p>
           </div>
           <div className="ct-card">
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Mike McDonald</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
               Software Architect at Harkins Theatres
             </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>{MIKE_EMAIL} · 615-995-0639</p>
+            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: '0 0 0.75rem' }}>mikemcdonald [at] harkins.com · 615-995-0639</p>
             <blockquote className="ct-muted" style={{ fontStyle: 'italic', borderLeftWidth: 4, borderLeftStyle: 'solid', paddingLeft: '1rem', margin: 0, lineHeight: 1.6 }}>
               "Ari is the real deal and I can't imagine a company hiring him as a developer and being dissatisfied with his work. He turned a non-functional site into a functional one. In a high-stress environment he kept his cool and was able to meet all requirements asked of him."
             </blockquote>

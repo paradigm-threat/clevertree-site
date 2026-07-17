@@ -7,6 +7,7 @@
     { "path": "hooks/client/components/LibraryItem.jsx", "name": "LibraryItem" },
     { "path": "hooks/client/components/Resume.jsx", "name": "Resume" },
     { "path": "hooks/client/components/ThemeToggle.jsx", "name": "ThemeToggle" },
-    { "path": "hooks/client/components/PrintButton.jsx", "name": "PrintButton" }
+    { "path": "hooks/client/components/PrintButton.jsx", "name": "PrintButton" },
+    { "path": "hooks/client/components/Icons.jsx", "name": "Icons" }
   ]
 }

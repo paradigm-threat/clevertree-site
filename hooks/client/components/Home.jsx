@@ -5,55 +5,34 @@ import LibraryItem from 'hooks/client/components/LibraryItem.jsx'
 import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
 import PrintButton from 'hooks/client/components/PrintButton.jsx'
-
-const EMAIL = 'ari.asulin [at] gmail.com'
+import { IconGlobe, IconMail, IconPhone, IconGithub } from 'hooks/client/components/Icons.jsx'
 
 function ContactLink(props) {
   const href = props.href || '#'
   const label = props.label || ''
-  const external = props.external === true
-  if (external) {
+  const icon = props.icon
+  const isHttp = href.indexOf('http://') === 0 || href.indexOf('https://') === 0
+  const inner = (
+    <>
+      {icon}
+      <span>{label}</span>
+    </>
+  )
+  if (isHttp) {
     return (
       <a
         href={href}
-        className="ct-secondary"
+        className="ct-chip"
         target="_blank"
         rel="noopener noreferrer"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          padding: '0.4rem 0.75rem',
-          borderRadius: '9999px',
-          fontSize: '0.875rem',
-          fontWeight: '500',
-          borderWidth: 1,
-          borderStyle: 'solid',
-          textDecoration: 'none',
-        }}
       >
-        {label}
+        {inner}
       </a>
     )
   }
   return (
-    <a
-      href={href}
-      className="ct-secondary"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '0.5rem',
-        padding: '0.4rem 0.75rem',
-        borderRadius: '9999px',
-        fontSize: '0.875rem',
-        fontWeight: '500',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        textDecoration: 'none',
-      }}
-    >
-      {label}
+    <a href={href} className="ct-chip">
+      {inner}
     </a>
   )
 }
@@ -65,45 +44,45 @@ export default function Home(props) {
   return (
     <main className="ct-page" id="ct-home">
       <div className="ct-container">
-        <header style={{ marginBottom: '5rem' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+        <header className="ct-header">
+          <div className="ct-header-top md:ct-header-top-row">
+            <div className="ct-identity">
               <img
                 src="/logo/logo-text.png"
                 alt="CleverTree logo"
                 width="96"
                 height="96"
-                style={{ borderRadius: '0.375rem', width: '96px', height: '96px', objectFit: 'cover' }}
+                style={{ borderRadius: '0.375rem', width: '96px', height: '104px', objectFit: 'fill' }}
               />
-              <div>
-                <h1 id="ct-name" style={{ fontSize: '3.5rem', fontWeight: '800', letterSpacing: '-0.04em', margin: '0 0 0.35rem' }}>
+              <div className="ct-identity-text md:ct-identity-text-left">
+                <h1 id="ct-name" className="ct-name">
                   Ari Asulin
                 </h1>
-                <p className="ct-muted" style={{ fontSize: '1.5rem', fontWeight: '500', margin: 0 }}>
+                <p className="ct-muted ct-title">
                   Software Engineer
                 </p>
               </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div className="ct-actions">
               <ThemeToggle />
               <PrintButton />
             </div>
           </div>
 
-          <p className="ct-muted" id="ct-bio" style={{ fontSize: '1.125rem', lineHeight: 1.7, maxWidth: '48rem' }}>
+          <p className="ct-muted ct-bio md:ct-bio-left" id="ct-bio">
             {bio}
           </p>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '1.25rem' }}>
-            <ContactLink href="https://clevertree.net" label="clevertree.net" external={true} />
-            <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" external={true} />
-            <span className="ct-secondary" style={{ borderRadius: '9999px', padding: '0.4rem 0.75rem', fontSize: '0.875rem', fontWeight: '500', borderWidth: 1, borderStyle: 'solid' }}>{EMAIL}</span>
-            <span className="ct-secondary" style={{ borderRadius: '9999px', padding: '0.4rem 0.75rem', fontSize: '0.875rem', fontWeight: '500', borderWidth: 1, borderStyle: 'solid' }}>602-632-6729</span>
+          <div className="ct-contacts md:ct-contacts-left">
+            <ContactLink href="https://clevertree.net" label="clevertree.net" icon={<IconGlobe />} />
+            <ContactLink href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" icon={<IconMail />} />
+            <ContactLink href="tel:602-632-6729" label="602-632-6729" icon={<IconPhone />} />
+            <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" icon={<IconGithub />} />
           </div>
         </header>
 
         <Section title="Key Projects">
-          <div id="ct-projects" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+          <div id="ct-projects" className="ct-projects md:ct-projects-md">
             <ProjectItem
               name="Forgotten Future"
               description="AI-Driven Book and Game Project exploring interactive narrative through parallax scrolling and WebGL."
@@ -150,7 +129,7 @@ export default function Home(props) {
         </Section>
 
         <Section title="Published Libraries">
-          <div id="ct-libraries" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div id="ct-libraries" className="ct-libraries md:ct-libraries-md">
             <LibraryItem
               name="hook-transpiler"
               description="High-performance JSX/TSX transpiler optimized for Relay hooks and dynamic module injection."
@@ -186,17 +165,7 @@ export default function Home(props) {
           <Resume />
         </div>
 
-        <footer
-          className="ct-muted"
-          style={{
-            marginTop: '5rem',
-            paddingTop: '2rem',
-            borderTopWidth: 1,
-            borderTopStyle: 'solid',
-            textAlign: 'center',
-            fontSize: '0.875rem',
-          }}
-        >
+        <footer className="ct-muted ct-footer">
           <p style={{ margin: 0 }}>© {year} Ari Asulin. Built with CleverScript on Relay.</p>
         </footer>
       </div>

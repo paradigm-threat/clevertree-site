@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconGithub, IconCode, IconBox, IconLibrary } from 'hooks/client/components/Icons.jsx'
 
 export default function LibraryItem(props) {
   const name = props.name || ''
@@ -7,25 +8,28 @@ export default function LibraryItem(props) {
   const npm = props.npm || ''
   const cargo = props.cargo || ''
   return (
-    <div className="ct-card" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', padding: '1rem' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
-        <span style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontWeight: '700', fontSize: '1.125rem' }}>
-          {name}
-        </span>
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
+    <div className="ct-card ct-lib-card">
+      <div className="ct-lib-row">
+        <div className="ct-lib-name">
+          <span className="ct-lib-icon">
+            <IconLibrary />
+          </span>
+          <span className="ct-lib-mono">{name}</span>
+        </div>
+        <div className="ct-lib-links">
           {github !== '' ? (
-            <a className="ct-link" href={github} target="_blank" rel="noopener noreferrer" title="GitHub">
-              GH
+            <a className="ct-icon-link" href={github} target="_blank" rel="noopener noreferrer" title="GitHub">
+              <IconGithub />
             </a>
           ) : null}
           {npm !== '' ? (
-            <a className="ct-link" href={npm} target="_blank" rel="noopener noreferrer" title="NPM">
-              npm
+            <a className="ct-icon-link" href={npm} target="_blank" rel="noopener noreferrer" title="NPM">
+              <IconCode />
             </a>
           ) : null}
           {cargo !== '' ? (
-            <a className="ct-link" href={cargo} target="_blank" rel="noopener noreferrer" title="Crates.io">
-              crates
+            <a className="ct-icon-link" href={cargo} target="_blank" rel="noopener noreferrer" title="Crates.io">
+              <IconBox />
             </a>
           ) : null}
         </div>
