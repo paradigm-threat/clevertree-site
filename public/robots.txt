@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Ari-Asulin-Resume.docx
+Disallow: /Ari-Asulin-Resume.pdf
+
+Sitemap: https://clevertree.net/sitemap.xml
