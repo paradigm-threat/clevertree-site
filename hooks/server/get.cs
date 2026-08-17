@@ -15,28 +15,31 @@ function wantsSiteShell(ctx) {
   return false;
 }
 
-function requestHeader(ctx, name) {
+function hostName(ctx) {
+  var host = "";
   try {
     var headers = ctx.requestHeaders;
-    try {
-      var direct = headers[name];
-      if (direct) return direct;
-    } catch (e) {}
+    try { host = headers.host; } catch (e) {}
+    if (!host) {
+      try { host = headers.Host; } catch (e) {}
+    }
   } catch (e) {}
-  return "";
-}
-
-function hostName(ctx) {
-  var host = requestHeader(ctx, "host");
-  if (!host) host = requestHeader(ctx, "Host");
+  if (!host) return "";
   var colon = host.indexOf(":");
   if (colon > 0) host = host.slice(0, colon);
   return host.toLowerCase();
 }
 
 function forwardedProto(ctx) {
-  var proto = requestHeader(ctx, "x-forwarded-proto");
-  if (!proto) proto = requestHeader(ctx, "X-Forwarded-Proto");
+  var proto = "";
+  try {
+    var headers = ctx.requestHeaders;
+    try { proto = headers["x-forwarded-proto"]; } catch (e) {}
+    if (!proto) {
+      try { proto = headers["X-Forwarded-Proto"]; } catch (e) {}
+    }
+  } catch (e) {}
+  if (!proto) return "";
   var comma = proto.indexOf(",");
   if (comma > 0) proto = proto.slice(0, comma);
   return proto.trim().toLowerCase();
