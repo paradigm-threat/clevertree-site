@@ -12,9 +12,9 @@ I build free, high-performance open-source software. I'm a full-stack engineer w
 - **[Paradigm Threat](https://paradigmthreat.net)** — An investigation repository and alternate history timeline compiled from ancient testimony.
 - **[Relay](https://relaygateway.net)** — Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers.
 - **[SongWalker](https://songwalker.net)** — A music programming language with a built-in Rust/WASM synthesis engine (oscillators, sampler, effects, 64-voice polyphony). Write music as code, render in the browser or as a VST3 plugin.
-- **[SNESology](https://snesology.net)** — A retro music composer using authentic Super Nintendo sound samples, powered by the SongWalker engine.
+- **[SNESology](https://snesology.org)** — A retro music composer using authentic Super Nintendo sound samples, powered by the SongWalker engine.
 - **[Skinner Family Dental](https://skinnerfamilydental.com)** — Professional dental practice website with patient portals and appointment integration.
-- **[Gordonston Arts Fair](https://gordonstonartsfair.com)** — Annual arts community hub for Savannah's historic Gordonston neighborhood.
+- **[Gordonston Arts Fair](https://gordonstonartfair.com)** — Annual arts community hub for Savannah's historic Gordonston neighborhood.
 
 ## Published Libraries
 
@@ -34,7 +34,7 @@ Membership on Patreon directly funds development of free music tools and open ha
 
 ## Links
 
-[clevertree.net](https://clevertree.net) · [songwalker.net](https://songwalker.net) · [snesology.net](https://snesology.net) · [GitHub](https://github.com/clevertree)
+[clevertree.net](https://clevertree.net) · [songwalker.net](https://songwalker.net) · [snesology.net](https://snesology.org) · [GitHub](https://github.com/clevertree)
 
 ## Development
 

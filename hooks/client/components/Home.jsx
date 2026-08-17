@@ -114,7 +114,7 @@ export default function Home(props) {
               name="Gordonston Arts Fair"
               description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
               github=""
-              website="https://gordonstonartsfair.com"
+              website="https://gordonstonartfair.com"
               status="published"
             />
             <ProjectItem
