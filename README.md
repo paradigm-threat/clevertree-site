@@ -2,6 +2,8 @@
 
 Personal website and portfolio for **Ari Asulin**, a full-stack engineer building free, high-performance open-source software.
 
+**Assistants:** start at [`AGENTS.md`](AGENTS.md).
+
 ## About
 
 I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research.
