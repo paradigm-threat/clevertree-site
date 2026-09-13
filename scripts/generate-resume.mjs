@@ -136,7 +136,7 @@ const doc = new Document({
                 spacing: { before: 0, after: 160 },
                 children: [
                     new TextRun({
-                        text: 'I build free, high-performance open-source software. Full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research.',
+                        text: 'I build free, high-performance open-source software. Full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, and interactive narrative.',
                         size: 19,
                         color: MUTED,
                         italics: true,
@@ -248,22 +248,6 @@ const doc = new Document({
 
             new Paragraph({
                 spacing: { before: 160, after: 20 },
-                children: [
-                    bold('Jynx Younan', { size: 20 }),
-                    new TextRun({ text: '  —  Agile People Leader @ University of Phoenix', size: 18, color: MUTED }),
-                ],
-            }),
-            new Paragraph({
-                spacing: { before: 0, after: 80 },
-                children: [
-                    link('Jynx.Younan@phoenix.edu', 'mailto:Jynx.Younan@phoenix.edu'),
-                    muted('   ·   '),
-                    new TextRun({ text: '602-557-1090', size: 18, color: MUTED }),
-                ],
-            }),
-
-            new Paragraph({
-                spacing: { before: 80, after: 20 },
                 children: [
                     bold('Mike McDonald', { size: 20 }),
                     new TextRun({ text: '  —  Software Architect @ Harkins Theatres', size: 18, color: MUTED }),

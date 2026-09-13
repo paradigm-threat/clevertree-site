@@ -83,20 +83,6 @@ export const Resume = () => (
                                 <Star className="w-6 h-6 text-primary fill-primary" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-lg">Jynx Younan</h4>
-                                <p className="text-muted-foreground text-xs uppercase font-semibold">Agile People Leader @ University of Phoenix</p>
-                                <div className="flex gap-4 mt-1 text-xs text-muted-foreground">
-                                    <span>Available on request</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Card>
-                    <Card className="bg-primary/5 border-primary/20">
-                        <div className="flex items-start gap-4 mb-4">
-                            <div className="bg-primary/10 p-3 rounded-full">
-                                <Star className="w-6 h-6 text-primary fill-primary" />
-                            </div>
-                            <div>
                                 <h4 className="font-bold text-lg">Mike McDonald</h4>
                                 <p className="text-muted-foreground text-xs uppercase font-semibold">Software Architect @ Harkins Theatres</p>
                                 <div className="flex gap-4 mt-1 text-xs text-muted-foreground">

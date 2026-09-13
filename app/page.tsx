@@ -33,7 +33,7 @@ export default function Home() {
                         </div>
 
                         <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
-                            I build free, high-performance open-source software. I&apos;m a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research.
+                            I build free, high-performance open-source software. I&apos;m a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, and interactive narrative.
                         </p>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -53,13 +53,6 @@ export default function Home() {
                             github="https://github.com/clevertree/forgotten-future"
                             website="https://forgottenfuturebook.com"
                             status="active"
-                        />
-                        <ProjectItem
-                            name="Paradigm Threat"
-                            description="An investigation repository and alternate history timeline compiled from ancient testimony."
-                            github="https://github.com/clevertree/paradigm-threat"
-                            website="https://paradigmthreat.net"
-                            status="published"
                         />
                         <ProjectItem
                             name="Relay"

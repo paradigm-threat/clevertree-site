@@ -105,13 +105,6 @@ export default function Resume() {
           />
 
           <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', marginTop: '2rem' }}>Professional References</h3>
-          <div className="ct-card" style={{ marginBottom: '1rem' }}>
-            <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Jynx Younan</h4>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>
-              Agile People Leader at University of Phoenix
-            </p>
-            <p className="ct-muted" style={{ fontSize: '0.75rem', margin: 0 }}>Available on request</p>
-          </div>
           <div className="ct-card">
             <h4 style={{ fontWeight: '700', fontSize: '1.125rem', margin: '0 0 0.25rem' }}>Mike McDonald</h4>
             <p className="ct-muted" style={{ fontSize: '0.75rem', textTransform: 'uppercase', fontWeight: '600', margin: '0 0 0.5rem' }}>

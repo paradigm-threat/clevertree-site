@@ -38,7 +38,7 @@ function ContactLink(props) {
 }
 
 export default function Home(props) {
-  const bio = props.bio || "I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, interactive narrative, and history research."
+  const bio = props.bio || "I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, and interactive narrative."
   const year = props.year || '2026'
 
   return (
@@ -88,13 +88,6 @@ export default function Home(props) {
               github="https://github.com/clevertree/forgotten-future"
               website="https://forgottenfuturebook.com"
               status="active"
-            />
-            <ProjectItem
-              name="Paradigm Threat"
-              description="An investigation repository and alternate history timeline compiled from ancient testimony."
-              github="https://github.com/clevertree/paradigm-threat"
-              website="https://paradigmthreat.net"
-              status="published"
             />
             <ProjectItem
               name="Relay"
