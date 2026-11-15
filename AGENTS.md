@@ -1,6 +1,10 @@
 # Agent instructions
 
-Personal site (**clevertree.net**) — portfolio and project links.
+**clevertree.net** — Clevertree LLC software hub (`/`) and personal résumé (`/resume`).
+
+Live path is CleverScript (`hooks/client/`). Embeddable boards (Chat, SongWalker, TreeGrow) are **park-native** hosts under `hooks/client/native/` — stubs in JSX, logic in `*.host.js`. Gateway loads `park-host-common.js` when `data-relay-park-native` is present.
+
+Chat embed rule: **domain = embedding host**; embed params set **subpath only** (per-page channels).
 
 ---
 
@@ -14,4 +18,4 @@ Catalog repo **`clevertree-site`** · branch **`release`** · publish origin **`
 | 2 | **`git push iad1 HEAD:release`** first. |
 | 3 | **`git push gitlab HEAD:release`**. |
 
-*Last updated: 2026-08-23*
+*Last updated: 2026-11-15*

@@ -2,11 +2,11 @@ import React from 'react'
 import Section from 'hooks/client/components/Section.jsx'
 import ProjectItem from 'hooks/client/components/ProjectItem.jsx'
 import LibraryItem from 'hooks/client/components/LibraryItem.jsx'
-import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
-import PrintButton from 'hooks/client/components/PrintButton.jsx'
 import TreeGrow from 'hooks/client/components/TreeGrow.jsx'
-import { IconGlobe, IconMail, IconGithub } from 'hooks/client/components/Icons.jsx'
+import ChatEmbed from 'hooks/client/components/ChatEmbed.jsx'
+import SongWalkerEmbed from 'hooks/client/components/SongWalkerEmbed.jsx'
+import { IconGlobe, IconGithub } from 'hooks/client/components/Icons.jsx'
 
 function ContactLink(props) {
   const href = props.href || '#'
@@ -21,12 +21,7 @@ function ContactLink(props) {
   )
   if (isHttp) {
     return (
-      <a
-        href={href}
-        className="ct-chip"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={href} className="ct-chip" target="_blank" rel="noopener noreferrer">
         {inner}
       </a>
     )
@@ -39,8 +34,11 @@ function ContactLink(props) {
 }
 
 export default function Home(props) {
-  const bio = props.bio || "I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. Right now I'm focused on MyProblem and Clevertree Chat, with Relay and Paradigm Threat as the ongoing mesh and investigation stack."
+  const bio =
+    props.bio ||
+    'Clevertree LLC builds embeddable open-source software — standing debates, investigation mesh, and music-as-code — hosted on Relay.'
   const year = props.year || '2026'
+  const chatPath = props.chatPath || '/'
 
   return (
     <main className="ct-page" id="ct-home">
@@ -48,25 +46,19 @@ export default function Home(props) {
         <header className="ct-header">
           <div className="ct-header-top md:ct-header-top-row">
             <div className="ct-identity">
-              <img
-                src="/logo/logo-text.png"
-                alt="CleverTree logo"
-                width="96"
-                height="96"
-                style={{ borderRadius: '0.375rem', width: '96px', height: '104px', objectFit: 'fill' }}
-              />
+              <TreeGrow variant="logo" />
               <div className="ct-identity-text md:ct-identity-text-left">
                 <h1 id="ct-name" className="ct-name">
-                  Ari Asulin
+                  Clevertree LLC
                 </h1>
-                <p className="ct-muted ct-title">
-                  Software Engineer
-                </p>
+                <p className="ct-muted ct-title">Software Projects</p>
               </div>
             </div>
             <div className="ct-actions">
+              <a href="/resume" className="ct-action-btn ct-secondary">
+                Resume
+              </a>
               <ThemeToggle />
-              <PrintButton />
             </div>
           </div>
 
@@ -76,12 +68,25 @@ export default function Home(props) {
 
           <div className="ct-contacts md:ct-contacts-left">
             <ContactLink href="https://clevertree.net" label="clevertree.net" icon={<IconGlobe />} />
-            <ContactLink href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" icon={<IconMail />} />
             <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" icon={<IconGithub />} />
           </div>
         </header>
 
-        <TreeGrow />
+        <Section title="Try the embeds">
+          <p className="ct-muted" style={{ marginTop: 0, marginBottom: '1rem' }}>
+            Clevertree Chat mounts on any page: the channel follows this site’s path (domain is where it’s embedded). SongWalker shows the music UI; SNESology is the same engine.
+          </p>
+          <div className="ct-embed-stack">
+            <div className="ct-embed-panel">
+              <h3 className="ct-embed-label">Clevertree Chat</h3>
+              <ChatEmbed path={chatPath} />
+            </div>
+            <div className="ct-embed-panel">
+              <h3 className="ct-embed-label">SongWalker</h3>
+              <SongWalkerEmbed />
+            </div>
+          </div>
+        </Section>
 
         <Section title="Key Projects">
           <div id="ct-projects" className="ct-projects md:ct-projects-md">
@@ -100,13 +105,6 @@ export default function Home(props) {
               status="active"
             />
             <ProjectItem
-              name="Relay"
-              description="Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers."
-              github="https://github.com/clevertree/relay"
-              website="https://relaygateway.net"
-              status="active"
-            />
-            <ProjectItem
               name="Paradigm Threat"
               description="Investigation files, chronology, and park UI for alternate history — the corpus Relay and Clevertree Chat organize in public."
               github="https://github.com/paradigm-threat/paradigm-threat-files"
@@ -114,32 +112,11 @@ export default function Home(props) {
               status="active"
             />
             <ProjectItem
-              name="Forgotten Future"
-              description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
-              github="https://github.com/clevertree/forgotten-future"
-              website="https://forgottenfuturebook.com"
-              status="inactive"
-            />
-            <ProjectItem
-              name="SongWalker"
-              description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
-              github="https://github.com/clevertree/songwalker-core"
-              website="https://songwalker.net"
-              status="inactive"
-            />
-            <ProjectItem
-              name="Skinner Family Dental"
-              description="Professional dental practice website featuring patient portals and appointment integration."
-              github=""
-              website="https://skinnerfamilydental.com"
-              status="published"
-            />
-            <ProjectItem
-              name="Gordonston Arts Fair"
-              description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
-              github=""
-              website="https://gordonstonartfair.com"
-              status="published"
+              name="Relay"
+              description="Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers."
+              github="https://github.com/clevertree/relay"
+              website="https://relaygateway.net"
+              status="active"
             />
           </div>
         </Section>
@@ -177,12 +154,8 @@ export default function Home(props) {
           </div>
         </Section>
 
-        <div className="resume-section">
-          <Resume />
-        </div>
-
         <footer className="ct-muted ct-footer">
-          <p style={{ margin: 0 }}>© {year} Ari Asulin. Built with CleverScript on Relay.</p>
+          <p style={{ margin: 0 }}>© {year} Clevertree LLC. Built with CleverScript on Relay.</p>
         </footer>
       </div>
     </main>

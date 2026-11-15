@@ -1,6 +1,6 @@
 name: "CleverTree"
 version: "1.0.0"
-description: "Ari Asulin — full stack developer portfolio (18+ years). CleverScript on Relay."
+description: "Clevertree LLC software projects hub + /resume. CleverScript on Relay; park-native embeds."
 # Prefer a single public origin for crawlers and share cards.
 canonical: "https://clevertree.net/"
 client:

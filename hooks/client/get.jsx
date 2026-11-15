@@ -1,13 +1,13 @@
 /**
- * CleverTree client GET hook — portfolio UI (SSR + hydrate).
+ * CleverTree client GET hook — LLC landing + /resume (SSR + hydrate).
  *
- * Path is a *route*, not a blob to render. The shell may be entered via `/`,
- * `/index.md`, or any Accept:text/html markdown URL; this hook always owns
- * which markdown (if any) to load. Today every route shows Home + content/home.md.
+ * Path is a route. Embeds are park-native hosts (Chat / SongWalker); CleverScript
+ * owns page shells only.
  */
 import React from 'react'
 import StyleContext from '@clevertree/style'
 import Home from 'hooks/client/components/Home.jsx'
+import ResumePage from 'hooks/client/components/ResumePage.jsx'
 
 function bioFromMarkdown(text) {
   if (!text) return null
@@ -35,12 +35,35 @@ function bioFromMarkdown(text) {
   return paras.length ? paras[0] : null
 }
 
+function routePath() {
+  let raw = '/'
+  try {
+    if (typeof relayInitialPath === 'string' && relayInitialPath) {
+      raw = relayInitialPath
+    } else if (typeof location !== 'undefined' && location.pathname) {
+      raw = location.pathname
+    }
+  } catch (e) {
+    raw = '/'
+  }
+  let p = ('' + raw).split('?')[0].split('#')[0]
+  if (!p || p.charAt(0) !== '/') p = '/' + p
+  if (p.length > 1 && p.charAt(p.length - 1) === '/') p = p.slice(0, -1)
+  if (p === '/index.md' || p === '/index.html') return '/'
+  if (p.length > 3 && p.slice(-3) === '.md') p = p.slice(0, -3)
+  return p || '/'
+}
+
+function isResumePath(path) {
+  return path === '/resume'
+}
+
 export default function CleverTreeGet() {
-  // Future multi-page: branch on relayInitialPath / location.pathname.
-  // For now `/`, `/index.md`, and unknown clean paths all render Home.
+  const path = routePath()
+  const mdFile = isResumePath(path) ? 'content/resume.md' : 'content/home.md'
   let bio = null
   try {
-    const res = fetch('content/home.md')
+    const res = fetch(mdFile)
     if (res && res.ok === true && res.text) {
       bio = bioFromMarkdown(res.text)
     }
@@ -48,9 +71,17 @@ export default function CleverTreeGet() {
     bio = null
   }
 
+  if (isResumePath(path)) {
+    return (
+      <StyleContext src="hooks/client/theme.yaml">
+        <ResumePage bio={bio} year="2026" chatPath="/resume" />
+      </StyleContext>
+    )
+  }
+
   return (
     <StyleContext src="hooks/client/theme.yaml">
-      <Home bio={bio} year="2026" />
+      <Home bio={bio} year="2026" chatPath="/" />
     </StyleContext>
   )
 }

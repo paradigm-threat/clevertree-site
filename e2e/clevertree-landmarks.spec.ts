@@ -9,15 +9,16 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('CleverTree CleverScript SSR landmarks', () => {
-  test('no-JS shows portfolio landmarks', async ({ browser }) => {
+  test('no-JS shows LLC landing landmarks', async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false })
     const page = await context.newPage()
     await page.goto('/ssr-home.html')
-    await expect(page.locator('#ct-name')).toHaveText('Ari Asulin')
+    await expect(page.locator('#ct-name')).toHaveText('Clevertree LLC')
     await expect(page.locator('#ct-home')).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Key Projects' })).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Resume' })).toBeVisible()
-    await expect(page.getByText('Forgotten Future')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Try the embeds' })).toBeVisible()
+    await expect(page.getByText('Relay').first()).toBeVisible()
+    await expect(page.getByText('Skinner Family Dental')).toHaveCount(0)
     await expect(page.locator('#root')).toHaveAttribute('data-relay-ssr', '1')
     await context.close()
   })
@@ -25,9 +26,8 @@ test.describe('CleverTree CleverScript SSR landmarks', () => {
   test('theme toggle control is present for hydration', async ({ page }) => {
     await page.goto('/ssr-home.html')
     await expect(page.locator('#ct-theme-toggle')).toBeVisible()
-    await expect(page.locator('#ct-print-button')).toBeVisible()
     await expect(page.locator('#ct-projects')).toBeVisible()
-    await expect(page.locator('#ct-resume')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Resume' })).toBeVisible()
   })
 
   test('desktop no-JS geometry matches the production layout', async ({ browser }) => {
@@ -72,7 +72,6 @@ test.describe('CleverTree CleverScript SSR landmarks', () => {
     await page.goto('/ssr-home.html')
 
     await expect(page.locator('body')).toHaveCSS('width', '390px')
-    await expect(page.locator('header img')).toHaveCSS('height', '104px')
     await expect(page.locator('#ct-name')).toHaveCSS('font-size', '48px')
     await expect(page.locator('#ct-name')).toHaveCSS('line-height', '48px')
     await expect(page.locator('#ct-projects')).toHaveCSS('grid-template-columns', '358px')
@@ -83,9 +82,8 @@ test.describe('CleverTree CleverScript SSR landmarks', () => {
 
   test('SSR preserves contact schemes and emits responsive theme CSS', async ({ page }) => {
     await page.goto('/ssr-home.html')
-    await expect(page.locator('a[href="mailto:ari.asulin@gmail.com"]')).toHaveCount(1)
-    await expect(page.locator('a[href="tel:602-632-6729"]')).toHaveCount(0)
     await expect(page.locator('a[href="https://github.com/clevertree"]')).toHaveCount(1)
+    await expect(page.locator('a[href="tel:602-632-6729"]')).toHaveCount(0)
 
     const css = await page.locator('#relay-ssr-theme').textContent()
     expect(css).toContain('prefers-color-scheme: dark')

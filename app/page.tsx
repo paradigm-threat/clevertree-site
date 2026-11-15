@@ -1,50 +1,89 @@
 import React from 'react'
-import Image from 'next/image'
-import { Github, Mail, Globe } from 'lucide-react'
+import { Github, Globe } from 'lucide-react'
 import { Section } from '@/components/ui'
 import { ProjectItem, LibraryItem } from '@/components/Items'
-import { Resume } from '@/components/Resume'
-import { PrintButton } from '@/components/PrintButton'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import Link from 'next/link'
 
 export default function Home() {
     return (
         <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
             <div className="container mx-auto px-4 py-16 max-w-5xl page-content">
-                {/* Header/Bio Section */}
-                <header className="mb-20 flex flex-col md:flex-row items-center gap-12 relative">
-                    <div className="flex-1 space-y-6">
-                        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                            <div className="flex items-center justify-center md:justify-start gap-6">
-                                <Image src="/logo/logo-text.png" alt="CleverTree logo" width={96} height={96} className="rounded-md" />
-                                <div className="space-y-2 text-center md:text-left">
-                                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter">
-                                        Ari Asulin
-                                    </h1>
-                                    <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                                        Software Engineer
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex justify-center md:justify-end items-center gap-3">
-                                <ThemeToggle />
-                                <PrintButton />
+                <header className="mb-20 space-y-6">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                        <div className="flex items-center justify-center md:justify-start gap-6">
+                            <div
+                                className="rounded-md bg-secondary border shrink-0"
+                                style={{ width: 120, height: 120 }}
+                                aria-hidden
+                            />
+                            <div className="space-y-2 text-center md:text-left">
+                                <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter">
+                                    Clevertree LLC
+                                </h1>
+                                <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+                                    Software Projects
+                                </p>
                             </div>
                         </div>
-
-                        <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
-                            I build free, high-performance open-source software. I&apos;m a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. Right now I&apos;m focused on MyProblem and Clevertree Chat, with Relay and Paradigm Threat as the ongoing mesh and investigation stack.
-                        </p>
-
-                        <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                            <ContactLink icon={<Globe size={18} />} href="https://clevertree.net" label="clevertree.net" />
-                            <ContactLink icon={<Mail size={18} />} href="mailto:ari.asulin@gmail.com" label="ari.asulin@gmail.com" />
-                            <ContactLink icon={<Github size={18} />} href="https://github.com/clevertree" label="github.com/clevertree" />
+                        <div className="flex justify-center md:justify-end items-center gap-3">
+                            <Link
+                                href="/resume"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground border text-sm font-semibold"
+                            >
+                                Resume
+                            </Link>
+                            <ThemeToggle />
                         </div>
+                    </div>
+
+                    <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
+                        Clevertree LLC builds embeddable open-source software — standing debates, investigation mesh, and music-as-code — hosted on Relay.
+                    </p>
+
+                    <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                        <ContactLink icon={<Globe size={18} />} href="https://clevertree.net" label="clevertree.net" />
+                        <ContactLink icon={<Github size={18} />} href="https://github.com/clevertree" label="github.com/clevertree" />
                     </div>
                 </header>
 
-                {/* Projects Section */}
+                <Section title="Try the embeds" className="print-section">
+                    <p className="text-muted-foreground mb-4">
+                        Live CleverScript path mounts park-native Clevertree Chat (path = channel; domain = this site) and SongWalker. Open{' '}
+                        <a className="underline" href="https://clevertree.net/?embed=1">clevertree.net</a> for the interactive boards.
+                    </p>
+                    <div className="space-y-6">
+                        <div>
+                            <h3 className="font-bold text-lg mb-2">Clevertree Chat</h3>
+                            <a
+                                className="text-sm underline"
+                                href="https://clevertree.chat"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Open Clevertree Chat
+                            </a>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-lg mb-2">SongWalker</h3>
+                            <iframe
+                                className="w-full rounded-md border bg-card"
+                                style={{ height: '28rem' }}
+                                src="https://songwalker.net"
+                                title="SongWalker"
+                                loading="lazy"
+                            />
+                            <p className="text-sm text-muted-foreground mt-2">
+                                <a href="https://songwalker.net" target="_blank" rel="noopener noreferrer">songwalker.net</a>
+                                {' · '}
+                                Also:{' '}
+                                <a href="https://snesology.org" target="_blank" rel="noopener noreferrer">SNESology</a>
+                                {' '}(same software)
+                            </p>
+                        </div>
+                    </div>
+                </Section>
+
                 <Section title="Key Projects" className="print-section">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProjectItem
@@ -62,13 +101,6 @@ export default function Home() {
                             status="active"
                         />
                         <ProjectItem
-                            name="Relay"
-                            description="Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers."
-                            github="https://github.com/clevertree/relay"
-                            website="https://relaygateway.net"
-                            status="active"
-                        />
-                        <ProjectItem
                             name="Paradigm Threat"
                             description="Investigation files, chronology, and park UI for alternate history — the corpus Relay and Clevertree Chat organize in public."
                             github="https://github.com/paradigm-threat/paradigm-threat-files"
@@ -76,35 +108,15 @@ export default function Home() {
                             status="active"
                         />
                         <ProjectItem
-                            name="Forgotten Future"
-                            description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
-                            github="https://github.com/clevertree/forgotten-future"
-                            website="https://forgottenfuturebook.com"
-                            status="inactive"
-                        />
-                        <ProjectItem
-                            name="SongWalker"
-                            description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
-                            github="https://github.com/clevertree/songwalker-core"
-                            website="https://songwalker.net"
-                            status="inactive"
-                        />
-                        <ProjectItem
-                            name="Skinner Family Dental"
-                            description="Professional dental practice website featuring patient portals and appointment integration."
-                            website="https://skinnerfamilydental.com"
-                            status="published"
-                        />
-                        <ProjectItem
-                            name="Gordonston Arts Fair"
-                            description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
-                            website="https://gordonstonartfair.com"
-                            status="published"
+                            name="Relay"
+                            description="Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers."
+                            github="https://github.com/clevertree/relay"
+                            website="https://relaygateway.net"
+                            status="active"
                         />
                     </div>
                 </Section>
 
-                {/* Libraries Section */}
                 <Section title="Published Libraries" className="print-section">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <LibraryItem
@@ -136,14 +148,8 @@ export default function Home() {
                     </div>
                 </Section>
 
-                {/* Resume Section */}
-                <div className="resume-section">
-                    <Resume />
-                </div>
-
-                {/* Footer */}
                 <footer className="mt-20 pt-8 border-t text-center text-muted-foreground text-sm print-section">
-                    <p>© {new Date().getFullYear()} Ari Asulin. Built with CleverScript on Relay.</p>
+                    <p>© {new Date().getFullYear()} Clevertree LLC. Built with CleverScript on Relay.</p>
                 </footer>
             </div>
         </main>

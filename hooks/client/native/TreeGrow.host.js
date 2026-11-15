@@ -65,17 +65,30 @@
     })
   }
 
+  function isLogo(host) {
+    var size = (host && host.getAttribute('data-size')) || ''
+    if (size === 'logo') return true
+    var cls = (host && host.className) || ''
+    return String(cls).indexOf('ct-tree-logo') >= 0
+  }
+
   function ensureCanvas(host) {
     // Figure is flex + align-items:center (shrink-wrap). Use a real px box so
     // growHillTree does not measure a ~0-width host.
+    var logo = isLogo(host)
     var parent = host.parentElement
     var pw = parent && parent.clientWidth ? parent.clientWidth : 0
-    var box = pw > 80 ? Math.min(pw, 400) : 360
+    var box = logo ? 120 : pw > 80 ? Math.min(pw, 400) : 360
+    var height = logo ? 120 : 220
     host.style.display = 'block'
     host.style.boxSizing = 'border-box'
     host.style.width = box + 'px'
     host.style.maxWidth = '100%'
-    host.style.height = '220px'
+    host.style.height = height + 'px'
+    if (logo) {
+      host.style.minWidth = '96px'
+      host.style.flexShrink = '0'
+    }
     var canvas = host.querySelector('canvas')
     if (!canvas) {
       canvas = global.document.createElement('canvas')
@@ -86,7 +99,7 @@
     }
     canvas.style.display = 'block'
     canvas.style.width = '100%'
-    canvas.style.height = '220px'
+    canvas.style.height = height + 'px'
     return canvas
   }
 
@@ -117,6 +130,8 @@
       if (cls) el.className = String(cls)
       var label = props['aria-label'] || props.ariaLabel
       if (label) el.setAttribute('aria-label', String(label))
+      var size = props['data-size'] || props.size
+      if (size) el.setAttribute('data-size', String(size))
     }
     el.setAttribute('data-relay-park-native', NATIVE)
     // connectedCallback will boot; also kick immediately for replaceChildren paths
@@ -141,6 +156,7 @@
         var built = buildTreeGrow({
           className: host.className,
           'aria-label': host.getAttribute('aria-label'),
+          'data-size': host.getAttribute('data-size'),
         })
         host.replaceWith(built)
       }

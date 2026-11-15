@@ -1,24 +1,29 @@
-# clevertree.net — Ari Asulin
+# clevertree.net — Clevertree LLC
 
-Personal website and portfolio for **Ari Asulin**, a full-stack engineer building free, high-performance open-source software.
+Software projects hub for **Clevertree LLC**: embeddable Clevertree Chat, SongWalker, MyProblem, Paradigm Threat, and Relay.
 
 **Assistants:** start at [`AGENTS.md`](AGENTS.md).
 
-## About
+## Site map
 
-I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. Right now I'm focused on MyProblem and Clevertree Chat, with Relay and Paradigm Threat as the ongoing mesh and investigation stack.
+| Path | Content |
+|------|---------|
+| `/` | LLC landing — TreeGrow brand, live embeds (Chat + SongWalker), key projects |
+| `/resume` | Ari Asulin résumé + client sites (Skinner, Gordonston) |
 
 ## Active Projects
 
 - **[MyProblem](https://myproblem.app)** — Case intake and investigation tooling (photos, tickets, batch AI workers).
-- **[Clevertree Chat](https://clevertree.chat)** — Standing debates on a page; batch SI files perspectives and keeps the map fair.
-- **[Relay](https://relaygateway.net)** — Git-backed distributed hosting and social stack across a mesh of peers.
+- **[Clevertree Chat](https://clevertree.chat)** — Standing debates on a page; batch SI files perspectives and keeps the map fair. Embeds use the **host domain**; only the **page path** selects the channel.
 - **[Paradigm Threat](https://paradigmthreat.net)** — Investigation files, chronology, and park UI.
+- **[Relay](https://relaygateway.net)** — Git-backed distributed hosting and social stack across a mesh of peers.
 
-## Other / published
+## Embeds
 
-- **Forgotten Future**, **SongWalker**, **SNESology** — mostly inactive at the moment.
-- **[Skinner Family Dental](https://skinnerfamilydental.com)** · **[Gordonston Arts Fair](https://gordonstonartfair.com)** — published client sites.
+Home demos park-native embeds (`hooks/client/native/*Embed.host.js`):
+
+- **Clevertree Chat** — `data-path` = page subpath; domain = embedding site (`clevertree.net`).
+- **SongWalker** — songwalker.net UI iframe. **[SNESology](https://snesology.org)** is the same software (link only).
 
 ## Published Libraries
 
@@ -26,17 +31,17 @@ I build free, high-performance open-source software. I'm a full-stack engineer w
 |---------|-------------|-------|
 | **songwalker-core** | Rust core for the SongWalker music language — lexer, parser, compiler, DSP engine, WASM bindings | [GitHub](https://github.com/clevertree/songwalker-core) · [crates.io](https://crates.io/crates/songwalker_core) |
 | **songwalker-js** | JS/TS package: WASM bindings, preset loader, preset browser, Monaco integration | [GitHub](https://github.com/clevertree/songwalker-js) · [npm](https://www.npmjs.com/package/songwalker-js) |
-| **hook-transpiler** | High-performance JSX/TSX transpiler for Relay hooks | [GitHub](https://github.com/clevertree/hook-transpiler) · [npm](https://www.npmjs.com/package/@clevertree/hook-transpiler) · [crates.io](https://crates.io/crates/relay-hook-transpiler) |
-| **md2jsx** | Markdown to JSX converter with custom React component support | [GitHub](https://github.com/clevertree/md2jsx) · [npm](https://www.npmjs.com/package/@clevertree/md2jsx) · [crates.io](https://crates.io/crates/md2jsx) |
-| **themed-styler** | Rust/WASM engine for dynamic theme generation and CSS variable management | [GitHub](https://github.com/clevertree/themed-styler) · [npm](https://www.npmjs.com/package/@clevertree/themed-styler) · [crates.io](https://crates.io/crates/themed-styler) |
+| **hook-transpiler** | JSX/TSX transpiler for Relay hooks | [GitHub](https://github.com/clevertree/hook-transpiler) · [npm](https://www.npmjs.com/package/@clevertree/hook-transpiler) |
+| **md2jsx** | Markdown to JSX with custom React components | [GitHub](https://github.com/clevertree/md2jsx) |
+| **themed-styler** | Rust/WASM theme / CSS variable engine | [GitHub](https://github.com/clevertree/themed-styler) |
 
 ## Links
 
-[clevertree.net](https://clevertree.net) · [songwalker.net](https://songwalker.net) · [snesology.net](https://snesology.org) · [GitHub](https://github.com/clevertree)
+[clevertree.net](https://clevertree.net) · [songwalker.net](https://songwalker.net) · [snesology.org](https://snesology.org) · [GitHub](https://github.com/clevertree)
 
 ## Development
 
-Live site is CleverScript on [Relay](https://relaygateway.net) (`hooks/client/`). Legacy Next.js app under `app/` is retained for local preview only.
+Live site is CleverScript on [Relay](https://relaygateway.net) (`hooks/client/`). Embeddable UI is park-native (`hooks/client/native/`). Legacy Next.js under `app/` is local preview only.
 
 ```bash
 npm install

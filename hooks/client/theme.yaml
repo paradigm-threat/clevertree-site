@@ -265,6 +265,12 @@ themes:
         maxWidth: "100%"
         cursor: "pointer"
         borderRadius: "0.5rem"
+      ".ct-tree-logo":
+        height: "120px"
+        width: "120px"
+        minWidth: "96px"
+        maxWidth: "120px"
+        flexShrink: "0"
       "ct-tree-grow.ct-tree-canvas":
         display: "block"
         height: "220px"
@@ -278,14 +284,64 @@ themes:
         width: "min(100%, 400px)"
         minWidth: "280px"
         height: "220px"
+      "ct-tree-grow.ct-tree-logo":
+        height: "120px"
+        width: "120px"
+        minWidth: "96px"
+        maxWidth: "120px"
       "ct-tree-grow canvas":
         display: "block"
         width: "100%"
         height: "220px"
+      "ct-tree-grow.ct-tree-logo canvas":
+        height: "120px"
       ".ct-tree-caption":
         fontSize: "0.875rem"
         margin: 0
         textAlign: "center"
+      ".ct-embed-stack":
+        display: "flex"
+        flexDirection: "column"
+        gap: "2rem"
+        marginBottom: "1rem"
+      ".ct-embed-panel":
+        display: "flex"
+        flexDirection: "column"
+        gap: "0.75rem"
+        width: "100%"
+      ".ct-embed-label":
+        fontSize: "1.125rem"
+        fontWeight: "700"
+        margin: 0
+      ".ct-chat-embed":
+        minHeight: "28rem"
+        width: "100%"
+        borderWidth: 1
+        borderStyle: "solid"
+        borderColor: "var(border)"
+        borderRadius: "0.5rem"
+        overflow: "hidden"
+        backgroundColor: "var(card)"
+      ".ct-songwalker-embed":
+        display: "flex"
+        flexDirection: "column"
+        gap: "0.5rem"
+        width: "100%"
+      ".ct-songwalker-frame":
+        display: "block"
+        width: "100%"
+        height: "28rem"
+        borderWidth: 1
+        borderStyle: "solid"
+        borderColor: "var(border)"
+        borderRadius: "0.5rem"
+        backgroundColor: "var(card)"
+      ".ct-embed-footnote":
+        fontSize: "0.875rem"
+        margin: 0
+      ".ct-chat-embed-fallback":
+        fontSize: "0.875rem"
+        padding: "0 0.75rem 0.75rem"
       ".ct-section":
         marginBottom: "3rem"
       ".ct-section-title":
