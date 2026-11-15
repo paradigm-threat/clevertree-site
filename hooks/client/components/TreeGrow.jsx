@@ -8,7 +8,7 @@ function loadGrowScript() {
   if (document.querySelector('script[data-ct-grow-hill-tree="1"]')) return
   const s = document.createElement('script')
   s.src = SCRIPT_SRC
-  s.async = true
+  s.setAttribute('async', '')
   s.setAttribute('data-ct-grow-hill-tree', '1')
   document.head.appendChild(s)
 }
