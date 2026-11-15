@@ -1,30 +1,38 @@
 import React from 'react'
+import { isClientLive } from '@clevertree/style-internal'
 
 const SCRIPT_SRC = '/js/grow-hill-tree.js'
+const CANVAS_ID = 'ct-tree-grow'
 
-function loadGrowScript() {
-  if (typeof window === 'undefined') return
-  if (window.growHillTree) return
-  if (document.querySelector('script[data-ct-grow-hill-tree="1"]')) return
-  const s = document.createElement('script')
+function loadGrowScript(g) {
+  if (!g || !g.document) return
+  if (g.growHillTree) return
+  const doc = g.document
+  if (doc.querySelector('script[data-ct-grow-hill-tree="1"]')) return
+  const s = doc.createElement('script')
   s.src = SCRIPT_SRC
   s.setAttribute('data-ct-grow-hill-tree', '1')
-  document.head.appendChild(s)
+  doc.head.appendChild(s)
 }
 
-function startGrow(canvas) {
-  if (!canvas || canvas._ctGrowStarted) return
+function startGrow(canvas, g) {
+  if (!canvas || !g || canvas._ctGrowStarted) return
   canvas._ctGrowStarted = true
-  loadGrowScript()
+  loadGrowScript(g)
 
   let tries = 0
   const attempt = () => {
     tries += 1
-    if (typeof window !== 'undefined' && window.growHillTree) {
-      const reduce =
-        window.matchMedia &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      window.growHillTree(canvas, {
+    if (g.growHillTree) {
+      let reduce = false
+      try {
+        reduce =
+          g.matchMedia &&
+          g.matchMedia('(prefers-reduced-motion: reduce)').matches
+      } catch (e) {
+        reduce = false
+      }
+      g.growHillTree(canvas, {
         reduce: reduce,
         duration: 14000,
         delay: 200,
@@ -36,29 +44,43 @@ function startGrow(canvas) {
       })
       return
     }
-    if (tries < 40) {
-      setTimeout(attempt, 100)
+    if (tries < 40 && g.setTimeout) {
+      g.setTimeout(attempt, 100)
     }
   }
-  setTimeout(attempt, 0)
+  if (g.setTimeout) g.setTimeout(attempt, 0)
+}
+
+function scheduleGrow() {
+  try {
+    const g = globalThis
+    if (!g || !g.document || !g.setTimeout) return
+    g.setTimeout(() => {
+      const el = g.document.getElementById(CANVAS_ID)
+      if (el) startGrow(el, g)
+    }, 0)
+  } catch (e) {
+    /* decorative */
+  }
 }
 
 /**
  * Compact hillside tree (same grower as clevertree.chat/forest).
- * CleverScript: no class components, no `function` in JSX attrs, no `.async`.
+ * CleverScript SSR: no window/document identifiers, no class, no JSX function refs.
  * Click the canvas to regrow.
  */
 export default function TreeGrow(props) {
   const title = (props && props.title) || 'A tree grows'
+  if (isClientLive() === true) {
+    scheduleGrow()
+  }
   return (
     <figure className="ct-tree-figure" aria-label={title}>
       <canvas
+        id={CANVAS_ID}
         className="ct-tree-canvas"
         role="img"
         aria-label={title + ' — click to regrow'}
-        ref={(el) => {
-          if (el) startGrow(el)
-        }}
       />
       <figcaption className="ct-muted ct-tree-caption">
         Knowledge grows like a tree. Click to regrow.
