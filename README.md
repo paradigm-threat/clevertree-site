@@ -9,7 +9,7 @@ Software projects hub for **Clevertree LLC**: embeddable Clevertree Chat, SongWa
 | Path | Content |
 |------|---------|
 | `/` | LLC landing — TreeGrow brand, live embeds (Chat + SongWalker), key projects |
-| `/resume` | Ari Asulin résumé + client sites (Skinner, Gordonston) |
+| `/resume.md` | Ari Asulin résumé + client sites (Skinner, Gordonston) |
 
 ## Active Projects
 

@@ -28,7 +28,7 @@ export default function Home() {
                         </div>
                         <div className="flex justify-center md:justify-end items-center gap-3">
                             <Link
-                                href="/resume"
+                                href="/resume.md"
                                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground border text-sm font-semibold"
                             >
                                 Resume

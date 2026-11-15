@@ -8,4 +8,4 @@ Clevertree LLC builds embeddable open-source software — standing debates, inve
 
 - [clevertree.net](https://clevertree.net)
 - [github.com/clevertree](https://github.com/clevertree)
-- [Resume](/resume)
+- [Resume](/resume.md)

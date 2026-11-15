@@ -55,7 +55,7 @@ export default function Home(props) {
               </div>
             </div>
             <div className="ct-actions">
-              <a href="/resume" className="ct-action-btn ct-secondary">
+              <a href="/resume.md" className="ct-action-btn ct-secondary">
                 Resume
               </a>
               <ThemeToggle />
