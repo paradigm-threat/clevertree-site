@@ -15,7 +15,7 @@ export default function TreeGrow() {
         title={title + ' — click to regrow'}
         src="/js/ct-tree-frame.html"
         loading="lazy"
-        style={{ border: '0', width: '100%', maxWidth: '400px', height: '220px' }}
+        style={{ border: '0', width: '100%', maxWidth: '400px', height: '220px', background: 'transparent' }}
       />
       <figcaption className="ct-muted ct-tree-caption">
         Knowledge grows like a tree. Click to regrow.
