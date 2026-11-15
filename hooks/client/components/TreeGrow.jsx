@@ -1,5 +1,4 @@
 import React from 'react'
-import { isClientLive } from '@clevertree/style-internal'
 
 const SCRIPT_SRC = '/js/grow-hill-tree.js'
 const CANVAS_ID = 'ct-tree-grow'
@@ -77,9 +76,8 @@ function scheduleGrow() {
 export default function TreeGrow() {
   // CleverScript throws on missing props fields — no optional props.title.
   const title = 'A tree grows'
-  if (isClientLive() === true) {
-    scheduleGrow()
-  }
+  // scheduleGrow no-ops without document (SSR); starts on client render/hydrate.
+  scheduleGrow()
   return (
     <figure className="ct-tree-figure" aria-label={title}>
       <canvas
