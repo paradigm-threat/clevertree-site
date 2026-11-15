@@ -56,6 +56,13 @@ themes:
         justifyContent: "center"
         gap: "1.5rem"
         textAlign: "center"
+      ".ct-brand-mark":
+        display: "block"
+        width: "96px"
+        height: "96px"
+        objectFit: "contain"
+        flexShrink: "0"
+        borderRadius: "0.5rem"
       ".ct-identity-text":
         display: "flex"
         flexDirection: "column"

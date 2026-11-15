@@ -1,3 +1,9 @@
+---
+title: Clevertree LLC
+description: Clevertree LLC builds embeddable open-source software — standing debates, investigation mesh, and music-as-code — hosted on Relay.
+image: /logo/og.png
+---
+
 # Clevertree LLC
 
 **Software Projects**

@@ -22,6 +22,62 @@
     }
   }
 
+  function ensureBrandHeadLinks() {
+    try {
+      if (!global.document || !global.document.head) return
+      var head = global.document.head
+      if (head.querySelector('link[data-ct-brand-icons="1"]')) return
+
+      function addLink(attrs) {
+        var el = global.document.createElement('link')
+        for (var k in attrs) {
+          if (Object.prototype.hasOwnProperty.call(attrs, k)) {
+            el.setAttribute(k, attrs[k])
+          }
+        }
+        el.setAttribute('data-ct-brand-icons', '1')
+        head.appendChild(el)
+      }
+
+      addLink({ rel: 'icon', href: '/favicon.ico', sizes: 'any' })
+      addLink({
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png',
+      })
+      addLink({
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png',
+      })
+      addLink({ rel: 'apple-touch-icon', href: '/apple-touch-icon.png' })
+      addLink({ rel: 'manifest', href: '/site.webmanifest' })
+
+      if (!head.querySelector('meta[name="theme-color"]')) {
+        var theme = global.document.createElement('meta')
+        theme.name = 'theme-color'
+        theme.content = '#082538'
+        head.appendChild(theme)
+      }
+
+      // Share card when gateway SEO has no catalog poster for `/`.
+      if (!head.querySelector('meta[property="og:image"]')) {
+        var og = global.document.createElement('meta')
+        og.setAttribute('property', 'og:image')
+        og.content = 'https://clevertree.net/logo/og.png'
+        head.appendChild(og)
+        var tw = global.document.createElement('meta')
+        tw.setAttribute('name', 'twitter:image')
+        tw.content = 'https://clevertree.net/logo/og.png'
+        head.appendChild(tw)
+      }
+    } catch (e) {}
+  }
+
+  ensureBrandHeadLinks()
+
   var hosts = [
     '/hooks/client/native/TreeGrow.host.js?v=7',
     '/hooks/client/native/ChatEmbed.host.js?v=1',

@@ -45,6 +45,13 @@ export default function ResumePage(props) {
         <header className="ct-header">
           <div className="ct-header-top md:ct-header-top-row">
             <div className="ct-identity">
+              <img
+                className="ct-brand-mark"
+                src="/logo/tree-transparent-256.png"
+                alt="Clevertree LLC"
+                width="96"
+                height="96"
+              />
               <div className="ct-identity-text md:ct-identity-text-left">
                 <h1 id="ct-name" className="ct-name">
                   Ari Asulin
