@@ -1,22 +1,19 @@
 import React from 'react'
 
 /**
- * Compact hillside tree (same grower as clevertree.chat/forest).
- * Served via a static iframe so the animation does not depend on CleverScript
- * hydrate / isClientLive (handlers often stay disabled on SSR-kept shells).
- * Click the canvas to regrow.
+ * CleverScript stub for the portfolio hillside tree.
+ * Renders custom element <ct-tree-grow>; TreeGrow.host.js defines the web
+ * component and runs /js/grow-hill-tree.js (web only — no other platforms yet).
  */
 export default function TreeGrow() {
   const title = 'A tree grows'
   return (
     <figure className="ct-tree-figure" aria-label={title}>
-      <iframe
-        className="ct-tree-canvas"
-        title={title + ' — click to regrow'}
-        src="/js/ct-tree-frame.html"
-        loading="lazy"
-        style={{ border: '0', width: '100%', maxWidth: '400px', height: '220px', background: 'transparent' }}
-      />
+      {React.createElement('ct-tree-grow', {
+        className: 'ct-tree-canvas',
+        'data-relay-park-native': 'ct-tree-grow',
+        'aria-label': title + ' — click to regrow',
+      })}
       <figcaption className="ct-muted ct-tree-caption">
         Knowledge grows like a tree. Click to regrow.
       </figcaption>

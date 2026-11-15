@@ -1,79 +1,183 @@
 /**
- * Classic park-native boot for the portfolio hillside tree.
- * Runs outside CleverScript so hydrate timing cannot skip the animation.
+ * Web host + custom element for ct-tree-grow (portfolio hillside tree).
+ * CleverScript stub: hooks/client/components/TreeGrow.jsx
+ * Grower: /js/grow-hill-tree.js (no other platforms yet).
  */
-(function () {
-  var SCRIPT_SRC = '/js/grow-hill-tree.js'
-  var CANVAS_ID = 'ct-tree-grow'
-  var started = false
+(function (global) {
+  'use strict'
+
+  var GROW_SRC = '/js/grow-hill-tree.js'
+  var TAG = 'ct-tree-grow'
+  var NATIVE = 'ct-tree-grow'
 
   function loadGrowScript(done) {
-    if (typeof window.growHillTree === 'function') {
+    if (typeof global.growHillTree === 'function') {
       done()
       return
     }
-    if (document.querySelector('script[data-ct-grow-hill-tree="1"]')) {
+    if (global.document.querySelector('script[data-ct-grow-hill-tree="1"]')) {
       var n = 0
-      var t = setInterval(function () {
+      var t = global.setInterval(function () {
         n += 1
-        if (typeof window.growHillTree === 'function' || n > 50) {
-          clearInterval(t)
+        if (typeof global.growHillTree === 'function' || n > 50) {
+          global.clearInterval(t)
           done()
         }
       }, 100)
       return
     }
-    var s = document.createElement('script')
-    s.src = SCRIPT_SRC
+    var s = global.document.createElement('script')
+    s.src = GROW_SRC
     s.setAttribute('data-ct-grow-hill-tree', '1')
-    s.onload = function () { done() }
-    s.onerror = function () { done() }
-    document.head.appendChild(s)
+    s.onload = function () {
+      done()
+    }
+    s.onerror = function () {
+      done()
+    }
+    global.document.head.appendChild(s)
   }
 
-  function boot() {
-    var canvas = document.getElementById(CANVAS_ID)
-    if (!canvas) return false
-    if (canvas._ctGrowStarted) return true
-    if (typeof window.growHillTree !== 'function') return false
-    canvas._ctGrowStarted = true
-    started = true
-    var reduce = false
+  function readReduce() {
     try {
-      reduce =
-        window.matchMedia &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      return !!(
+        global.matchMedia &&
+        global.matchMedia('(prefers-reduced-motion: reduce)').matches
+      )
     } catch (e) {
-      reduce = false
+      return false
     }
-    window.growHillTree(canvas, {
-      reduce: reduce,
+  }
+
+  function startGrow(canvas) {
+    if (!canvas || canvas._ctGrowStarted) return
+    if (typeof global.growHillTree !== 'function') return
+    canvas._ctGrowStarted = true
+    global.growHillTree(canvas, {
+      reduce: readReduce(),
       duration: 14000,
       delay: 200,
       leafPalette: 'oak',
       habit: 0.45,
       branchiness: 0.55,
       clickable: true,
-      shade: true
+      shade: true,
     })
-    return true
   }
 
-  function tick(left) {
-    if (boot()) return
-    if (left <= 0) return
-    setTimeout(function () { tick(left - 1) }, 100)
+  function ensureCanvas(host) {
+    var canvas = host.querySelector('canvas')
+    if (canvas) return canvas
+    canvas = global.document.createElement('canvas')
+    canvas.setAttribute('role', 'img')
+    var label = host.getAttribute('aria-label') || 'A tree grows — click to regrow'
+    canvas.setAttribute('aria-label', label)
+    host.appendChild(canvas)
+    return canvas
   }
 
-  function start() {
+  function bootHost(host) {
+    if (!host || host.getAttribute('data-ct-tree-upgraded') === '1') return
+    host.setAttribute('data-ct-tree-upgraded', '1')
+    var canvas = ensureCanvas(host)
     loadGrowScript(function () {
-      tick(80)
+      startGrow(canvas)
     })
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start)
-  } else {
-    start()
+  function buildTreeGrow(props) {
+    var el = global.document.createElement(TAG)
+    if (props) {
+      var cls = props.className || props['class']
+      if (cls) el.className = String(cls)
+      var label = props['aria-label'] || props.ariaLabel
+      if (label) el.setAttribute('aria-label', String(label))
+    }
+    el.setAttribute('data-relay-park-native', NATIVE)
+    // connectedCallback will boot; also kick immediately for replaceChildren paths
+    global.setTimeout(function () {
+      bootHost(el)
+    }, 0)
+    return el
   }
-})()
+
+  function upgradePlaceholders() {
+    try {
+      var nodes = global.document.querySelectorAll(
+        '[data-relay-park-native="' + NATIVE + '"]',
+      )
+      for (var i = 0; i < nodes.length; i++) {
+        var host = nodes[i]
+        if (host.tagName && host.tagName.toLowerCase() === TAG) {
+          bootHost(host)
+          continue
+        }
+        if (host.getAttribute('data-ct-tree-upgraded') === '1') continue
+        var built = buildTreeGrow({
+          className: host.className,
+          'aria-label': host.getAttribute('aria-label'),
+        })
+        host.replaceWith(built)
+      }
+    } catch (e) {}
+  }
+
+  function defineElement() {
+    if (!global.customElements) return
+    if (global.customElements.get(TAG)) return
+    global.customElements.define(
+      TAG,
+      class extends global.HTMLElement {
+        connectedCallback() {
+          bootHost(this)
+        }
+        disconnectedCallback() {
+          var canvas = this.querySelector('canvas')
+          if (canvas && typeof canvas._growStop === 'function') {
+            try {
+              canvas._growStop()
+            } catch (e) {}
+          }
+        }
+      },
+    )
+  }
+
+  function register() {
+    defineElement()
+    var reg = global.__relayRegisterParkNative
+    if (typeof reg === 'function') {
+      reg(NATIVE, buildTreeGrow)
+      reg(TAG, buildTreeGrow)
+    }
+    upgradePlaceholders()
+  }
+
+  function boot() {
+    register()
+    var n = 0
+    var t = global.setInterval(function () {
+      register()
+      n += 1
+      if (typeof global.__relayRegisterParkNative === 'function' || n > 80) {
+        global.clearInterval(t)
+      }
+    }, 50)
+    var sched = global.__fbScheduleParkNativeReupgrade
+    if (typeof sched === 'function') {
+      sched(function () {
+        register()
+      })
+    }
+  }
+
+  if (typeof global.document !== 'undefined') {
+    if (global.document.readyState === 'loading') {
+      global.document.addEventListener('DOMContentLoaded', boot)
+    } else {
+      boot()
+    }
+  } else {
+    register()
+  }
+})(typeof globalThis !== 'undefined' ? globalThis : this)
