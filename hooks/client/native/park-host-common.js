@@ -79,7 +79,7 @@
   ensureBrandHeadLinks()
 
   var hosts = [
-    '/hooks/client/native/TreeGrow.host.js?v=8',
+    '/hooks/client/native/TreeGrow.host.js?v=9',
     '/hooks/client/native/ChatEmbed.host.js?v=1',
     '/hooks/client/native/SongWalkerEmbed.host.js?v=1',
   ]

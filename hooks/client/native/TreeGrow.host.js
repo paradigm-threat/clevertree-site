@@ -122,8 +122,19 @@
 
   function bootHost(host) {
     if (!host) return
+    var kind = sizeKind(host)
     var canvas = ensureCanvas(host)
-    if (canvas._ctGrowStarted && canvas.width > 40) return
+    if (canvas._ctGrowStarted && canvas.width > 40) {
+      // Tip host may load after a cached host already started a tiny figure canvas.
+      if (!(kind === 'hero' && (canvas.height < 260 || host.clientHeight < 260))) {
+        return
+      }
+      if (typeof canvas._growStop === 'function') {
+        try {
+          canvas._growStop()
+        } catch (e) {}
+      }
+    }
     canvas._ctGrowStarted = false
     host.setAttribute('data-ct-tree-upgraded', '1')
     loadGrowScript(function () {
