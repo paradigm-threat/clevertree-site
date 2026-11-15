@@ -87,12 +87,17 @@
   function loadHost(src) {
     if (!global.document) return
     if (global.document.querySelector('script[src="' + src + '"]')) return
-    // Also match without query for TreeGrow mirrors
+    // Gateway may already inject TreeGrow.host.js?v=6 in the HTML. Still load the
+    // tip host (?v=9+) so hero sizing / reboot logic wins after the cached host.
     var base = src.split('?')[0]
-    var existing = global.document.querySelectorAll('script[src]')
-    for (var i = 0; i < existing.length; i++) {
-      var s = existing[i].getAttribute('src') || ''
-      if (s.indexOf(base) >= 0) return
+    var forceTip =
+      base.indexOf('TreeGrow.host.js') >= 0 && src.indexOf('?v=') >= 0
+    if (!forceTip) {
+      var existing = global.document.querySelectorAll('script[src]')
+      for (var i = 0; i < existing.length; i++) {
+        var s = existing[i].getAttribute('src') || ''
+        if (s.indexOf(base) >= 0) return
+      }
     }
     var el = global.document.createElement('script')
     el.src = src
