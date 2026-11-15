@@ -55,14 +55,25 @@ function startGrow(canvas, g) {
   tryGrow(canvas, g, 40)
 }
 
+function findAndStart(g, triesLeft) {
+  if (!g || !g.document) return
+  const el = g.document.getElementById(CANVAS_ID)
+  // Keep polling: hydrate may replace the SSR canvas with a fresh node.
+  if (el) startGrow(el, g)
+  if (triesLeft > 0 && g.setTimeout) {
+    g.setTimeout(() => {
+      findAndStart(g, triesLeft - 1)
+    }, 100)
+  }
+}
+
 function scheduleGrow() {
   try {
     const g = globalThis
     if (!g || !g.document || !g.setTimeout) return
-    g.setTimeout(() => {
-      const el = g.document.getElementById(CANVAS_ID)
-      if (el) startGrow(el, g)
-    }, 0)
+    loadGrowScript(g)
+    // Poll: hydrate may replace the canvas after the first paint.
+    findAndStart(g, 50)
   } catch (e) {
     /* decorative */
   }
