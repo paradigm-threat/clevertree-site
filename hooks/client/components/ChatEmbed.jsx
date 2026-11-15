@@ -1,7 +1,8 @@
 /**
- * CleverScript stub — mounts Clevertree Chat for this page's channel.
+ * CleverScript stub for Clevertree Chat.
+ * CleverScript cannot parse hyphenated custom-element tags in JSX, so the stub
+ * emits a div placeholder; ChatEmbed.host.js defines <ct-chat-embed> and upgrades.
  * Domain = embedding host; only the subpath is passed (data-path).
- * Host: hooks/client/native/ChatEmbed.host.js
  */
 import React from 'react'
 

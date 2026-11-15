@@ -1,10 +1,12 @@
 /**
- * Web host for ct-chat-embed — wires Clevertree Chat snippet to the host page path.
- * Domain comes from location (where the board is embedded); data-path sets subpath only.
+ * Web host + custom element for ct-chat-embed — Clevertree Chat board.
+ * CleverScript stub: hooks/client/components/ChatEmbed.jsx
+ * Domain = embedding host; data-path sets subpath only.
  */
 (function (global) {
   'use strict'
 
+  var TAG = 'ct-chat-embed'
   var NATIVE = 'ct-chat-embed'
   var API_BASE = 'https://api.clevertree.chat'
   var CSS_HREF = API_BASE + '/fronts/snippet/clevertree-board.css'
@@ -46,27 +48,38 @@
     global.document.head.appendChild(link)
   }
 
+  function remountBoards() {
+    if (
+      typeof global.ClevertreeBoard === 'object' &&
+      typeof global.ClevertreeBoard.boot === 'function'
+    ) {
+      try {
+        global.ClevertreeBoard.boot()
+      } catch (e) {}
+    }
+  }
+
   function ensureJs(done) {
     if (!global.document) {
+      if (done) done()
+      return
+    }
+    if (global.__ctBoardSnippetReady) {
+      remountBoards()
       if (done) done()
       return
     }
     var existing = global.document.querySelector('script[data-ct-clevertree-board="1"]')
     if (existing) {
       if (existing.getAttribute('data-ready') === '1') {
-        // Re-run snippet IIFE so newly configured boards mount (skips _boardMounted).
-        var again = global.document.createElement('script')
-        again.src = JS_SRC + '?remount=' + String(Date.now())
-        again.onload = function () {
-          if (done) done()
-        }
-        again.onerror = function () {
-          if (done) done()
-        }
-        global.document.head.appendChild(again)
+        global.__ctBoardSnippetReady = true
+        remountBoards()
+        if (done) done()
         return
       }
       existing.addEventListener('load', function () {
+        global.__ctBoardSnippetReady = true
+        remountBoards()
         if (done) done()
       })
       return
@@ -76,6 +89,8 @@
     s.setAttribute('data-ct-clevertree-board', '1')
     s.onload = function () {
       s.setAttribute('data-ready', '1')
+      global.__ctBoardSnippetReady = true
+      remountBoards()
       if (done) done()
     }
     s.onerror = function () {
@@ -93,7 +108,6 @@
     el.setAttribute('data-api-base', API_BASE)
     el.setAttribute('data-url', url)
     el.setAttribute('data-page-scope', 'path')
-    // Never invent a foreign domain — strip if a caller tried.
     try {
       var parsed = new global.URL(url)
       var hostOrigin = embedOrigin()
@@ -120,8 +134,14 @@
   }
 
   function bootHost(el) {
-    if (!el || el.getAttribute('data-ct-chat-upgraded') === '1') return
+    if (!el) return
+    if (el.getAttribute('data-ct-chat-upgraded') === '1') {
+      // Tip host may load after a cached host already marked upgraded with no board.
+      if (el.querySelector('.ct-app,[data-live]')) return
+      if (el.querySelector('[data-clevertree-board] .ct-app')) return
+    }
     el.setAttribute('data-ct-chat-upgraded', '1')
+    el.setAttribute('data-relay-park-native', NATIVE)
     configureBoard(el)
     ensureCss()
     ensureJs(function () {
@@ -130,7 +150,7 @@
   }
 
   function buildChatEmbed(props) {
-    var el = global.document.createElement('div')
+    var el = global.document.createElement(TAG)
     el.className = 'ct-chat-embed'
     el.setAttribute('data-relay-park-native', NATIVE)
     el.setAttribute('data-page-scope', 'path')
@@ -140,8 +160,13 @@
       else if (props['data-path'] != null) path = String(props['data-path'])
       var cls = props.className || props['class']
       if (cls) el.className = String(cls)
+      var label = props['aria-label'] || props.ariaLabel
+      if (label) el.setAttribute('aria-label', String(label))
     }
     el.setAttribute('data-path', normalizePath(path))
+    if (!el.getAttribute('aria-label')) {
+      el.setAttribute('aria-label', 'Clevertree Chat debate board')
+    }
     global.setTimeout(function () {
       bootHost(el)
     }, 0)
@@ -154,15 +179,43 @@
         '[data-relay-park-native="' + NATIVE + '"]',
       )
       for (var i = 0; i < nodes.length; i++) {
-        bootHost(nodes[i])
+        var host = nodes[i]
+        if (host.tagName && host.tagName.toLowerCase() === TAG) {
+          bootHost(host)
+          continue
+        }
+        if (host.getAttribute('data-ct-chat-upgraded') === '1' && host.querySelector('.ct-app')) {
+          continue
+        }
+        var built = buildChatEmbed({
+          className: host.className,
+          'data-path': host.getAttribute('data-path') || '/',
+          'aria-label': host.getAttribute('aria-label'),
+        })
+        host.replaceWith(built)
       }
     } catch (e) {}
   }
 
+  function defineElement() {
+    if (!global.customElements) return
+    if (global.customElements.get(TAG)) return
+    global.customElements.define(
+      TAG,
+      class extends global.HTMLElement {
+        connectedCallback() {
+          bootHost(this)
+        }
+      },
+    )
+  }
+
   function register() {
+    defineElement()
     var reg = global.__relayRegisterParkNative
     if (typeof reg === 'function') {
       reg(NATIVE, buildChatEmbed)
+      reg(TAG, buildChatEmbed)
     }
     upgradePlaceholders()
   }

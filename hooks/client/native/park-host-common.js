@@ -80,18 +80,20 @@
 
   var hosts = [
     '/hooks/client/native/TreeGrow.host.js?v=9',
-    '/hooks/client/native/ChatEmbed.host.js?v=1',
+    '/hooks/client/native/ChatEmbed.host.js?v=2',
     '/hooks/client/native/SongWalkerEmbed.host.js?v=1',
   ]
 
   function loadHost(src) {
     if (!global.document) return
     if (global.document.querySelector('script[src="' + src + '"]')) return
-    // Gateway may already inject TreeGrow.host.js?v=6 in the HTML. Still load the
-    // tip host (?v=9+) so hero sizing / reboot logic wins after the cached host.
+    // Gateway may already inject an older ?v= host. Still load the tip host so
+    // custom-element / sizing fixes win after the cached host.
     var base = src.split('?')[0]
     var forceTip =
-      base.indexOf('TreeGrow.host.js') >= 0 && src.indexOf('?v=') >= 0
+      (base.indexOf('TreeGrow.host.js') >= 0 ||
+        base.indexOf('ChatEmbed.host.js') >= 0) &&
+      src.indexOf('?v=') >= 0
     if (!forceTip) {
       var existing = global.document.querySelectorAll('script[src]')
       for (var i = 0; i < existing.length; i++) {
