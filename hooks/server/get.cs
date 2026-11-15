@@ -1,5 +1,8 @@
 import { markdownHtmlFromGetContext } from '@relay/md';
 import { ssrClientHookFromGetContext } from '@relay/ssr';
+import { pinnedPrefix } from '@relay/web-assets';
+// Opt-in: commit-pinned embed + shared mesh chat hosts (assets/chat/*).
+void pinnedPrefix;
 
 // server.hooks.get — CleverTree app shell: SSR client hook for browser HTML / ?embed=1 / `/`.
 // CleverScript throws on missing object properties — guard flag reads.

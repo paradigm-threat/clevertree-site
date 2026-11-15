@@ -1165,4 +1165,34 @@ if (typeof window !== "undefined") {
   window.TREE_LEAF_PALETTE_NAMES = TREE_LEAF_PALETTE_NAMES;
   window.resolveLeafPalette = resolveLeafPalette;
   window.prefersDarkScheme = prefersDarkScheme;
+
+  /** Auto-start portfolio canvas (#ct-tree-grow) when this script loads. */
+  function bootCtPortfolioTree() {
+    var canvas = document.getElementById("ct-tree-grow");
+    if (!canvas || canvas._ctGrowStarted) return;
+    canvas._ctGrowStarted = true;
+    var reduce = false;
+    try {
+      reduce =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (e) {
+      reduce = false;
+    }
+    growHillTree(canvas, {
+      reduce: reduce,
+      duration: 14000,
+      delay: 200,
+      leafPalette: "oak",
+      habit: 0.45,
+      branchiness: 0.55,
+      clickable: true,
+      shade: true
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootCtPortfolioTree);
+  } else {
+    bootCtPortfolioTree();
+  }
 }
