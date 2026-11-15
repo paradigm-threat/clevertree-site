@@ -440,15 +440,9 @@ themes:
         flexDirection: "column"
         gap: "0.5rem"
         width: "100%"
-      ".ct-songwalker-frame":
-        display: "block"
-        width: "100%"
-        height: "28rem"
-        borderWidth: 1
-        borderStyle: "solid"
-        borderColor: "var(border)"
-        borderRadius: "0.5rem"
-        backgroundColor: "var(card)"
+        minHeight: "28rem"
+      # Frame chrome is applied inline by SongWalkerEmbed.host.js — themed-styler
+      # drops .ct-songwalker-frame because the iframe is not present in SSR HTML.
       ".ct-embed-footnote":
         fontSize: "0.875rem"
         margin: 0

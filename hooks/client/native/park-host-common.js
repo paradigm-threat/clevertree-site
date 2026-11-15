@@ -81,7 +81,7 @@
   var hosts = [
     '/hooks/client/native/TreeGrow.host.js?v=9',
     '/hooks/client/native/ChatEmbed.host.js?v=2',
-    '/hooks/client/native/SongWalkerEmbed.host.js?v=1',
+    '/hooks/client/native/SongWalkerEmbed.host.js?v=2',
   ]
 
   function loadHost(src) {
@@ -92,7 +92,8 @@
     var base = src.split('?')[0]
     var forceTip =
       (base.indexOf('TreeGrow.host.js') >= 0 ||
-        base.indexOf('ChatEmbed.host.js') >= 0) &&
+        base.indexOf('ChatEmbed.host.js') >= 0 ||
+        base.indexOf('SongWalkerEmbed.host.js') >= 0) &&
       src.indexOf('?v=') >= 0
     if (!forceTip) {
       var existing = global.document.querySelectorAll('script[src]')
