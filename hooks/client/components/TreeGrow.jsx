@@ -101,6 +101,17 @@ export default function TreeGrow() {
         role="img"
         aria-label={title + ' — click to regrow'}
       />
+      {/* onLoad fires after hydrate attaches handlers — boots grow without isClientLive. */}
+      <img
+        alt=""
+        width="1"
+        height="1"
+        src="/logo/logo-text.png"
+        style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none' }}
+        onLoad={() => {
+          scheduleGrow()
+        }}
+      />
       <figcaption className="ct-muted ct-tree-caption">
         Knowledge grows like a tree. Click to regrow.
       </figcaption>
