@@ -260,19 +260,24 @@ themes:
       ".ct-tree-canvas":
         display: "block"
         height: "220px"
-        width: "auto"
+        width: "min(100%, 400px)"
+        minWidth: "280px"
         maxWidth: "100%"
         cursor: "pointer"
         borderRadius: "0.5rem"
       "ct-tree-grow.ct-tree-canvas":
         display: "block"
         height: "220px"
-        width: "auto"
+        width: "min(100%, 400px)"
+        minWidth: "280px"
         maxWidth: "100%"
         cursor: "pointer"
         borderRadius: "0.5rem"
       "ct-tree-grow":
         display: "block"
+        width: "min(100%, 400px)"
+        minWidth: "280px"
+        height: "220px"
       "ct-tree-grow canvas":
         display: "block"
         width: "100%"

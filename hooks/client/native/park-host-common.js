@@ -1,6 +1,6 @@
 /**
  * Minimal park-host-common for clevertree.net (+ inlined ct-tree-grow host).
- * Gateway injects this as park-host-common.js?v=46 when data-relay-park-native is present.
+ * Gateway injects this as park-host-common.js?v=47 when data-relay-park-native is present.
  */
 (function (global) {
   'use strict'

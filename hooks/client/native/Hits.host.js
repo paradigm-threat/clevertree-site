@@ -1,9 +1,9 @@
-/* Always load tip ct-tree-grow host (gateway injects Hits.host.js?v=32). */
+/* Tip Hits — load ct-tree-grow host (gateway also injects TreeGrow.host.js when present). */
 (function (g) {
   if (!g.document) return
-  if (g.document.querySelector('script[src*="TreeGrow.host.js?v=5"]')) return
+  if (g.document.querySelector('script[src*="TreeGrow.host.js"]')) return
   var s = g.document.createElement('script')
-  s.src = '/hooks/client/native/TreeGrow.host.js?v=5'
+  s.src = '/hooks/client/native/TreeGrow.host.js?v=6'
   s.setAttribute('data-fb-park-native', '1')
   s.setAttribute('data-ct-tree-grow-host', '1')
   g.document.head.appendChild(s)
