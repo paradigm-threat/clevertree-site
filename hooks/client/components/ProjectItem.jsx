@@ -5,6 +5,7 @@ function badgeClass(status) {
   if (status === 'active') return 'ct-badge ct-badge-active'
   if (status === 'planned') return 'ct-badge ct-badge-planned'
   if (status === 'published') return 'ct-badge ct-badge-published'
+  if (status === 'inactive') return 'ct-badge ct-badge-inactive'
   return 'ct-badge'
 }
 

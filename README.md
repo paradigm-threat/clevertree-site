@@ -6,16 +6,19 @@ Personal website and portfolio for **Ari Asulin**, a full-stack engineer buildin
 
 ## About
 
-I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, and interactive narrative.
+I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. Right now I'm focused on MyProblem and Clevertree Chat, with Relay and Paradigm Threat as the ongoing mesh and investigation stack.
 
 ## Active Projects
 
-- **[Forgotten Future](https://forgottenfuturebook.com)** — AI-driven interactive book and game with parallax scrolling and WebGL.
-- **[Relay](https://relaygateway.net)** — Git-backed distributed hosting and social stack — content, search, and SSR across a mesh of peers.
-- **[SongWalker](https://songwalker.net)** — A music programming language with a built-in Rust/WASM synthesis engine (oscillators, sampler, effects, 64-voice polyphony). Write music as code, render in the browser or as a VST3 plugin.
-- **[SNESology](https://snesology.org)** — A retro music composer using authentic Super Nintendo sound samples, powered by the SongWalker engine.
-- **[Skinner Family Dental](https://skinnerfamilydental.com)** — Professional dental practice website with patient portals and appointment integration.
-- **[Gordonston Arts Fair](https://gordonstonartfair.com)** — Annual arts community hub for Savannah's historic Gordonston neighborhood.
+- **[MyProblem](https://myproblem.app)** — Case intake and investigation tooling (photos, tickets, batch AI workers).
+- **[Clevertree Chat](https://clevertree.chat)** — Standing debates on a page; batch SI files perspectives and keeps the map fair.
+- **[Relay](https://relaygateway.net)** — Git-backed distributed hosting and social stack across a mesh of peers.
+- **[Paradigm Threat](https://paradigmthreat.net)** — Investigation files, chronology, and park UI.
+
+## Other / published
+
+- **Forgotten Future**, **SongWalker**, **SNESology** — mostly inactive at the moment.
+- **[Skinner Family Dental](https://skinnerfamilydental.com)** · **[Gordonston Arts Fair](https://gordonstonartfair.com)** — published client sites.
 
 ## Published Libraries
 

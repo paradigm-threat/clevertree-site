@@ -13,6 +13,7 @@ themes:
       badgeActive: "#22c55e"
       badgePublished: "#3b82f6"
       badgePlanned: "#eab308"
+      badgeInactive: "#94a3b8"
     breakpoints:
       sm: "640px"
       md: "768px"
@@ -246,6 +247,26 @@ themes:
       ".ct-badge-planned":
         backgroundColor: "var(badgePlanned)"
         color: "#422006"
+      ".ct-badge-inactive":
+        backgroundColor: "var(badgeInactive)"
+        color: "#0f172a"
+      ".ct-tree-figure":
+        margin: "0 0 2.5rem 0"
+        display: "flex"
+        flexDirection: "column"
+        alignItems: "center"
+        gap: "0.5rem"
+      ".ct-tree-canvas":
+        display: "block"
+        height: "220px"
+        width: "auto"
+        maxWidth: "100%"
+        cursor: "pointer"
+        borderRadius: "0.5rem"
+      ".ct-tree-caption":
+        fontSize: "0.875rem"
+        margin: 0
+        textAlign: "center"
       ".ct-section":
         marginBottom: "3rem"
       ".ct-section-title":
@@ -309,4 +330,5 @@ themes:
       badgeActive: "#22c55e"
       badgePublished: "#3b82f6"
       badgePlanned: "#eab308"
+      badgeInactive: "#64748b"
 current_theme: light

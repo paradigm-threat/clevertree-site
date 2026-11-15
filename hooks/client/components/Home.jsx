@@ -5,6 +5,7 @@ import LibraryItem from 'hooks/client/components/LibraryItem.jsx'
 import Resume from 'hooks/client/components/Resume.jsx'
 import ThemeToggle from 'hooks/client/components/ThemeToggle.jsx'
 import PrintButton from 'hooks/client/components/PrintButton.jsx'
+import TreeGrow from 'hooks/client/components/TreeGrow.jsx'
 import { IconGlobe, IconMail, IconGithub } from 'hooks/client/components/Icons.jsx'
 
 function ContactLink(props) {
@@ -38,7 +39,7 @@ function ContactLink(props) {
 }
 
 export default function Home(props) {
-  const bio = props.bio || "I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, and interactive narrative."
+  const bio = props.bio || "I build free, high-performance open-source software. I'm a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. Right now I'm focused on MyProblem and Clevertree Chat, with Relay and Paradigm Threat as the ongoing mesh and investigation stack."
   const year = props.year || '2026'
 
   return (
@@ -80,13 +81,22 @@ export default function Home(props) {
           </div>
         </header>
 
+        <TreeGrow />
+
         <Section title="Key Projects">
           <div id="ct-projects" className="ct-projects md:ct-projects-md">
             <ProjectItem
-              name="Forgotten Future"
-              description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
-              github="https://github.com/clevertree/forgotten-future"
-              website="https://forgottenfuturebook.com"
+              name="MyProblem"
+              description="Case intake and investigation tooling — photos, tickets, and batch AI workers that keep private dossiers separate from public handoffs."
+              github="https://github.com/paradigm-threat/myproblem"
+              website="https://myproblem.app"
+              status="active"
+            />
+            <ProjectItem
+              name="Clevertree Chat"
+              description="Standing debates on a page: people post original points; batch SI files perspectives, pairs counters, and keeps the map fair — no winners, no sides."
+              github="https://github.com/paradigm-threat/clevertree-chat"
+              website="https://clevertree.chat"
               status="active"
             />
             <ProjectItem
@@ -95,6 +105,27 @@ export default function Home(props) {
               github="https://github.com/clevertree/relay"
               website="https://relaygateway.net"
               status="active"
+            />
+            <ProjectItem
+              name="Paradigm Threat"
+              description="Investigation files, chronology, and park UI for alternate history — the corpus Relay and Clevertree Chat organize in public."
+              github="https://github.com/paradigm-threat/paradigm-threat-files"
+              website="https://paradigmthreat.net"
+              status="active"
+            />
+            <ProjectItem
+              name="Forgotten Future"
+              description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
+              github="https://github.com/clevertree/forgotten-future"
+              website="https://forgottenfuturebook.com"
+              status="inactive"
+            />
+            <ProjectItem
+              name="SongWalker"
+              description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
+              github="https://github.com/clevertree/songwalker-core"
+              website="https://songwalker.net"
+              status="inactive"
             />
             <ProjectItem
               name="Skinner Family Dental"
@@ -109,13 +140,6 @@ export default function Home(props) {
               github=""
               website="https://gordonstonartfair.com"
               status="published"
-            />
-            <ProjectItem
-              name="SongWalker"
-              description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
-              github="https://github.com/clevertree/songwalker-core"
-              website="https://songwalker.net"
-              status="active"
             />
           </div>
         </Section>

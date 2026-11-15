@@ -33,7 +33,7 @@ export default function Home() {
                         </div>
 
                         <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
-                            I build free, high-performance open-source software. I&apos;m a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. My work spans Relay, music tools, and interactive narrative.
+                            I build free, high-performance open-source software. I&apos;m a full-stack engineer with 18+ years of industry experience — equally at home in teams and working independently. Programming is a craft that rewards a creative mind. Right now I&apos;m focused on MyProblem and Clevertree Chat, with Relay and Paradigm Threat as the ongoing mesh and investigation stack.
                         </p>
 
                         <div className="flex flex-wrap justify-center md:justify-start gap-4">
@@ -48,10 +48,17 @@ export default function Home() {
                 <Section title="Key Projects" className="print-section">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProjectItem
-                            name="Forgotten Future"
-                            description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
-                            github="https://github.com/clevertree/forgotten-future"
-                            website="https://forgottenfuturebook.com"
+                            name="MyProblem"
+                            description="Case intake and investigation tooling — photos, tickets, and batch AI workers that keep private dossiers separate from public handoffs."
+                            github="https://github.com/paradigm-threat/myproblem"
+                            website="https://myproblem.app"
+                            status="active"
+                        />
+                        <ProjectItem
+                            name="Clevertree Chat"
+                            description="Standing debates on a page: people post original points; batch SI files perspectives, pairs counters, and keeps the map fair — no winners, no sides."
+                            github="https://github.com/paradigm-threat/clevertree-chat"
+                            website="https://clevertree.chat"
                             status="active"
                         />
                         <ProjectItem
@@ -60,6 +67,27 @@ export default function Home() {
                             github="https://github.com/clevertree/relay"
                             website="https://relaygateway.net"
                             status="active"
+                        />
+                        <ProjectItem
+                            name="Paradigm Threat"
+                            description="Investigation files, chronology, and park UI for alternate history — the corpus Relay and Clevertree Chat organize in public."
+                            github="https://github.com/paradigm-threat/paradigm-threat-files"
+                            website="https://paradigmthreat.net"
+                            status="active"
+                        />
+                        <ProjectItem
+                            name="Forgotten Future"
+                            description="AI-driven interactive book and game exploring narrative through parallax scrolling and WebGL."
+                            github="https://github.com/clevertree/forgotten-future"
+                            website="https://forgottenfuturebook.com"
+                            status="inactive"
+                        />
+                        <ProjectItem
+                            name="SongWalker"
+                            description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
+                            github="https://github.com/clevertree/songwalker-core"
+                            website="https://songwalker.net"
+                            status="inactive"
                         />
                         <ProjectItem
                             name="Skinner Family Dental"
@@ -72,13 +100,6 @@ export default function Home() {
                             description="Annual arts community hub for Savannah's historic Gordonston neighborhood."
                             website="https://gordonstonartfair.com"
                             status="published"
-                        />
-                        <ProjectItem
-                            name="SongWalker"
-                            description="Music programming language with a Rust/WASM synthesis engine — write music as code, render in the browser or as a VST3 plugin."
-                            github="https://github.com/clevertree/songwalker-core"
-                            website="https://songwalker.net"
-                            status="active"
                         />
                     </div>
                 </Section>

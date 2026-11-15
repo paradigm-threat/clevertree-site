@@ -7,7 +7,7 @@ interface ProjectProps {
     description: string
     github?: string
     website?: string
-    status?: 'planned' | 'active' | 'published'
+    status?: 'planned' | 'active' | 'published' | 'inactive'
 }
 
 export const ProjectItem = ({ name, description, github, website, status }: ProjectProps) => (
@@ -17,7 +17,8 @@ export const ProjectItem = ({ name, description, github, website, status }: Proj
             {status && (
                 <Badge className={
                     status === 'planned' ? 'bg-yellow-500' :
-                        status === 'active' ? 'bg-green-500' : 'bg-blue-500'
+                        status === 'active' ? 'bg-green-500' :
+                            status === 'inactive' ? 'bg-slate-400' : 'bg-blue-500'
                 }>
                     {status}
                 </Badge>
