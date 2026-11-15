@@ -66,10 +66,15 @@
   }
 
   function ensureCanvas(host) {
-    // Layout before growHillTree reads clientWidth/clientHeight.
+    // Figure is flex + align-items:center (shrink-wrap). Use a real px box so
+    // growHillTree does not measure a ~0-width host.
+    var parent = host.parentElement
+    var pw = parent && parent.clientWidth ? parent.clientWidth : 0
+    var box = pw > 80 ? Math.min(pw, 400) : 360
     host.style.display = 'block'
-    host.style.width = '100%'
-    host.style.maxWidth = '400px'
+    host.style.boxSizing = 'border-box'
+    host.style.width = box + 'px'
+    host.style.maxWidth = '100%'
     host.style.height = '220px'
     var canvas = host.querySelector('canvas')
     if (!canvas) {

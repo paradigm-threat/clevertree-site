@@ -256,6 +256,7 @@ themes:
         flexDirection: "column"
         alignItems: "center"
         gap: "0.5rem"
+        width: "100%"
       ".ct-tree-canvas":
         display: "block"
         height: "220px"
