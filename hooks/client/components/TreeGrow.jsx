@@ -8,7 +8,6 @@ function loadGrowScript() {
   if (document.querySelector('script[data-ct-grow-hill-tree="1"]')) return
   const s = document.createElement('script')
   s.src = SCRIPT_SRC
-  s.setAttribute('async', '')
   s.setAttribute('data-ct-grow-hill-tree', '1')
   document.head.appendChild(s)
 }
@@ -19,7 +18,7 @@ function startGrow(canvas) {
   loadGrowScript()
 
   let tries = 0
-  function attempt() {
+  const attempt = () => {
     tries += 1
     if (typeof window !== 'undefined' && window.growHillTree) {
       const reduce =
@@ -46,7 +45,7 @@ function startGrow(canvas) {
 
 /**
  * Compact hillside tree (same grower as clevertree.chat/forest).
- * Function + ref callback — CleverScript does not transpile React class components.
+ * CleverScript: no class components, no `function` in JSX attrs, no `.async`.
  * Click the canvas to regrow.
  */
 export default function TreeGrow(props) {
@@ -57,7 +56,7 @@ export default function TreeGrow(props) {
         className="ct-tree-canvas"
         role="img"
         aria-label={title + ' — click to regrow'}
-        ref={function (el) {
+        ref={(el) => {
           if (el) startGrow(el)
         }}
       />
