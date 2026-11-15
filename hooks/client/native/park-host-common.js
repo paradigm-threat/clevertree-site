@@ -58,7 +58,7 @@
       if (!head.querySelector('meta[name="theme-color"]')) {
         var theme = global.document.createElement('meta')
         theme.name = 'theme-color'
-        theme.content = '#082538'
+        theme.content = '#041619'
         head.appendChild(theme)
       }
 
@@ -79,7 +79,7 @@
   ensureBrandHeadLinks()
 
   var hosts = [
-    '/hooks/client/native/TreeGrow.host.js?v=7',
+    '/hooks/client/native/TreeGrow.host.js?v=8',
     '/hooks/client/native/ChatEmbed.host.js?v=1',
     '/hooks/client/native/SongWalkerEmbed.host.js?v=1',
   ]

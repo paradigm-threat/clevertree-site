@@ -41,37 +41,35 @@ export default function Home(props) {
   const chatPath = props.chatPath || '/'
 
   return (
-    <main className="ct-page" id="ct-home">
+    <main className="ct-page ct-page-home md:ct-page-home-landscape" id="ct-home">
+      <header className="ct-hero">
+        <div className="ct-hero-bar">
+          <a href="/resume.md" className="ct-action-btn ct-secondary">
+            Resume
+          </a>
+          <ThemeToggle />
+        </div>
+        <div className="ct-hero-inner md:ct-hero-inner-row">
+          <div className="ct-hero-tree md:ct-hero-tree-side">
+            <TreeGrow variant="hero" />
+          </div>
+          <div className="ct-hero-copy md:ct-hero-copy-side">
+            <h1 id="ct-name" className="ct-name">
+              Clevertree LLC
+            </h1>
+            <p className="ct-muted ct-title">Software Projects</p>
+            <p className="ct-muted ct-bio md:ct-bio-left" id="ct-bio">
+              {bio}
+            </p>
+            <div className="ct-contacts md:ct-contacts-left">
+              <ContactLink href="https://clevertree.net" label="clevertree.net" icon={<IconGlobe />} />
+              <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" icon={<IconGithub />} />
+            </div>
+          </div>
+        </div>
+      </header>
+
       <div className="ct-container">
-        <header className="ct-header">
-          <div className="ct-header-top md:ct-header-top-row">
-            <div className="ct-identity">
-              <TreeGrow variant="logo" />
-              <div className="ct-identity-text md:ct-identity-text-left">
-                <h1 id="ct-name" className="ct-name">
-                  Clevertree LLC
-                </h1>
-                <p className="ct-muted ct-title">Software Projects</p>
-              </div>
-            </div>
-            <div className="ct-actions">
-              <a href="/resume.md" className="ct-action-btn ct-secondary">
-                Resume
-              </a>
-              <ThemeToggle />
-            </div>
-          </div>
-
-          <p className="ct-muted ct-bio md:ct-bio-left" id="ct-bio">
-            {bio}
-          </p>
-
-          <div className="ct-contacts md:ct-contacts-left">
-            <ContactLink href="https://clevertree.net" label="clevertree.net" icon={<IconGlobe />} />
-            <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" icon={<IconGithub />} />
-          </div>
-        </header>
-
         <Section title="Try the embeds">
           <p className="ct-muted" style={{ marginTop: 0, marginBottom: '1rem' }}>
             Clevertree Chat mounts on any page: the channel follows this site’s path (domain is where it’s embedded). SongWalker shows the music UI; SNESology is the same engine.

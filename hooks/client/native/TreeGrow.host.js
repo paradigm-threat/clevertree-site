@@ -57,7 +57,7 @@
       reduce: readReduce(),
       duration: 14000,
       delay: 200,
-      leafPalette: 'oak',
+      leafPalette: 'aspen',
       habit: 0.45,
       branchiness: 0.55,
       clickable: true,
@@ -65,28 +65,45 @@
     })
   }
 
-  function isLogo(host) {
+  function sizeKind(host) {
     var size = (host && host.getAttribute('data-size')) || ''
-    if (size === 'logo') return true
-    var cls = (host && host.className) || ''
-    return String(cls).indexOf('ct-tree-logo') >= 0
+    if (size === 'logo' || size === 'hero' || size === 'figure') return size
+    var cls = String((host && host.className) || '')
+    if (cls.indexOf('ct-tree-logo') >= 0) return 'logo'
+    if (cls.indexOf('ct-tree-hero') >= 0) return 'hero'
+    return 'figure'
   }
 
   function ensureCanvas(host) {
     // Figure is flex + align-items:center (shrink-wrap). Use a real px box so
     // growHillTree does not measure a ~0-width host.
-    var logo = isLogo(host)
+    var kind = sizeKind(host)
     var parent = host.parentElement
     var pw = parent && parent.clientWidth ? parent.clientWidth : 0
-    var box = logo ? 120 : pw > 80 ? Math.min(pw, 400) : 360
-    var height = logo ? 120 : 220
+    var box = 360
+    var height = 220
+    if (kind === 'logo') {
+      box = 120
+      height = 120
+    } else if (kind === 'hero') {
+      box = pw > 80 ? Math.min(pw, 340) : 300
+      height = 280
+    } else {
+      box = pw > 80 ? Math.min(pw, 400) : 360
+      height = 220
+    }
     host.style.display = 'block'
     host.style.boxSizing = 'border-box'
     host.style.width = box + 'px'
     host.style.maxWidth = '100%'
     host.style.height = height + 'px'
-    if (logo) {
+    if (kind === 'logo') {
       host.style.minWidth = '96px'
+      host.style.flexShrink = '0'
+    }
+    if (kind === 'hero') {
+      host.style.marginLeft = 'auto'
+      host.style.marginRight = 'auto'
       host.style.flexShrink = '0'
     }
     var canvas = host.querySelector('canvas')
