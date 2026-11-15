@@ -91,9 +91,11 @@
   }
 
   function bootHost(host) {
-    if (!host || host.getAttribute('data-ct-tree-upgraded') === '1') return
-    host.setAttribute('data-ct-tree-upgraded', '1')
+    if (!host) return
     var canvas = ensureCanvas(host)
+    if (canvas._ctGrowStarted && canvas.width > 40) return
+    canvas._ctGrowStarted = false
+    host.setAttribute('data-ct-tree-upgraded', '1')
     loadGrowScript(function () {
       var run = function () {
         startGrow(canvas)
