@@ -2,14 +2,15 @@ import React from 'react'
 
 /**
  * CleverScript stub for the portfolio hillside tree.
- * Emits <ct-tree-grow data-relay-park-native="ct-tree-grow" />; TreeGrow.host.js
- * defines the web component and runs /js/grow-hill-tree.js (web only).
+ * CleverScript cannot parse hyphenated custom-element tags in JSX, so the stub
+ * emits a div placeholder; TreeGrow.host.js defines <ct-tree-grow> and upgrades.
+ * Web only — no other platforms yet.
  */
 export default function TreeGrow() {
   const title = 'A tree grows'
   return (
     <figure className="ct-tree-figure" aria-label={title}>
-      <ct-tree-grow
+      <div
         className="ct-tree-canvas"
         data-relay-park-native="ct-tree-grow"
         aria-label={title + ' — click to regrow'}
