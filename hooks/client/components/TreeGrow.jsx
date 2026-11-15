@@ -15,40 +15,45 @@ function loadGrowScript(g) {
   doc.head.appendChild(s)
 }
 
+function runGrow(canvas, g) {
+  let reduce = false
+  try {
+    reduce =
+      g.matchMedia &&
+      g.matchMedia('(prefers-reduced-motion: reduce)').matches
+  } catch (e) {
+    reduce = false
+  }
+  g.growHillTree(canvas, {
+    reduce: reduce,
+    duration: 14000,
+    delay: 200,
+    leafPalette: 'oak',
+    habit: 0.45,
+    branchiness: 0.55,
+    clickable: true,
+    shade: true,
+  })
+}
+
+function tryGrow(canvas, g, triesLeft) {
+  if (!canvas || !g) return
+  if (g.growHillTree) {
+    runGrow(canvas, g)
+    return
+  }
+  if (triesLeft > 0 && g.setTimeout) {
+    g.setTimeout(() => {
+      tryGrow(canvas, g, triesLeft - 1)
+    }, 100)
+  }
+}
+
 function startGrow(canvas, g) {
   if (!canvas || !g || canvas._ctGrowStarted) return
   canvas._ctGrowStarted = true
   loadGrowScript(g)
-
-  let tries = 0
-  const attempt = () => {
-    tries += 1
-    if (g.growHillTree) {
-      let reduce = false
-      try {
-        reduce =
-          g.matchMedia &&
-          g.matchMedia('(prefers-reduced-motion: reduce)').matches
-      } catch (e) {
-        reduce = false
-      }
-      g.growHillTree(canvas, {
-        reduce: reduce,
-        duration: 14000,
-        delay: 200,
-        leafPalette: 'oak',
-        habit: 0.45,
-        branchiness: 0.55,
-        clickable: true,
-        shade: true,
-      })
-      return
-    }
-    if (tries < 40 && g.setTimeout) {
-      g.setTimeout(attempt, 100)
-    }
-  }
-  if (g.setTimeout) g.setTimeout(attempt, 0)
+  tryGrow(canvas, g, 40)
 }
 
 function scheduleGrow() {
@@ -66,8 +71,8 @@ function scheduleGrow() {
 
 /**
  * Compact hillside tree (same grower as clevertree.chat/forest).
- * CleverScript SSR: no window/document identifiers, no class, no JSX function refs.
- * Click the canvas to regrow.
+ * CleverScript SSR constraints: no window/document, no class, no JSX function refs,
+ * no recursive const arrows. Click the canvas to regrow.
  */
 export default function TreeGrow(props) {
   const title = (props && props.title) || 'A tree grows'
