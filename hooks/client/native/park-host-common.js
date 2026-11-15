@@ -25,7 +25,7 @@
 
   if (global.document && !global.document.querySelector('script[data-ct-tree-grow-host="1"]')) {
     var s = global.document.createElement('script')
-    s.src = '/hooks/client/native/TreeGrow.host.js?v=2'
+    s.src = '/hooks/client/native/TreeGrow.host.js?v=3'
     s.setAttribute('data-fb-park-native', '1')
     s.setAttribute('data-ct-tree-grow-host', '1')
     global.document.head.appendChild(s)

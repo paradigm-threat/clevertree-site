@@ -66,13 +66,22 @@
   }
 
   function ensureCanvas(host) {
+    // Layout before growHillTree reads clientWidth/clientHeight.
+    host.style.display = 'block'
+    host.style.width = '100%'
+    host.style.maxWidth = '400px'
+    host.style.height = '220px'
     var canvas = host.querySelector('canvas')
-    if (canvas) return canvas
-    canvas = global.document.createElement('canvas')
-    canvas.setAttribute('role', 'img')
-    var label = host.getAttribute('aria-label') || 'A tree grows — click to regrow'
-    canvas.setAttribute('aria-label', label)
-    host.appendChild(canvas)
+    if (!canvas) {
+      canvas = global.document.createElement('canvas')
+      canvas.setAttribute('role', 'img')
+      var label = host.getAttribute('aria-label') || 'A tree grows — click to regrow'
+      canvas.setAttribute('aria-label', label)
+      host.appendChild(canvas)
+    }
+    canvas.style.display = 'block'
+    canvas.style.width = '100%'
+    canvas.style.height = '220px'
     return canvas
   }
 
@@ -81,7 +90,16 @@
     host.setAttribute('data-ct-tree-upgraded', '1')
     var canvas = ensureCanvas(host)
     loadGrowScript(function () {
-      startGrow(canvas)
+      var run = function () {
+        startGrow(canvas)
+      }
+      if (global.requestAnimationFrame) {
+        global.requestAnimationFrame(function () {
+          global.requestAnimationFrame(run)
+        })
+      } else {
+        global.setTimeout(run, 0)
+      }
     })
   }
 
