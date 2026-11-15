@@ -74,8 +74,9 @@ function scheduleGrow() {
  * CleverScript SSR constraints: no window/document, no class, no JSX function refs,
  * no recursive const arrows. Click the canvas to regrow.
  */
-export default function TreeGrow(props) {
-  const title = (props && props.title) || 'A tree grows'
+export default function TreeGrow() {
+  // CleverScript throws on missing props fields — no optional props.title.
+  const title = 'A tree grows'
   if (isClientLive() === true) {
     scheduleGrow()
   }
