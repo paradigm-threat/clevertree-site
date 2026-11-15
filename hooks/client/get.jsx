@@ -6,6 +6,7 @@
  */
 import React from 'react'
 import StyleContext from '@clevertree/style'
+import manifest from '@hooks'
 import Home from 'hooks/client/components/Home.jsx'
 import ResumePage from 'hooks/client/components/ResumePage.jsx'
 
@@ -35,23 +36,43 @@ function bioFromMarkdown(text) {
   return paras.length ? paras[0] : null
 }
 
-function routePath() {
-  let raw = '/'
-  try {
-    if (typeof relayInitialPath === 'string' && relayInitialPath) {
-      raw = relayInitialPath
-    } else if (typeof location !== 'undefined' && location.pathname) {
-      raw = location.pathname
-    }
-  } catch (e) {
-    raw = '/'
+function normalizeRoute(raw) {
+  let t = '' + (raw || '/')
+  if (!t || t.charAt(0) !== '/') {
+    t = '/' + t
   }
-  let p = ('' + raw).split('?')[0].split('#')[0]
-  if (!p || p.charAt(0) !== '/') p = '/' + p
-  if (p.length > 1 && p.charAt(p.length - 1) === '/') p = p.slice(0, -1)
-  if (p === '/index.md' || p === '/index.html') return '/'
-  if (p.length > 3 && p.slice(-3) === '.md') p = p.slice(0, -3)
-  return p || '/'
+  const q = t.indexOf('?')
+  if (q >= 0) {
+    t = t.slice(0, q)
+  }
+  const h = t.indexOf('#')
+  if (h >= 0) {
+    t = t.slice(0, h)
+  }
+  if (t === '/index.md' || t === '/index.html') {
+    return '/'
+  }
+  if (t.length > 3 && t.slice(-3) === '.md') {
+    t = t.slice(0, -3)
+  }
+  if (t.length > 1 && t.charAt(t.length - 1) === '/') {
+    t = t.slice(0, t.length - 1)
+  }
+  return t || '/'
+}
+
+function routePath() {
+  try {
+    if (manifest.relayInitialPath && typeof manifest.relayInitialPath === 'string') {
+      return normalizeRoute(manifest.relayInitialPath)
+    }
+  } catch (e) {}
+  try {
+    if (globalThis.location && globalThis.location.pathname) {
+      return normalizeRoute(globalThis.location.pathname)
+    }
+  } catch (e2) {}
+  return '/'
 }
 
 function isResumePath(path) {
