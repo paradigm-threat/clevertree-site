@@ -1,116 +1,21 @@
 import React from 'react'
-import { isClientLive } from '@clevertree/style-internal'
-
-const SCRIPT_SRC = '/js/grow-hill-tree.js'
-const CANVAS_ID = 'ct-tree-grow'
-
-function loadGrowScript(g) {
-  if (!g || !g.document) return
-  if (g.growHillTree) return
-  const doc = g.document
-  if (doc.querySelector('script[data-ct-grow-hill-tree="1"]')) return
-  const s = doc.createElement('script')
-  s.src = SCRIPT_SRC
-  s.setAttribute('data-ct-grow-hill-tree', '1')
-  doc.head.appendChild(s)
-}
-
-function runGrow(canvas, g) {
-  let reduce = false
-  try {
-    reduce =
-      g.matchMedia &&
-      g.matchMedia('(prefers-reduced-motion: reduce)').matches
-  } catch (e) {
-    reduce = false
-  }
-  g.growHillTree(canvas, {
-    reduce: reduce,
-    duration: 14000,
-    delay: 200,
-    leafPalette: 'oak',
-    habit: 0.45,
-    branchiness: 0.55,
-    clickable: true,
-    shade: true,
-  })
-}
-
-function tryGrow(canvas, g, triesLeft) {
-  if (!canvas || !g) return
-  if (g.growHillTree) {
-    runGrow(canvas, g)
-    return
-  }
-  if (triesLeft > 0 && g.setTimeout) {
-    g.setTimeout(() => {
-      tryGrow(canvas, g, triesLeft - 1)
-    }, 100)
-  }
-}
-
-function startGrow(canvas, g) {
-  if (!canvas || !g || canvas._ctGrowStarted) return
-  canvas._ctGrowStarted = true
-  loadGrowScript(g)
-  tryGrow(canvas, g, 40)
-}
-
-function findAndStart(g, triesLeft) {
-  if (!g || !g.document) return
-  const el = g.document.getElementById(CANVAS_ID)
-  // Keep polling: hydrate may replace the SSR canvas with a fresh node.
-  if (el) startGrow(el, g)
-  if (triesLeft > 0 && g.setTimeout) {
-    g.setTimeout(() => {
-      findAndStart(g, triesLeft - 1)
-    }, 100)
-  }
-}
-
-function scheduleGrow() {
-  try {
-    const g = globalThis
-    if (!g || !g.document || !g.setTimeout) return
-    loadGrowScript(g)
-    // Poll: hydrate may replace the canvas after the first paint.
-    findAndStart(g, 50)
-  } catch (e) {
-    /* decorative */
-  }
-}
 
 /**
  * Compact hillside tree (same grower as clevertree.chat/forest).
- * CleverScript SSR constraints: no window/document, no class, no JSX function refs,
- * no recursive const arrows. Click the canvas to regrow.
+ * Served via a static iframe so the animation does not depend on CleverScript
+ * hydrate / isClientLive (handlers often stay disabled on SSR-kept shells).
+ * Click the canvas to regrow.
  */
 export default function TreeGrow() {
-  // CleverScript throws on missing props fields — no optional props.title.
   const title = 'A tree grows'
-  // Subscribe like ThemeToggle so we re-render when the client shell goes live.
-  const live = isClientLive() === true
-  if (live) {
-    scheduleGrow()
-  }
   return (
     <figure className="ct-tree-figure" aria-label={title}>
-      <canvas
-        id={CANVAS_ID}
+      <iframe
         className="ct-tree-canvas"
-        role="img"
-        aria-label={title + ' — click to regrow'}
-      />
-      {/* onLoad fires after hydrate attaches handlers — boots grow without isClientLive. */}
-      <img
-        alt=""
-        width="1"
-        height="1"
-        src="/logo/logo-text.png"
-        style={{ position: 'absolute', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none' }}
-        onLoad={() => {
-          scheduleGrow()
-        }}
+        title={title + ' — click to regrow'}
+        src="/js/ct-tree-frame.html"
+        loading="lazy"
+        style={{ border: '0', width: '100%', maxWidth: '400px', height: '220px' }}
       />
       <figcaption className="ct-muted ct-tree-caption">
         Knowledge grows like a tree. Click to regrow.
