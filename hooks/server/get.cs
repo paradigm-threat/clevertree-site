@@ -6,7 +6,7 @@ import { pinnedPrefix } from '@relay/web-assets';
 
 // server.hooks.get — Clevertree app shell: SSR client hook for browser HTML / ?embed=1 / `/`.
 // CleverScript throws on missing object properties — guard flag reads.
-// CleverScript has no `undefined` keyword — use null / length checks only.
+// CleverScript has no `undefined` and no quoted object keys.
 function wantsSiteShell(ctx) {
   try {
     if (ctx.embedMarkdownRequest === true) return true;
@@ -30,45 +30,21 @@ function normalizeRelPath(ctx) {
   while (rel.length > 0 && rel.charAt(rel.length - 1) === '/') {
     rel = rel.slice(0, -1);
   }
-  if (rel.length > 5 && rel.slice(-5) === '.html') {
-    rel = rel.slice(0, -5);
-  }
-  if (rel.length > 3 && rel.slice(-3) === '.md') {
-    rel = rel.slice(0, -3);
-  }
   return rel;
 }
 
 function isThankYouPath(ctx) {
-  return normalizeRelPath(ctx) === 'thankyou';
+  var rel = normalizeRelPath(ctx);
+  return rel === 'thankyou' || rel === 'thankyou.html';
 }
 
 function thankYouHtmlResponse() {
-  var body = null;
-  try {
-    body = readFile('thankyou.html');
-  } catch (e) {
-    body = null;
-  }
-  if (body === null) {
-    try {
-      body = readFile('public/thankyou.html');
-    } catch (e2) {
-      body = null;
-    }
-  }
-  if (body === null) {
-    return null;
-  }
-  var text = '' + body;
-  if (text.length < 32) {
-    return null;
-  }
-  // CleverScript object literals reject quoted keys (no Cache-Control header here).
+  var body = readFile('thankyou.html');
+  if (!body) return null;
   return {
     kind: 'file',
     contentType: 'text/html; charset=utf-8',
-    bodyUtf8: text,
+    bodyUtf8: '' + body,
     status: 200,
   };
 }
