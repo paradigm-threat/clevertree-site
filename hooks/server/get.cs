@@ -68,9 +68,6 @@ function thankYouHtmlResponse() {
     contentType: 'text/html; charset=utf-8',
     bodyUtf8: text,
     status: 200,
-    headers: {
-      'Cache-Control': 'public, max-age=300',
-    },
   };
 }
 
