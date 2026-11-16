@@ -64,14 +64,12 @@ function thankYouHtmlResponse() {
   if (text.length < 32) {
     return null;
   }
+  // CleverScript object literals reject quoted keys (no Cache-Control header here).
   return {
     kind: 'file',
     contentType: 'text/html; charset=utf-8',
     bodyUtf8: text,
     status: 200,
-    headers: {
-      'Cache-Control': 'public, max-age=300',
-    },
   };
 }
 
