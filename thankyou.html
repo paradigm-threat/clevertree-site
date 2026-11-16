@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank you — Clevertree LLC</title>
+    <meta
+      name="description"
+      content="Thanks for trying Clevertree. Your download or signup is confirmed."
+    />
+    <link rel="canonical" href="https://clevertree.net/thankyou" />
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+      :root {
+        --bg: #041619;
+        --fg: #f2fff6;
+        --muted: #9ec4b4;
+        --primary: #b7ff00;
+        --primary-fg: #041619;
+        --secondary: #0f3338;
+        --border: #2a4a40;
+        --accent: #c9f07a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Avenir Next", "Gill Sans", "Trebuchet MS", "Segoe UI", sans-serif;
+        line-height: 1.5;
+        color: var(--fg);
+        background:
+          linear-gradient(180deg, rgba(4, 22, 25, 0.55), rgba(4, 22, 25, 0.92)),
+          #041619 url("/logo/bg-portrait.jpg") center top / cover no-repeat;
+      }
+      main {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem 4rem;
+      }
+      .mark {
+        display: block;
+        width: 96px;
+        height: 96px;
+        margin: 0 0 1.5rem;
+        object-fit: contain;
+      }
+      .eyebrow {
+        margin: 0 0 0.5rem;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      h1 {
+        margin: 0 0 1rem;
+        font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        font-size: clamp(2.5rem, 8vw, 3.75rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+        font-size: 1.125rem;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+      }
+      a.btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.625rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid var(--border);
+      }
+      a.primary {
+        background: var(--primary);
+        color: var(--primary-fg);
+        border-color: var(--primary);
+      }
+      a.secondary {
+        background: var(--secondary);
+        color: var(--fg);
+      }
+      .note {
+        font-size: 0.95rem;
+      }
+      .note a {
+        color: var(--accent);
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+      @media (min-width: 768px) {
+        body {
+          background-image:
+            linear-gradient(180deg, rgba(4, 22, 25, 0.5), rgba(4, 22, 25, 0.9)),
+            url("/logo/bg-landscape.jpg");
+          background-position: center center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img
+        class="mark"
+        src="/logo/tree-transparent-256.png"
+        width="96"
+        height="96"
+        alt="Clevertree LLC"
+      />
+      <p class="eyebrow">Thank you</p>
+      <h1>You&rsquo;re in</h1>
+      <p>
+        Thanks for trying Clevertree. Your download or signup is confirmed — we appreciate you
+        checking out what we&rsquo;re building.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://clevertree.chat">Open Clevertree Chat</a>
+        <a class="btn secondary" href="https://myproblem.app">Visit myproblem.app</a>
+        <a class="btn secondary" href="/">Clevertree LLC</a>
+      </div>
+      <p class="note">
+        Questions? Reach us at *@clevertree.net or
+        <a href="mailto:clevertreellc@gmail.com">clevertreellc@gmail.com</a>.
+      </p>
+      <footer>© 2026 Clevertree LLC</footer>
+    </main>
+  </body>
+</html>

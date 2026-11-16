@@ -1,7 +1,7 @@
 {
   "framework": null,
   "installCommand": "echo 'skip install (static Relay site)'",
-  "buildCommand": "mkdir -p .vercel-out && cp -R public/. .vercel-out/ && cp -f robots.txt sitemap.xml .vercel-out/ && cp -f index.md .vercel-out/ || true",
+  "buildCommand": "mkdir -p .vercel-out && cp -R public/. .vercel-out/ && cp -f robots.txt sitemap.xml thankyou.html .vercel-out/ && cp -f index.md .vercel-out/ || true",
   "outputDirectory": ".vercel-out",
   "redirects": [
     {
@@ -9,6 +9,12 @@
       "has": [{ "type": "host", "value": "www.clevertree.net" }],
       "destination": "https://clevertree.net/:path*",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/thankyou",
+      "destination": "/thankyou.html"
     }
   ]
 }
