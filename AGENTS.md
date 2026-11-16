@@ -2,6 +2,10 @@
 
 **clevertree.net** — Clevertree LLC software hub (`/`) and personal résumé (`/resume`).
 
+## Brand spelling
+
+**Clevertree** — never **CleverTree**. Keep the internal `t` lowercase in human-facing copy, titles, docs, agent text, and code identifiers (e.g. `ClevertreeGet`, `.relay.yaml` `name`). Domain/org slugs stay `clevertree` as today.
+
 Live path is CleverScript (`hooks/client/`). Embeddable boards (Chat, SongWalker, TreeGrow) are **park-native** hosts under `hooks/client/native/` — stubs in JSX, logic in `*.host.js`. Gateway loads `park-host-common.js` when `data-relay-park-native` is present.
 
 Chat embed rule: **domain = embedding host**; embed params set **subpath only** (per-page channels).
@@ -18,4 +22,4 @@ Catalog repo **`clevertree-site`** · branch **`release`** · publish origin **`
 | 2 | **`git push iad1 HEAD:release`** first. |
 | 3 | **`git push gitlab HEAD:release`**. |
 
-*Last updated: 2026-11-15*
+*Last updated: 2026-11-16*

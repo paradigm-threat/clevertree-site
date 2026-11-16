@@ -1,5 +1,5 @@
 /**
- * CleverTree client GET hook — LLC landing + /resume (SSR + hydrate).
+ * Clevertree client GET hook — LLC landing + /resume (SSR + hydrate).
  *
  * Path is a route. Embeds are park-native hosts (Chat / SongWalker); CleverScript
  * owns page shells only.
@@ -79,7 +79,7 @@ function isResumePath(path) {
   return path === '/resume'
 }
 
-export default function CleverTreeGet() {
+export default function ClevertreeGet() {
   const path = routePath()
   const mdFile = isResumePath(path) ? 'content/resume.md' : 'content/home.md'
   let bio = null

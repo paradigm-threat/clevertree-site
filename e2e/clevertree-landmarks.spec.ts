@@ -1,5 +1,5 @@
 /**
- * CleverTree CleverScript landmarks — SSR fixture from gateway try_ssr_client_hook.
+ * Clevertree CleverScript landmarks — SSR fixture from gateway try_ssr_client_hook.
  *
  * Regenerate fixture (from relay-gateway/):
  *   CLEVERTREE_BARE=/path/to/clevertree-site.git \
@@ -8,7 +8,7 @@
  */
 import { test, expect } from '@playwright/test'
 
-test.describe('CleverTree CleverScript SSR landmarks', () => {
+test.describe('Clevertree CleverScript SSR landmarks', () => {
   test('no-JS shows LLC landing landmarks', async ({ browser }) => {
     const context = await browser.newContext({ javaScriptEnabled: false })
     const page = await context.newPage()
