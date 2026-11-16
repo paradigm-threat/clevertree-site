@@ -13,7 +13,7 @@ Software projects hub for **Clevertree LLC**: embeddable Clevertree Chat, SongWa
 
 ## Active Projects
 
-- **[QuizGate](https://quizgate.clevertree.net)** — Forever-free soft quiz unlock for kids (earn screen time; no ads/IAP). Source: [GitLab](https://gitlab.com/clevertree/quizgate).
+- **[QuizGate](https://quizgate.clevertree.net)** — Android-first Pickles-class soft quiz unlock (earn screen time; no accounts/tracking; no ads/IAP). Source: [GitLab](https://gitlab.com/clevertree/quizgate).
 - **[MyProblem](https://myproblem.app)** — Case intake and investigation tooling (photos, tickets, batch AI workers).
 - **[Clevertree Chat](https://clevertree.chat)** — Standing debates on a page; batch SI files perspectives and keeps the map fair. Embeds use the **host domain**; only the **page path** selects the channel.
 - **[Paradigm Threat](https://paradigmthreat.net)** — Investigation files, chronology, and park UI.

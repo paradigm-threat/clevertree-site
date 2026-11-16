@@ -90,7 +90,7 @@ export default function Home(props) {
           <div id="ct-projects" className="ct-projects md:ct-projects-md">
             <ProjectItem
               name="QuizGate"
-              description="Forever-free soft quiz unlock for kids — correct answers earn screen time, progressive curriculum roadmap, no ads and no IAP."
+              description="Android-first Pickles-class soft quiz unlock — math earns screen time, no kids accounts or tracking, forever free with no ads or IAP."
               github="https://gitlab.com/clevertree/quizgate"
               website="https://quizgate.clevertree.net"
               status="active"
