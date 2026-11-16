@@ -2,6 +2,8 @@
 
 **clevertree.net** — Clevertree LLC software hub (`/`), personal résumé (`/resume`), and Ads conversion thank-you (`/thankyou`).
 
+Google Ads conversion URL: **https://clevertree.net/thankyou** (static HTML; also `/thankyou.html`).
+
 ## Brand spelling
 
 **Clevertree** — never **CleverTree**. Keep the internal `t` lowercase in human-facing copy, titles, docs, agent text, and code identifiers (e.g. `ClevertreeGet`, `.relay.yaml` `name`). Domain/org slugs stay `clevertree` as today.
