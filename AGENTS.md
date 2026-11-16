@@ -1,6 +1,6 @@
 # Agent instructions
 
-**clevertree.net** — Clevertree LLC software hub (`/`) and personal résumé (`/resume`).
+**clevertree.net** — Clevertree LLC software hub (`/`), personal résumé (`/resume`), and Ads conversion thank-you (`/thankyou`).
 
 ## Brand spelling
 
