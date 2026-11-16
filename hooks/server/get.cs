@@ -6,6 +6,7 @@ import { pinnedPrefix } from '@relay/web-assets';
 
 // server.hooks.get — Clevertree app shell: SSR client hook for browser HTML / ?embed=1 / `/`.
 // CleverScript throws on missing object properties — guard flag reads.
+// CleverScript has no `undefined` keyword — use null / length checks only.
 function wantsSiteShell(ctx) {
   try {
     if (ctx.embedMarkdownRequest === true) return true;
@@ -49,14 +50,14 @@ function thankYouHtmlResponse() {
   } catch (e) {
     body = null;
   }
-  if (!body) {
+  if (body === null) {
     try {
       body = readFile('public/thankyou.html');
     } catch (e2) {
       body = null;
     }
   }
-  if (!body) {
+  if (body === null) {
     return null;
   }
   var text = '' + body;
@@ -68,6 +69,9 @@ function thankYouHtmlResponse() {
     contentType: 'text/html; charset=utf-8',
     bodyUtf8: text,
     status: 200,
+    headers: {
+      'Cache-Control': 'public, max-age=300',
+    },
   };
 }
 
