@@ -89,6 +89,13 @@ export default function Home(props) {
         <Section title="Key Projects">
           <div id="ct-projects" className="ct-projects md:ct-projects-md">
             <ProjectItem
+              name="QuizGate"
+              description="Forever-free soft quiz unlock for kids — correct answers earn screen time, progressive curriculum roadmap, no ads and no IAP."
+              github="https://gitlab.com/clevertree/quizgate"
+              website="https://quizgate.clevertree.net"
+              status="active"
+            />
+            <ProjectItem
               name="MyProblem"
               description="Case intake and investigation tooling — photos, tickets, and batch AI workers that keep private dossiers separate from public handoffs."
               github="https://github.com/paradigm-threat/myproblem"

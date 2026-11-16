@@ -28,7 +28,7 @@ export const ProjectItem = ({ name, description, github, website, status }: Proj
         <div className="flex gap-4 mt-auto">
             {github && (
                 <a href={github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm hover:text-primary transition-colors">
-                    <Github className="w-4 h-4 mr-1" /> GitHub
+                    <Github className="w-4 h-4 mr-1" /> {github.includes('gitlab.com') ? 'Source' : 'GitHub'}
                 </a>
             )}
             {website && (

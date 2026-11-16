@@ -27,7 +27,7 @@ export default function ProjectItem(props) {
       <div className="ct-card-links">
         {github !== '' ? (
           <a className="ct-link ct-link-row" href={github} target="_blank" rel="noopener noreferrer">
-            <IconGithubSm /> GitHub
+            <IconGithubSm /> {github.includes('gitlab.com') ? 'Source' : 'GitHub'}
           </a>
         ) : null}
         {website !== '' ? (
