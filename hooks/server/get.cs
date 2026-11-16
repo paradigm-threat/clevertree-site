@@ -49,14 +49,14 @@ function thankYouHtmlResponse() {
   } catch (e) {
     body = null;
   }
-  if (body === null || body === undefined) {
+  if (!body) {
     try {
       body = readFile('public/thankyou.html');
     } catch (e2) {
       body = null;
     }
   }
-  if (body === null || body === undefined) {
+  if (!body) {
     return null;
   }
   var text = '' + body;
