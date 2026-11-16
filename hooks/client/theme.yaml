@@ -489,6 +489,10 @@ themes:
         gridTemplateColumns: "2fr 1fr"
       ".ct-thankyou-hero":
         minHeight: "100vh"
+      ".ct-thankyou-mark":
+        width: "160px"
+        height: "160px"
+        objectFit: "contain"
       ".ct-thankyou-actions":
         display: "flex"
         flexWrap: "wrap"
