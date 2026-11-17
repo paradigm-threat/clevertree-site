@@ -102,9 +102,9 @@ export default function ThankYouPage(props) {
               />
             </div>
             <p className="ct-muted ct-thankyou-note md:ct-bio-left">
-              Questions? Reach us at *@clevertree.net or{' '}
+              Questions? Reach us at {'*@clevertree.net'} or{' '}
               <a href="mailto:clevertreellc@gmail.com" className="ct-link ct-thankyou-mail">
-                clevertreellc@gmail.com
+                {'clevertreellc@gmail.com'}
               </a>
               .
             </p>

@@ -8,6 +8,8 @@ Google Ads conversion URL: **https://clevertree.net/thankyou** (static HTML; als
 
 **Clevertree** — never **CleverTree**. Keep the internal `t` lowercase in human-facing copy, titles, docs, agent text, and code identifiers (e.g. `ClevertreeGet`, `.relay.yaml` `name`). Domain/org slugs stay `clevertree` as today.
 
+CleverScript JSX: do not put bare `@` in text nodes (emails break parse). Use a string expression, e.g. `{'*@clevertree.net'}`.
+
 Live path is CleverScript (`hooks/client/`). Embeddable boards (Chat, SongWalker, TreeGrow) are **park-native** hosts under `hooks/client/native/` — stubs in JSX, logic in `*.host.js`. Gateway loads `park-host-common.js` when `data-relay-park-native` is present.
 
 Chat embed rule: **domain = embedding host**; embed params set **subpath only** (per-page channels).

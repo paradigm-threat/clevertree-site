@@ -64,9 +64,9 @@ export default function ThankYouRoute() {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            Questions? Reach us at *@clevertree.net or{' '}
+            Questions? Reach us at {'*@clevertree.net'} or{' '}
             <a className="underline" href="mailto:clevertreellc@gmail.com">
-              clevertreellc@gmail.com
+              {'clevertreellc@gmail.com'}
             </a>
             .
           </p>
