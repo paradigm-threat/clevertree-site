@@ -1,6 +1,6 @@
 name: "Clevertree"
 version: "1.0.0"
-description: "Clevertree LLC software projects hub + /resume + /thankyou. CleverScript on Relay; park-native embeds."
+description: "Clevertree LLC software projects hub + /resume. CleverScript on Relay; park-native embeds."
 # Prefer a single public origin for crawlers and share cards.
 canonical: "https://clevertree.net/"
 client:

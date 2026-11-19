@@ -487,28 +487,6 @@ themes:
         fontSize: "0.875rem"
       ".ct-resume-md":
         gridTemplateColumns: "2fr 1fr"
-      ".ct-thankyou-hero":
-        minHeight: "100vh"
-      ".ct-thankyou-mark":
-        width: "160px"
-        height: "160px"
-        objectFit: "contain"
-      ".ct-thankyou-actions":
-        display: "flex"
-        flexWrap: "wrap"
-        alignItems: "center"
-        justifyContent: "center"
-        gap: "0.75rem"
-        marginTop: "0.5rem"
-      ".ct-thankyou-note":
-        fontSize: "0.95rem"
-        lineHeight: "1.5"
-        margin: "0.75rem auto 0"
-        textAlign: "center"
-        maxWidth: "32rem"
-      ".ct-thankyou-mail":
-        color: "#c9f07a"
-        textDecoration: "underline"
       ".ct-footer":
         marginTop: "5rem"
         paddingTop: "2rem"

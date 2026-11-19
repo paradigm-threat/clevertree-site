@@ -1,5 +1,5 @@
 /**
- * Clevertree client GET hook — LLC landing + /resume + /thankyou (SSR + hydrate).
+ * Clevertree client GET hook — LLC landing + /resume (SSR + hydrate).
  *
  * Path is a route. Embeds are park-native hosts (Chat / SongWalker); CleverScript
  * owns page shells only.
@@ -9,7 +9,6 @@ import StyleContext from '@clevertree/style'
 import manifest from '@hooks'
 import Home from 'hooks/client/components/Home.jsx'
 import ResumePage from 'hooks/client/components/ResumePage.jsx'
-import ThankYouPage from 'hooks/client/components/ThankYouPage.jsx'
 
 function bioFromMarkdown(text) {
   if (!text) return null
@@ -53,9 +52,6 @@ function normalizeRoute(raw) {
   if (t === '/index.md' || t === '/index.html') {
     return '/'
   }
-  if (t === '/thankyou.html') {
-    return '/thankyou'
-  }
   if (t.length > 3 && t.slice(-3) === '.md') {
     t = t.slice(0, -3)
   }
@@ -86,17 +82,11 @@ function isResumePath(path) {
   return path === '/resume'
 }
 
-function isThankYouPath(path) {
-  return path === '/thankyou'
-}
-
 export default function ClevertreeGet() {
   const path = routePath()
   let mdFile = 'content/home.md'
   if (isResumePath(path)) {
     mdFile = 'content/resume.md'
-  } else if (isThankYouPath(path)) {
-    mdFile = 'content/thankyou.md'
   }
   let bio = null
   try {
@@ -106,14 +96,6 @@ export default function ClevertreeGet() {
     }
   } catch (e) {
     bio = null
-  }
-
-  if (isThankYouPath(path)) {
-    return (
-      <StyleContext src="hooks/client/theme.yaml">
-        <ThankYouPage year="2026" />
-      </StyleContext>
-    )
   }
 
   if (isResumePath(path)) {

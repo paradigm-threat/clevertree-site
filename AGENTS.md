@@ -1,8 +1,6 @@
 # Agent instructions
 
-**clevertree.net** — Clevertree LLC software hub (`/`), personal résumé (`/resume`), and Ads conversion thank-you (`/thankyou`).
-
-Google Ads conversion URL: **https://clevertree.net/thankyou** (static HTML; also `/thankyou.html`).
+**clevertree.net** — Clevertree LLC software hub (`/`) and personal résumé (`/resume`).
 
 ## Brand spelling
 
@@ -26,4 +24,4 @@ Catalog repo **`clevertree-site`** · branch **`release`** · publish origin **`
 | 2 | **`git push iad1 HEAD:release`** first. |
 | 3 | **`git push gitlab HEAD:release`**. |
 
-*Last updated: 2026-11-16*
+*Last updated: 2026-11-18*
