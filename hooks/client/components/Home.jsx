@@ -61,6 +61,14 @@ export default function Home(props) {
             <p className="ct-muted ct-bio md:ct-bio-left" id="ct-bio">
               {bio}
             </p>
+            <p className="ct-muted ct-bio md:ct-bio-left" style={{ marginTop: '0.75rem' }}>
+              How we build: daily anonymous stats and tip review, next-day product patches, A-team plus LLM agents at major-corp cadence—and a path to user-filed reports that triage and ship without a developer in the middle.{' '}
+              <a href="https://quizgate.app/#daily-loop">QuizGate</a>
+              {' · '}
+              <a href="https://myproblem.app/how-we-run#daily-ops">MyProblem</a>
+              {' · '}
+              <a href="https://clevertree.chat/#daily-loop">Clevertree Chat</a>
+            </p>
             <div className="ct-contacts md:ct-contacts-left">
               <ContactLink href="https://clevertree.net" label="clevertree.net" icon={<IconGlobe />} />
               <ContactLink href="https://github.com/clevertree" label="github.com/clevertree" icon={<IconGithub />} />
@@ -90,9 +98,9 @@ export default function Home(props) {
           <div id="ct-projects" className="ct-projects md:ct-projects-md">
             <ProjectItem
               name="QuizGate"
-              description="Android-first Pickles-class soft quiz unlock — math earns screen time, no kids accounts or tracking, forever free with no ads or IAP."
+              description="Android-first Hard quiz unlock — learning earns screen time; first-access + math packs; anonymous day-batch loop for next-day curriculum patches. Forever free, no ads or IAP."
               github="https://gitlab.com/clevertree/quizgate"
-              website="https://quizgate.clevertree.net"
+              website="https://quizgate.app"
               status="active"
             />
             <ProjectItem
