@@ -40,6 +40,12 @@ export default function Home() {
                     <p className="text-lg leading-relaxed text-muted-foreground text-center md:text-left">
                         Clevertree LLC builds embeddable open-source software — standing debates, investigation mesh, and music-as-code — hosted on Relay.
                     </p>
+                    <p className="text-base leading-relaxed text-muted-foreground text-center md:text-left">
+                        How we build: daily anonymous stats and tip review, next-day product patches, A-team plus LLM agents at major-corp cadence—and a path to user-filed reports that triage and ship without a developer in the middle. Details on{" "}
+                        <a className="underline" href="https://quizgate.app/#daily-loop">QuizGate</a>,{" "}
+                        <a className="underline" href="https://myproblem.app/how-we-run#daily-ops">MyProblem</a>, and{" "}
+                        <a className="underline" href="https://clevertree.chat/#daily-loop">Clevertree Chat</a>.
+                    </p>
 
                     <div className="flex flex-wrap justify-center md:justify-start gap-4">
                         <ContactLink icon={<Globe size={18} />} href="https://clevertree.net" label="clevertree.net" />
@@ -88,9 +94,9 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProjectItem
                             name="QuizGate"
-                            description="Android-first Pickles-class soft quiz unlock — math earns screen time, no kids accounts or tracking, forever free with no ads or IAP."
+                            description="Android-first Hard quiz unlock — learning earns screen time; first-access + math packs; anonymous day-batch loop for next-day curriculum patches. Forever free, no ads or IAP."
                             github="https://gitlab.com/clevertree/quizgate"
-                            website="https://quizgate.clevertree.net"
+                            website="https://quizgate.app"
                             status="active"
                         />
                         <ProjectItem
