@@ -40,6 +40,6 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 
-# Relay IPFS ingest (relay-ipfs-ingest)
-.relay/asset-inbox/
-.relay/local-assets/
+# Relay local cache / IPFS ingest (never commit)
+.relay/
+assets.manifest.json
